@@ -1,0 +1,858 @@
+/* ===================================================================
+   AANCHAL & ARPIT - WEDDING INVITATION PREMIUM STYLESHEET
+   Accurate replica of Kamal Kunj Events, Scallop Ceremony & Regards
+   =================================================================== */
+
+:root {
+  --wed-page-bg: #fdf9f0;
+  --wed-surface: #faf6ee;
+  --wed-ink: #233924;
+  --wed-ink-soft: #556b4a;
+  --wed-accent-deep: #8b3a4a;
+  --wed-gold: #c59b27;
+  --wed-gold-text: #84651d;
+  --sv-ground-events: #dce9f2;
+  --sv-ground-invite: #fdf9f0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: var(--wed-page-bg);
+  color: var(--wed-ink);
+  font-family: 'Cormorant Garamond', 'Marcellus', Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ================= FULLSCREEN VIDEO & INTRO STAGE ================= */
+#introEnvelopeStage {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: #362f22;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+}
+
+#introEnvelopeStage.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#videoEnv, #videoIntro {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+
+.video-logo-overlay {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.6);
+  z-index: 25;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.2s ease, transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.video-logo-overlay.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.video-logo-img {
+  width: 150px;
+  max-width: 45vw;
+  height: auto;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.35));
+}
+
+.logo-aura-glow {
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.45) 0%, transparent 70%);
+  animation: auraPulse 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes auraPulse {
+  0% { transform: scale(0.9); opacity: 0.4; }
+  100% { transform: scale(1.35); opacity: 0.95; }
+}
+
+.tap-to-open-prompt {
+  position: absolute;
+  top: 61.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.tap-to-open-prompt.hide {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(1.3);
+}
+
+.pulse-ring {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.6) 0%, transparent 70%);
+  animation: ringPulse 1.8s ease-in-out infinite;
+  top: -12px;
+}
+
+@keyframes ringPulse {
+  0% { transform: scale(0.85); opacity: 0.85; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+.wax-seal-icon {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ffd700 0%, #d4af37 40%, #aa771c 85%, #664400 100%);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff2aa;
+  position: relative;
+  z-index: 2;
+}
+
+.wax-seal-icon img {
+  width: 48px;
+  height: auto;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+}
+
+.tap-text-pill {
+  margin-top: 14px;
+  background: rgba(44, 36, 32, 0.9);
+  backdrop-filter: blur(4px);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+  border: 1px solid rgba(212, 175, 55, 0.6);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  animation: bounceHint 1.8s ease infinite;
+}
+
+@keyframes bounceHint {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.skip-intro-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 40;
+  background: rgba(44, 36, 32, 0.75);
+  backdrop-filter: blur(4px);
+  color: #f4ede1;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.skip-intro-btn:hover {
+  background: rgba(44, 36, 32, 0.95);
+  border-color: #d4af37;
+  transform: scale(1.04);
+}
+
+
+/* ================= FLOATING CONTROLLERS (KAMAL KUNJ STYLE) ================= */
+.floating-music-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 900;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(35, 57, 36, 0.88);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(197, 155, 39, 0.5);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #faf6ee;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.floating-music-btn:hover {
+  transform: scale(1.1);
+  background: rgba(35, 57, 36, 1);
+  border-color: #c59b27;
+}
+
+.music-icon-wrapper {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-rsvp-btn {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 900;
+  padding: 8px 20px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #d8bc79 0%, #c59b27 100%);
+  color: #233924;
+  font-family: 'Marcellus', 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-rsvp-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(197, 155, 39, 0.4);
+}
+
+
+/* ================= 1. HERO SECTION (FULLSCREEN EDGE-TO-EDGE BOTANICAL OVAL) ================= */
+.hero-section {
+  position: relative;
+  min-height: 100svh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+.hero-bg-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 1;
+}
+
+.monogram-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -4vh;
+}
+
+.animate-gentle-pulse {
+  animation: gentlePulse 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes gentlePulse {
+  0% { transform: scale(0.97); }
+  100% { transform: scale(1.03); }
+}
+
+
+/* ================= 2. SCRATCH CARD SECTION ================= */
+.scratch-section {
+  position: relative;
+  min-height: 100svh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+.scratch-bg-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('assets/scratch-bg.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 1;
+}
+
+.scratch-card-wrapper {
+  user-select: none;
+  touch-action: none;
+  position: relative;
+  filter: drop-shadow(0 14px 28px rgba(180, 110, 120, 0.28));
+  transition: transform 0.3s ease;
+}
+
+.scratch-card-wrapper:hover {
+  transform: scale(1.02);
+}
+
+.scratch-canvas {
+  touch-action: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* ================= 3. WELCOME & FAMILY SECTION ================= */
+.welcome-section {
+  position: relative;
+  min-height: 100svh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+.welcome-bg-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('assets/welcome-bg.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 1;
+}
+
+
+/* ================= 4. CEREMONY LEAD SECTION (SCALLOP CARD) ================= */
+.ceremony-lead-section {
+  background: #faf6ee;
+}
+
+.watercolor-stripes-bg {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(229, 238, 218, 0.35) 0px,
+    rgba(229, 238, 218, 0.35) 45px,
+    transparent 45px,
+    transparent 90px
+  );
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.scallop-card {
+  background: #fdfbf7;
+  border: 2px solid #d4c8af;
+  border-radius: 42px;
+  box-shadow: 
+    0 0 0 6px #fdfbf7,
+    0 0 0 8px rgba(197, 155, 39, 0.35),
+    0 20px 40px -15px rgba(35, 57, 36, 0.15);
+  position: relative;
+}
+
+.scallop-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(197, 155, 39, 0.65);
+  background: #faf6ee;
+  color: var(--wed-gold-text);
+  font-family: 'Marcellus', 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.scallop-action-btn:hover {
+  background: #c59b27;
+  color: #fff;
+  border-color: #c59b27;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(197, 155, 39, 0.3);
+}
+
+
+/* ================= 4. KAMAL KUNJ "OUR EVENTS" SECTION (SCREENSHOTS 1 & 2) ================= */
+.kamal-events-section {
+  position: relative;
+  background: var(--sv-ground-events);
+  background: linear-gradient(180deg, #fdf9f0 0%, #dce9f2 6%, #dce9f2 94%, #faf6ee 100%);
+}
+
+/* Swaying Marigold Garlands */
+.garland-edge-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 15;
+  width: min(18%, 105px);
+  pointer-events: none;
+  transform-origin: 50% 0;
+  animation: garlandSwayLeft 5.2s ease-in-out infinite;
+}
+
+.garland-edge-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 15;
+  width: min(18%, 105px);
+  pointer-events: none;
+  transform-origin: 50% 0;
+  animation: garlandSwayRight 5.6s ease-in-out infinite -1.4s;
+}
+
+.garland-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 1200px;
+  object-fit: cover;
+  object-position: top center;
+  -webkit-mask-image: linear-gradient(180deg, #000 85%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 85%, transparent 100%);
+}
+
+.garland-flipped {
+  transform: scaleX(-1);
+}
+
+@keyframes garlandSwayLeft {
+  0%, 100% { transform: rotate(-1.8deg); }
+  50% { transform: rotate(1.8deg); }
+}
+
+@keyframes garlandSwayRight {
+  0%, 100% { transform: scaleX(-1) rotate(1.8deg); }
+  50% { transform: scaleX(-1) rotate(-1.8deg); }
+}
+
+/* Subtle Swan Top-Right */
+.swan-watermark {
+  position: absolute;
+  top: 15px;
+  right: clamp(15px, 8vw, 80px);
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.38;
+  max-width: 140px;
+}
+
+.swan-img {
+  width: 100%;
+  height: auto;
+}
+
+/* Headings */
+.kamal-eyebrow {
+  display: block;
+  font-family: 'Marcellus', 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--wed-accent-deep);
+  margin-bottom: 8px;
+}
+
+.kamal-main-heading {
+  font-family: 'Cinzel', 'Marcellus', 'Playfair Display', serif;
+  font-size: clamp(32px, 7vw, 44px);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--wed-ink);
+  margin: 0;
+}
+
+/* Event Cards (Gilded Ivory Plaque) */
+.event-cards-container {
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.kamal-event-card {
+  position: relative;
+  background: #fdfbf7;
+  border: 1px solid rgba(197, 155, 39, 0.65);
+  border-radius: 4px;
+  padding: clamp(24px, 5vw, 36px) clamp(18px, 4vw, 30px);
+  text-align: center;
+  box-shadow: 
+    0 0 0 5px #fdfbf7,
+    0 0 0 6px rgba(197, 155, 39, 0.35),
+    0 18px 45px -20px rgba(31, 40, 24, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.kamal-event-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 0 5px #fdfbf7,
+    0 0 0 6px rgba(197, 155, 39, 0.5),
+    0 22px 50px -18px rgba(31, 40, 24, 0.45);
+}
+
+.event-card-title {
+  font-family: 'Great Vibes', 'Alex Brush', cursive;
+  font-size: clamp(38px, 9vw, 54px);
+  font-weight: 400;
+  color: var(--wed-accent-deep);
+  margin: 0 0 6px 0;
+  line-height: 1.1;
+}
+
+.card-divider-flourish {
+  width: min(60%, 180px);
+  height: auto;
+  margin: 4px auto 14px;
+  display: block;
+  opacity: 0.95;
+}
+
+/* Date Band */
+.card-date-band {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.date-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(12px, 3.5vw, 22px);
+}
+
+.date-side {
+  min-width: 5.2ch;
+  padding-bottom: 3px;
+  border-bottom: 1px solid rgba(35, 57, 36, 0.45);
+  font-family: 'Marcellus', 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--wed-ink);
+}
+
+.date-day {
+  font-family: 'Cinzel', 'Marcellus', serif;
+  font-size: clamp(34px, 8vw, 44px);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--wed-accent-deep);
+}
+
+.date-year {
+  font-family: 'Cinzel', 'Marcellus', serif;
+  font-size: 14px;
+  letter-spacing: 0.16em;
+  color: var(--wed-ink);
+  font-weight: 500;
+}
+
+.event-time {
+  font-family: 'Cinzel', 'Marcellus', serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--wed-ink);
+  margin: 10px 0 2px;
+}
+
+.event-venue {
+  font-family: 'Cinzel', 'Marcellus', serif;
+  font-size: 13px;
+  color: var(--wed-accent-deep);
+  font-weight: 500;
+  margin: 2px 0 10px;
+}
+
+.event-desc {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--wed-ink-soft);
+  max-width: 26em;
+  margin: 0 auto 14px;
+}
+
+/* Attire Row */
+.event-attire {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.attire-label {
+  font-family: 'Marcellus', 'Montserrat', sans-serif;
+  font-size: 10.5px;
+  font-style: italic;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--wed-ink);
+}
+
+.attire-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--wed-ink-soft);
+}
+
+.attire-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Action Buttons */
+.event-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.kamal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 6px 14px;
+  border: 1px solid rgba(197, 155, 39, 0.7);
+  border-radius: 999px;
+  font-family: 'Marcellus', 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--wed-gold-text);
+  text-decoration: none;
+  background: #faf6ee;
+  transition: all 0.25s ease;
+}
+
+.kamal-btn:hover {
+  border-color: var(--wed-accent-deep);
+  color: var(--wed-accent-deep);
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+
+/* ================= 5. COUNTDOWN GRID ================= */
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  max-width: 360px;
+  margin: 16px auto 0;
+}
+
+.timer-box {
+  background: #fdfbf7;
+  border: 1px solid rgba(197, 155, 39, 0.4);
+  border-radius: 8px;
+  padding: 10px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timer-value {
+  font-family: 'Cinzel', 'Marcellus', serif;
+  font-size: clamp(20px, 5vw, 28px);
+  font-weight: 600;
+  color: var(--wed-accent-deep);
+  line-height: 1;
+}
+
+.timer-label {
+  font-family: 'Marcellus', 'Montserrat', sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  color: var(--wed-gold-text);
+  margin-top: 4px;
+}
+
+
+/* ================= RSVP MODAL & BUTTONS ================= */
+.wish-input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(197, 155, 39, 0.4);
+  background: #fff;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 15px;
+  color: var(--wed-ink);
+  outline: none;
+  margin-bottom: 10px;
+  transition: border-color 0.3s;
+}
+
+.wish-input:focus {
+  border-color: var(--wed-gold);
+}
+
+.submit-wish-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #8b3a4a 0%, #6e2534 100%);
+  color: #fff;
+  font-family: 'Marcellus', 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submit-wish-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(139, 58, 74, 0.35);
+}
+
+.share-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s;
+}
+
+.share-pill-btn.whatsapp {
+  background: #25D366;
+  color: #fff;
+}
+
+.share-pill-btn.copy {
+  background: #233924;
+  color: #fff;
+}
+
+.share-pill-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+
+/* ================= FLOATING PETALS EFFECT ================= */
+.floating-petal {
+  position: absolute;
+  top: -40px;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform, opacity;
+  animation: petalFall linear infinite;
+}
+
+@keyframes petalFall {
+  0% {
+    transform: translateY(0) rotate(0deg) translateX(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  85% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateY(105vh) rotate(360deg) translateX(45px);
+    opacity: 0;
+  }
+}
+
+
+/* ================= TOAST NOTIFICATION ================= */
+.toast-popup {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(30px);
+  background: #233924;
+  color: #faf6ee;
+  border: 1px solid #c59b27;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.35s ease;
+  z-index: 10000;
+}
+
+.toast-popup.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}

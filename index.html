@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Aanchal & Arpit - Wedding Invitation | 11 & 12 December 2026</title>
+
+  <!-- Meta & OpenGraph -->
+  <meta name="description"
+    content="Aanchal Chechani & Arpit Kabra Wedding Invitation - 11th & 12th December 2026 at Gloria Inn, Bhilwara." />
+  <meta property="og:title" content="Aanchal & Arpit - Wedding Invitation" />
+  <meta property="og:description"
+    content="Join us in celebrating the wedding of Aanchal & Arpit on 11th & 12th December 2026 at Gloria Inn, Bhilwara." />
+  <meta property="og:image" content="assets/images/couple-logo.png" />
+  <meta name="theme-color" content="#fdf9f0" />
+
+  <!-- Google Fonts & Typekit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;500;600;700&family=Marcellus&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Rozha+One&family=Yatra+One&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ivory: '#fdf9f0',
+            'sky-pastel': '#dce9f2',
+            'sage-dark': '#233924',
+            'ink-soft': '#556b4a',
+            gold: '#c59b27',
+            'gold-dark': '#84651d',
+            'crimson-deep': '#8b3a4a',
+            maroon: '#8b263e'
+          },
+          fontFamily: {
+            script: ['"Great Vibes"', '"Alex Brush"', 'cursive'],
+            heading: ['"Cinzel"', '"Marcellus"', '"Playfair Display"', 'serif'],
+            body: ['"Cormorant Garamond"', '"Marcellus"', 'serif'],
+            label: ['"Marcellus"', '"Montserrat"', 'sans-serif'],
+            hindi: ['"Rozha One"', 'serif'],
+            'hindi-calligraphy': ['"Yatra One"', 'cursive'],
+            'hindi-shloka': ['"Noto Serif Devanagari"', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Preload Critical Media Assets -->
+  <link rel="preload" href="assets/env.mp4?v=2026_new" as="video" type="video/mp4" />
+  <link rel="preload" href="assets/intro-video-2-a-H3NxSy.mp4" as="video" type="video/mp4" />
+  <link rel="preload" as="image" href="assets/hero-bg.png" />
+  <link rel="preload" as="image" href="assets/scratch-bg.png" />
+  <link rel="preload" as="image" href="assets/welcome-bg.png" />
+  <link rel="preload" as="image" href="assets/pink-heart.png" />
+</head>
+
+<body class="bg-[#fdf9f0] select-none font-body antialiased text-[#233924]">
+
+  <!-- ==================== BACKGROUND AUDIO & MUSIC CONTROLLER ==================== -->
+  <audio id="weddingAudio" src="assets/audio.mp3" preload="auto" loop></audio>
+
+  <!-- Floating Audio Pause/Play Pill (Bottom-Right, Kamal Kunj Style) -->
+  <button id="musicToggleBtn" class="floating-music-btn" aria-label="Toggle Music" title="Play/Pause Music">
+    <span class="music-icon-wrapper">
+      <i class="fa-solid fa-pause"></i>
+    </span>
+  </button>
+
+  <!-- ==================== FLOATING FALLING PETALS CANVAS / OVERLAY ==================== -->
+  <div id="petalsOverlay" class="pointer-events-none fixed inset-0 z-20 overflow-hidden"></div>
+
+
+  <!-- ==================== 1. FULLSCREEN INTRO / ENVELOPE VIDEO STAGE ==================== -->
+  <div id="introEnvelopeStage" class="fixed inset-0 z-50 cursor-pointer overflow-hidden bg-[#362f22]">
+
+    <!-- Video 1: Envelope Opening Video -->
+    <video id="videoEnv" src="assets/env.mp4?v=fixed_env" poster="assets/1s.png?v=fixed_poster" playsinline
+      webkit-playsinline muted preload="auto" class="absolute inset-0 w-full h-full object-cover pointer-events-none z-10">
+    </video>
+
+    <!-- Video 2: Animated Botanical & Flying Butterflies Video -->
+    <video id="videoIntro" src="assets/intro-video-2-a-H3NxSy.mp4" playsinline webkit-playsinline muted preload="auto"
+      class="absolute inset-0 w-full h-full object-cover pointer-events-none z-20 opacity-0 transition-opacity duration-700">
+    </video>
+
+    <!-- Center Monogram Logo Overlay in Center of Video 2 -->
+    <div id="videoLogoOverlay" class="video-logo-overlay">
+      <div class="logo-aura-glow"></div>
+      <img src="assets/images/couple-logo.png" alt="Aanchal & Arpit Monogram" class="video-logo-img" />
+    </div>
+
+    <!-- Tap to Open Prompt / Wax Seal Button -->
+    <div id="tapToOpenPrompt" class="tap-to-open-prompt">
+      <div class="pulse-ring"></div>
+      <div class="wax-seal-icon">
+        <img src="assets/images/couple-logo.png" alt="Couple Logo" />
+      </div>
+      <div class="tap-text-pill">
+        <span>✨ TAP TO OPEN ✨</span>
+      </div>
+    </div>
+
+    <!-- Skip Intro Button -->
+    <button id="skipIntroBtn" class="skip-intro-btn hidden">
+      <span>Skip <i class="fa-solid fa-forward"></i></span>
+    </button>
+  </div>
+
+
+  <!-- ==================== 2. MAIN INVITATION CARD CONTENT ==================== -->
+  <main id="mainContent"
+    class="relative bg-[#fdf9f0] min-h-screen text-[#233924] overflow-x-hidden font-body antialiased select-none opacity-0 transition-opacity duration-1000">
+
+    <!-- ================= 1. HERO SECTION (CLEAN EDGE-TO-EDGE BOTANICAL OVAL WITH ONLY COUPLE LOGO) ================= -->
+    <section id="hero"
+      class="hero-section relative min-h-screen w-full flex flex-col justify-between items-center text-center overflow-hidden py-10 px-4">
+
+      <!-- Fullscreen Botanical Frame Background (Clean without any pre-printed logo) -->
+      <div class="hero-bg-frame pointer-events-none" style="background-image: url('assets/hero-bg.png');"></div>
+
+      <!-- Top Spacer -->
+      <div class="h-6"></div>
+
+      <!-- Center Couple Monogram Logo ONLY (No names or text below as requested) -->
+      <div class="relative z-10 flex flex-col items-center justify-center my-auto">
+        <div class="monogram-wrapper">
+          <img src="assets/images/couple-logo.png" alt="Aanchal & Arpit Monogram Logo"
+            class="w-40 sm:w-52 md:w-60 lg:w-64 h-auto filter drop-shadow-lg animate-gentle-pulse select-none pointer-events-none" />
+        </div>
+      </div>
+
+      <!-- Swipe Down Button -->
+      <div id="scrollToScratchBtn"
+        class="relative z-10 pb-4 cursor-pointer flex flex-col items-center gap-1 text-[#233924] hover:text-[#8b3a4a] transition-colors group">
+        <span
+          class="text-[11px] tracking-[0.28em] uppercase font-label font-semibold text-[#84651d] group-hover:text-[#8b3a4a] transition-colors">Swipe
+          Down</span>
+        <i
+          class="fa-solid fa-chevron-down text-[#84651d] text-base animate-bounce group-hover:text-[#8b3a4a] transition-colors"></i>
+      </div>
+
+    </section>
+
+
+    <!-- ================= 2. SCRATCH CARD SECTION (A SPECIAL REVEAL - SCREENSHOT 2) ================= -->
+    <section id="scratch-card"
+      class="scratch-section relative min-h-screen w-full flex flex-col justify-between items-center text-center overflow-hidden py-12 px-4">
+
+      <!-- High Quality Floral Frame Background -->
+      <div class="scratch-bg-frame pointer-events-none"></div>
+
+      <!-- Top Spacer -->
+      <div class="h-4 sm:h-6"></div>
+
+      <div class="relative z-10 max-w-xl mx-auto flex flex-col items-center my-auto">
+
+        <!-- Section Heading & Gold Flourish Divider -->
+        <div class="space-y-2 mb-4 sm:mb-6">
+          <h2
+            class="font-heading text-2xl sm:text-3xl md:text-4xl text-[#84651d] font-bold tracking-[0.2em] uppercase filter drop-shadow-sm">
+            A Special Reveal
+          </h2>
+          <div class="flex items-center justify-center gap-3">
+            <span class="w-12 sm:w-16 h-[1px] bg-[#c59b27]/60"></span>
+            <span class="text-[#c59b27] text-xs">✤</span>
+            <span class="w-12 sm:w-16 h-[1px] bg-[#c59b27]/60"></span>
+          </div>
+        </div>
+
+        <!-- Interactive Heart Scratch Card -->
+        <div class="flex justify-center w-full my-3">
+          <div id="scratchCardContainer"
+            class="scratch-card-wrapper relative w-[320px] h-[295px] sm:w-[350px] sm:h-[322px] md:w-[380px] md:h-[350px]">
+
+            <!-- Revealed Date Card (Underneath the Scratch Canvas) -->
+            <div id="revealedDateCard" class="absolute inset-0 flex items-center justify-center z-0">
+              <svg viewBox="0 0 323 297" class="w-full h-full drop-shadow-[0_12px_28px_rgba(141,110,99,0.22)]">
+                <defs>
+                  <radialGradient id="cardGoldGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#fffdfa" />
+                    <stop offset="100%" stop-color="#f8efe0" />
+                  </radialGradient>
+                </defs>
+                <path
+                  d="M 161.5,80 C 161.5,18 40,18 40,110 C 40,172 121,215 161.5,265 C 202,215 283,172 283,110 C 283,18 161.5,18 161.5,80 Z"
+                  fill="url(#cardGoldGlow)" stroke="#c59b27" stroke-width="3" />
+
+                <text x="161.5" y="122" text-anchor="middle" class="fill-[#8b3a4a]">
+                  <tspan font-family="'Cinzel', 'Playfair Display', serif" font-size="28" font-weight="700">11 &amp; 12
+                  </tspan>
+                  <tspan font-family="'Cinzel', 'Playfair Display', serif" font-size="15" font-weight="600"> Dec 2026
+                  </tspan>
+                </text>
+                <text x="161.5" y="148" text-anchor="middle" fill="#84651d" font-family="'Marcellus', sans-serif"
+                  font-size="11" font-weight="700" letter-spacing="2.5">
+                  FRIDAY &amp; SATURDAY
+                </text>
+                <text x="161.5" y="168" text-anchor="middle" fill="#556b4a" font-family="'Marcellus', sans-serif"
+                  font-size="10" font-weight="600" letter-spacing="1.5">
+                  GLORIA INN • BHILWARA
+                </text>
+              </svg>
+            </div>
+
+            <!-- Interactive Scratch Canvas Layer -->
+            <canvas id="scratchCanvas"
+              class="scratch-canvas absolute inset-0 z-10 w-full h-full cursor-pointer"></canvas>
+          </div>
+        </div>
+
+        <!-- Bottom Elegant Text matching Image 1 -->
+        <div class="space-y-1.5 mt-4 sm:mt-6">
+          <p
+            class="font-label text-xs sm:text-sm tracking-[0.22em] text-[#84651d] uppercase font-semibold flex items-center justify-center gap-2">
+            <span class="text-[#c59b27] text-sm">❧</span> SCRATCH THE HEART TO REVEAL <span
+              class="text-[#c59b27] text-sm">☙</span>
+          </p>
+          <p class="font-heading text-xs sm:text-sm tracking-[0.28em] text-[#8b3a4a] uppercase font-bold">
+            THE AUSPICIOUS DATES
+          </p>
+          <div class="flex items-center justify-center gap-2 pt-1">
+            <span class="w-10 sm:w-14 h-[1px] bg-[#c59b27]/60"></span>
+            <span class="text-[#c59b27] text-xs">♥</span>
+            <span class="w-10 sm:w-14 h-[1px] bg-[#c59b27]/60"></span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Spacer -->
+      <div class="h-4 sm:h-6"></div>
+    </section>
+
+
+    <!-- ================= 3. WELCOME & FAMILY INVITATION SECTION (SCREENSHOT 3) ================= -->
+    <section id="welcome" class="welcome-section relative min-h-screen w-full flex flex-col justify-center items-center py-16 px-4 text-center overflow-hidden">
+      
+      <!-- Full Floral Frame Background -->
+      <div class="welcome-bg-frame pointer-events-none"></div>
+
+      <!-- Center Content Container -->
+      <div class="relative z-10 max-w-xl w-full mx-auto px-6 py-10 sm:py-14 my-auto">
+
+        <!-- Sacred Ganesha & Invocations -->
+        <div class="flex flex-col items-center">
+          <img src="assets/ganesh-idol-TubyYjSJ.png" alt="Lord Ganesha"
+            class="w-14 h-14 md:w-16 md:h-16 object-contain opacity-95 mb-2 select-none pointer-events-none filter drop-shadow-sm" />
+
+          <p class="text-[#84651d] font-hindi-calligraphy text-base md:text-lg mb-2 tracking-wide font-semibold">
+            ॥ श्री गणेशाय नमः ॥
+          </p>
+
+          <p
+            class="text-[#556b4a] font-hindi-shloka text-xs sm:text-sm leading-relaxed max-w-sm mx-auto mb-4 font-medium">
+            वक्रतुण्ड महाकाय सूर्यकोटि समप्रभः ।<br />
+            निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥
+          </p>
+        </div>
+
+        <!-- Invitation Intro Quote -->
+        <p
+          class="font-body italic font-semibold text-sm md:text-base leading-relaxed text-[#233924]/85 max-w-md mx-auto mb-5 whitespace-pre-line">
+          Every beautiful beginning deserves to be celebrated<br />
+          with the ones who matter most
+        </p>
+
+        <!-- Host Parents & Grandparents Details from PDF Page 1 -->
+        <div class="space-y-2">
+          <h4 class="font-heading text-base md:text-lg font-bold text-[#84651d] tracking-wider uppercase">
+            Smt. Leela Devi &amp; Shree Dinesh Kumar Chechani
+          </h4>
+          <p class="font-body italic font-semibold text-xs md:text-sm text-[#556b4a]">
+            and
+          </p>
+          <h4 class="font-heading text-base md:text-lg font-bold text-[#84651d] tracking-wider uppercase">
+            Smt. Rinku Kabra &amp; Shree Sanjay ji Kabra
+          </h4>
+
+          <p class="font-body italic font-medium text-xs md:text-sm text-[#233924]/80 py-2">
+            joyfully invite you to celebrate the wedding celebrations of their beloved children
+          </p>
+
+          <!-- Bride Name & Lineage from PDF Page 1 -->
+          <div class="py-1">
+            <h3 class="font-script text-5xl md:text-6xl text-[#8b3a4a] leading-tight">
+              Aanchal
+            </h3>
+            <p class="font-body text-xs sm:text-sm text-[#556b4a] italic mt-0.5">
+              <span class="font-semibold text-[#84651d]">D/o</span> Smt. Leela Devi &amp; Shree Dinesh Kumar
+              Chechani<br />
+              <span class="font-semibold text-[#84651d]">G/d/o</span> Late Smt. Janki Devi &amp; Lt. Shree Shiv Lal ji
+              Chechani
+            </p>
+          </div>
+
+          <!-- With -->
+          <p class="font-script text-3xl md:text-4xl text-[#84651d] my-1">
+            with
+          </p>
+
+          <!-- Groom Name & Lineage from PDF Page 1 -->
+          <div class="py-1">
+            <h3 class="font-script text-5xl md:text-6xl text-[#8b3a4a] leading-tight">
+              Arpit
+            </h3>
+            <p class="font-body text-xs sm:text-sm text-[#556b4a] italic mt-0.5">
+              <span class="font-semibold text-[#84651d]">S/o</span> Smt. Rinku Kabra &amp; Shree Sanjay ji Kabra<br />
+              <span class="font-semibold text-[#84651d]">G/s/o</span> Shree Ram Rai ji &amp; Smt. Ratan Devi Kabra
+            </p>
+          </div>
+        </div>
+
+        <!-- Occasion Description -->
+        <div class="mt-4">
+          <p class="max-w-xs mx-auto uppercase tracking-[0.14em] text-xs sm:text-sm font-semibold text-[#8b3a4a]">
+            for their Wedding Celebrations
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= 4. CEREMONY LEAD SCALLOP CARD (SCREENSHOT 4) ================= -->
+    <section id="ceremony-lead"
+      class="ceremony-lead-section relative py-16 md:py-24 px-4 text-center overflow-hidden bg-[#faf6ee]">
+
+      <!-- Background Vertical Watercolor Stripes Texture (Seamlessly flows under Section 3 flowers) -->
+      <div class="watercolor-stripes-bg"></div>
+
+      <div class="relative z-10 max-w-xl mx-auto pt-6">
+
+        <!-- Scalloped Vintage Plaque Card (Exact match to Screenshot 4) -->
+        <div class="scallop-card relative p-8 sm:p-10 md:p-12">
+
+          <h2 class="font-heading text-2xl sm:text-3xl text-[#233924] font-medium tracking-wide uppercase">
+            Wedding Ceremonies
+          </h2>
+          <p class="font-script text-3xl sm:text-4xl text-[#8b3a4a] my-2">
+            Auspicious Celebrations
+          </p>
+
+          <p class="font-label text-xs sm:text-sm text-[#84651d] uppercase tracking-[0.2em] font-semibold mt-2">
+            Friday, 11th &amp; Saturday, 12th of December, 2026
+          </p>
+
+          <span class="block w-20 h-[1px] bg-[#c59b27]/60 mx-auto my-5"></span>
+
+          <!-- Venue Details -->
+          <div>
+            <img src="assets/venue-illustration-CJozVy2q.png" alt="Gloria Inn"
+              class="w-20 h-auto mx-auto mb-2 opacity-90" />
+            <h4 class="font-heading text-xl sm:text-2xl text-[#233924] font-semibold tracking-wider uppercase">
+              Gloria Inn
+            </h4>
+            <p class="font-label text-xs uppercase tracking-[0.18em] text-[#84651d] font-medium mt-0.5">
+              Bhilwara, Rajasthan
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mt-6">
+              <a href="https://maps.google.com/?q=Gloria+Inn+Bhilwara" target="_blank" rel="noopener noreferrer"
+                class="scallop-action-btn">
+                <i class="fa-solid fa-location-dot"></i> OPEN IN MAPS
+              </a>
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Aanchal%20%26%20Arpit%20Wedding&dates=20261211/20261213&location=Gloria%20Inn%2C%20Bhilwara"
+                target="_blank" rel="noopener noreferrer" class="scallop-action-btn">
+                <i class="fa-regular fa-calendar-check"></i> ADD TO CALENDAR
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= 5. "OUR EVENTS" SECTION (KAMAL KUNJ EXACT REPLICA - SCREENSHOTS 1 & 2) ================= -->
+    <section id="events" class="kamal-events-section relative py-20 md:py-32 px-4 overflow-hidden">
+
+      <!-- Swaying Marigold Floral Garlands along Left and Right Edges -->
+      <div class="garland-edge-left" aria-hidden="true">
+        <img src="assets/kamal-kunj/art/garland-strand.webp" alt="" class="garland-img" />
+      </div>
+      <div class="garland-edge-right" aria-hidden="true">
+        <img src="assets/kamal-kunj/art/garland-strand.webp" alt="" class="garland-img garland-flipped" />
+      </div>
+
+      <!-- Subtle Swan Motif Top-Right -->
+      <div class="swan-watermark" aria-hidden="true">
+        <img src="assets/kamal-kunj/art/motif-swan.webp" alt="" class="swan-img" />
+      </div>
+
+      <div class="relative z-10 max-w-xl mx-auto text-center">
+
+        <!-- Section Header -->
+        <span class="kamal-eyebrow">
+          EVERY CELEBRATION
+        </span>
+        <h2 class="kamal-main-heading">
+          Our Events
+        </h2>
+
+        <!-- Event Cards Container with Data from PDF Page 2 -->
+        <div class="event-cards-container space-y-8 mt-10">
+
+          <!-- ================= EVENT 1: MEHENDI & CARNIVAL (FRIDAY 11 DEC - PDF PAGE 2) ================= -->
+          <article class="kamal-event-card">
+            <h3 class="event-card-title">
+              Mehendi
+            </h3>
+
+            <!-- Floral Flourish Divider -->
+            <img src="assets/kamal-kunj/art/divider-flourish.webp" alt="" class="card-divider-flourish" />
+
+            <!-- Date Band -->
+            <div class="card-date-band">
+              <div class="date-row">
+                <span class="date-side">FRI</span>
+                <span class="date-day">11</span>
+                <span class="date-side">DEC</span>
+              </div>
+              <span class="date-year">2026</span>
+            </div>
+
+            <!-- Time & Schedule from PDF Page 2 -->
+            <p class="event-time">
+              7:00 AM Vinayak Sthapana • 11:00 AM Carnival
+            </p>
+            <p class="event-venue">
+              Venue – The Water Garden Lawn, Gloria Inn
+            </p>
+
+            <!-- Description -->
+            <p class="event-desc">
+              Join us by the blessings of God for Vinayak Sthapana, Breakfast at 9:00 AM, joyful Carnival at 11:00 AM,
+              followed by celebratory lunch.
+            </p>
+
+            <!-- Attire -->
+            <div class="event-attire">
+              <span class="attire-label">ATTIRE:</span>
+              <span class="attire-chip">
+                <span class="attire-dot" style="background: #4e734c;"></span> Mehendi
+              </span>
+              <span class="attire-chip">
+                <span class="attire-dot" style="background: #e59f2a;"></span> Marigold
+              </span>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="event-actions">
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mehendi%20%26%20Carnival%20%E2%80%94%20Aanchal%20%26%20Arpit&dates=20261211T070000/20261211T140000&location=Gloria%20Inn%2C%20Bhilwara"
+                target="_blank" rel="noopener noreferrer" class="kamal-btn">
+                <i class="fa-regular fa-calendar-plus"></i> ADD TO CALENDAR
+              </a>
+              <a href="https://maps.google.com/?q=Gloria+Inn+Bhilwara" target="_blank" rel="noopener noreferrer"
+                class="kamal-btn">
+                <i class="fa-solid fa-location-dot"></i> MAP
+              </a>
+            </div>
+          </article>
+
+
+          <!-- ================= EVENT 2: SANGEET & RING CEREMONY / DJ NIGHT (FRIDAY 11 DEC - PDF PAGE 2) ================= -->
+          <article class="kamal-event-card">
+            <h3 class="event-card-title">
+              Sangeet
+            </h3>
+
+            <!-- Floral Flourish Divider -->
+            <img src="assets/kamal-kunj/art/divider-flourish.webp" alt="" class="card-divider-flourish" />
+
+            <!-- Date Band -->
+            <div class="card-date-band">
+              <div class="date-row">
+                <span class="date-side">FRI</span>
+                <span class="date-day">11</span>
+                <span class="date-side">DEC</span>
+              </div>
+              <span class="date-year">2026</span>
+            </div>
+
+            <!-- Time & Schedule from PDF Page 2 -->
+            <p class="event-time">
+              7:00 PM Onwards
+            </p>
+            <p class="event-venue">
+              Venue – The Grand Lakeside Ballroom, Gloria Inn
+            </p>
+
+            <!-- Description -->
+            <p class="event-desc">
+              Sangeet &amp; Ring Ceremony with DJ Night. An evening of songs, glittering performances, and dancing with
+              everyone we love.
+            </p>
+
+            <!-- Attire -->
+            <div class="event-attire">
+              <span class="attire-label">ATTIRE:</span>
+              <span class="attire-chip">
+                <span class="attire-dot" style="background: #192d4b;"></span> Navy
+              </span>
+              <span class="attire-chip">
+                <span class="attire-dot" style="background: #cba239;"></span> Gold
+              </span>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="event-actions">
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Sangeet%20%26%20Ring%20Ceremony%20%E2%80%94%20Aanchal%20%26%20Arpit&dates=20261211T190000/20261211T235900&location=Gloria%20Inn%2C%20Bhilwara"
+                target="_blank" rel="noopener noreferrer" class="kamal-btn">
+                <i class="fa-regular fa-calendar-plus"></i> ADD TO CALENDAR
+              </a>
+              <a href="https://maps.google.com/?q=Gloria+Inn+Bhilwara" target="_blank" rel="noopener noreferrer"
+                class="kamal-btn">
+                <i class="fa-solid fa-location-dot"></i> MAP
+              </a>
+            </div>
+          </article>
+
+
+          <!-- ================= EVENT 3: KALASH & MAYRA (SATURDAY 12 DEC - PDF PAGE 2) ================= -->
+          <article class="kamal-event-card">
+            <h3 class="event-card-title">
+              Mayra
+            </h3>
+
+            <!-- Floral Flourish Divider -->
+            <img src="assets/kamal-kunj/art/divider-flourish.webp" alt="" class="card-divider-flourish" />
+
+            <!-- Date Band -->
+            <div class="card-date-band">
+              <div class="date-row">
+                <span class="date-side">SAT</span>
+                <span class="date-day">12</span>
+                <span class="date-side">DEC</span>
+              </div>
+              <span class="date-year">2026</span>
+            </div>
+
+            <!-- Time & Schedule from PDF Page 2 -->
+            <p class="event-time">
+              9:00 AM Kalash • 11:00 AM Mayra
+            </p>
+            <p class="event-venue">
+              Venue – The Royal Courtyard, Gloria Inn
+            </p>
+
+            <!-- Description -->
+            <p class="event-desc">
+              Kalash &amp; Breakfast at 9:00 AM onwards, Mayra rituals at 11:00 AM, followed by auspicious lunch at 1:00
+              PM.
+            </p>
+
+            <!-- Attire -->
+            <div class="event-attire">
+              <span class="attire-label">ATTIRE:</span>
+              <span class="attire-chip">
+                <span class="attire-dot" style="background: #cf4f68;"></span> Rani Pink
+              </span>
+              <span class="attire-chip">
+                <span class="attire-dot" style="background: #e5b032;"></span> Ochre Yellow
+              </span>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="event-actions">
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Kalash%20%26%20Mayra%20%E2%80%94%20Aanchal%20%26%20Arpit&dates=20261212T090000/20261212T140000&location=Gloria%20Inn%2C%20Bhilwara"
+                target="_blank" rel="noopener noreferrer" class="kamal-btn">
+                <i class="fa-regular fa-calendar-plus"></i> ADD TO CALENDAR
+              </a>
+              <a href="https://maps.google.com/?q=Gloria+Inn+Bhilwara" target="_blank" rel="noopener noreferrer"
+                class="kamal-btn">
+                <i class="fa-solid fa-location-dot"></i> MAP
+              </a>
+            </div>
+          </article>
+
+
+          <!-- ================= EVENT 4: WEDDING (BARAAT, RECEPTION & PHERAS - PDF PAGE 2) ================= -->
+          <article class="kamal-event-card">
+            <h3 class="event-card-title">
+              Wedding
+            </h3>
+
+            <!-- Floral Flourish Divider -->
+            <img src="assets/kamal-kunj/art/divider-flourish.webp" alt="" class="card-divider-flourish" />
+
+            <!-- Date Band -->
+            <div class="card-date-band">
+              <div class="date-row">
+                <span class="date-side">SAT</span>
+                <span class="date-day">12</span>
+                <span class="date-side">DEC</span>
+              </div>
+              <span class="date-year">2026</span>
+            </div>
+
+            <!-- Time & Schedule from PDF Page 2 -->
+            <p class="event-time">
+              4:00 PM Milni • 8:30 PM Baraat • 10:30 PM Pheras
+            </p>
+            <p class="event-venue">
+              Venue – The Lotus Courtyard Mandap, Gloria Inn
+            </p>
+
+            <!-- Description -->
+            <p class="event-desc">
+              Milni at 4:00 PM, Laddu Jalai at 4:30 PM, Baraat Swagat at 8:30 PM, Reception &amp; Dinner at 7:00 PM
+              onwards, followed by sacred Pheras at 10:30 PM.
+            </p>
+
+            <!-- Attire -->
+            <div class="event-attire">
+              <span class="attire-label">ATTIRE:</span>
+              <span class="attire-chip">
+                <span class="attire-dot" style="background: #ede6d6; border: 1px solid #c59b27;"></span> Ivory
+              </span>
+              <span class="attire-chip">
+                <span class="attire-dot" style="background: #a8384e;"></span> Royal Rose
+              </span>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="event-actions">
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Wedding%20%26%20Phere%20%E2%80%94%20Aanchal%20%26%20Arpit&dates=20261212T160000/20261213T013000&location=Gloria%20Inn%2C%20Bhilwara"
+                target="_blank" rel="noopener noreferrer" class="kamal-btn">
+                <i class="fa-regular fa-calendar-plus"></i> ADD TO CALENDAR
+              </a>
+              <a href="https://maps.google.com/?q=Gloria+Inn+Bhilwara" target="_blank" rel="noopener noreferrer"
+                class="kamal-btn">
+                <i class="fa-solid fa-location-dot"></i> MAP
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= 6. COUNTDOWN SECTION ================= -->
+    <section class="py-14 px-6 bg-[#faf6ee] text-center border-y border-[#c59b27]/30">
+      <div class="max-w-xl mx-auto space-y-4">
+        <span class="kamal-eyebrow !text-[#84651d]">COUNTDOWN TO THE AUSPICIOUS DAY</span>
+        <h3 class="font-heading text-2xl md:text-3xl font-medium text-[#8b3a4a]">11th &amp; 12th December 2026</h3>
+
+        <div class="countdown-grid" id="countdownGrid">
+          <div class="timer-box">
+            <span id="cdDays" class="timer-value">00</span>
+            <span class="timer-label">DAYS</span>
+          </div>
+          <div class="timer-box">
+            <span id="cdHours" class="timer-value">00</span>
+            <span class="timer-label">HOURS</span>
+          </div>
+          <div class="timer-box">
+            <span id="cdMinutes" class="timer-value">00</span>
+            <span class="timer-label">MINUTES</span>
+          </div>
+          <div class="timer-box">
+            <span id="cdSeconds" class="timer-value">00</span>
+            <span class="timer-label">SECONDS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================= 7. REGARDS & LOVE SECTION (IMAGE 4 REPLICA) ================= -->
+    <section id="regards-love" class="relative py-28 md:py-36 px-6 bg-[#fdf9f0] overflow-hidden text-center">
+
+      <div class="max-w-xl mx-auto relative z-10">
+
+        <!-- Floral Watercolor Corner Bouquets (Exact match to Image 4) -->
+        <img src="assets/floral-top-right-CS2uPFt2.png" alt=""
+          class="pointer-events-none select-none absolute -top-14 -right-6 w-52 md:w-64 z-10 opacity-90" />
+        <img src="assets/floral-bottom-left-_kTL5SSX.png" alt=""
+          class="pointer-events-none select-none absolute -bottom-16 -left-8 w-52 md:w-64 z-10 opacity-90" />
+
+        <div class="relative z-20 py-8 px-4">
+          <div class="space-y-6 text-[#233924]">
+            <p
+              class="font-body italic text-xl md:text-2xl leading-relaxed max-w-md mx-auto whitespace-pre-line text-[#233924]/90">
+              We would be delighted
+              to share this beautiful beginning with you
+            </p>
+
+            <p
+              class="font-body italic text-xl md:text-2xl leading-relaxed max-w-md mx-auto whitespace-pre-line text-[#233924]/90">
+              With love in our hearts,
+              we await your gracious presence
+            </p>
+
+            <!-- Share Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 pt-6">
+              <button id="whatsappShareBtn" class="share-pill-btn whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> Share on WhatsApp
+              </button>
+              <button id="copyInviteLinkBtn" class="share-pill-btn copy">
+                <i class="fa-solid fa-link"></i> Copy Link
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="py-12 bg-[#1b261c] text-center text-[#fdf9f0] px-4">
+      <img src="assets/images/couple-logo.png" alt="A & A"
+        class="w-14 h-auto mx-auto mb-3 filter brightness-0 invert opacity-80" />
+      <h4 class="font-script text-3xl text-[#c59b27]">Aanchal &amp; Arpit</h4>
+      <p class="font-label text-xs tracking-widest uppercase text-[#c59b27]/80 mt-2">11th &amp; 12th December 2026 •
+        Gloria Inn, Bhilwara</p>
+    </footer>
+
+  </main>
+
+
+  <!-- ==================== INTERACTIVE RSVP MODAL DIALOG ==================== -->
+  <div id="rsvpModal"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 p-4">
+    <div
+      class="rsvp-modal-content relative w-full max-w-md bg-[#fdf9f0] border-2 border-[#c59b27] rounded-lg p-6 sm:p-8 shadow-2xl">
+
+      <!-- Close Button -->
+      <button id="closeRsvpModalBtn"
+        class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full text-[#84651d] hover:bg-[#c59b27]/20 text-lg">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="text-center mb-5">
+        <span class="kamal-eyebrow !text-[#84651d]">CELEBRATE WITH US</span>
+        <h3 class="font-heading text-2xl text-[#8b3a4a] font-medium">RSVP</h3>
+        <p class="font-body italic text-xs sm:text-sm text-[#556b4a] mt-1">Please confirm your gracious presence by
+          filling below</p>
+      </div>
+
+      <form id="rsvpForm" class="space-y-4 text-left">
+        <div>
+          <label class="block font-label text-xs uppercase tracking-wider text-[#84651d] font-semibold mb-1">Your
+            Name</label>
+          <input type="text" id="rsvpGuestName" required placeholder="E.g. Rajesh Sharma & Family"
+            class="wish-input !mb-0" />
+        </div>
+
+        <div>
+          <label class="block font-label text-xs uppercase tracking-wider text-[#84651d] font-semibold mb-1">Will you
+            attend?</label>
+          <div class="flex gap-4">
+            <label class="flex items-center gap-2 text-sm text-[#233924] cursor-pointer">
+              <input type="radio" name="attendance" value="Yes, Joyfully Attending!" checked class="accent-[#8b3a4a]" />
+              <span>Yes, Joyfully! 🎉</span>
+            </label>
+            <label class="flex items-center gap-2 text-sm text-[#233924] cursor-pointer">
+              <input type="radio" name="attendance" value="Regretfully Unable to Attend" class="accent-[#8b3a4a]" />
+              <span>Regretfully Unable</span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-label text-xs uppercase tracking-wider text-[#84651d] font-semibold mb-1">Number of
+            Guests</label>
+          <select id="rsvpGuestCount" class="wish-input !mb-0">
+            <option value="1">1 Person</option>
+            <option value="2" selected>2 Persons</option>
+            <option value="3">3 Persons</option>
+            <option value="4">4 Persons</option>
+            <option value="5+">5+ Family Members</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-label text-xs uppercase tracking-wider text-[#84651d] font-semibold mb-1">Attending
+            Events</label>
+          <div class="grid grid-cols-2 gap-2 text-xs text-[#233924]">
+            <label class="flex items-center gap-1.5 cursor-pointer">
+              <input type="checkbox" name="rsvpEvents" value="Vinayak Sthapana & Carnival (11 Dec)" checked
+                class="accent-[#8b3a4a]" />
+              <span>Carnival (11 Dec)</span>
+            </label>
+            <label class="flex items-center gap-1.5 cursor-pointer">
+              <input type="checkbox" name="rsvpEvents" value="Sangeet & DJ Night (11 Dec)" checked
+                class="accent-[#8b3a4a]" />
+              <span>Sangeet (11 Dec)</span>
+            </label>
+            <label class="flex items-center gap-1.5 cursor-pointer">
+              <input type="checkbox" name="rsvpEvents" value="Kalash & Mayra (12 Dec)" checked
+                class="accent-[#8b3a4a]" />
+              <span>Mayra (12 Dec)</span>
+            </label>
+            <label class="flex items-center gap-1.5 cursor-pointer">
+              <input type="checkbox" name="rsvpEvents" value="Wedding & Pheras (12 Dec)" checked
+                class="accent-[#8b3a4a]" />
+              <span>Wedding (12 Dec)</span>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-wish-btn !mt-4 w-full">
+          <i class="fa-brands fa-whatsapp"></i> Send RSVP via WhatsApp
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+
+  <!-- Toast Notification -->
+  <div id="toastNotification" class="toast-popup"></div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
