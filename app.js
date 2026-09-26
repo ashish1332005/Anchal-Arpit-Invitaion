@@ -102,10 +102,10 @@ function initVideoIntroSequence() {
     playVideo2();
   });
 
-  // Video 2 progress: reveal center logo overlay and transition to main card
+  // Video 2 progress: reveal center logo overlay when center space opens up (at 3.2s)
   if (videoIntro) {
     videoIntro.addEventListener('timeupdate', () => {
-      if (videoIntro.currentTime >= 0.8 && logoOverlay && !logoOverlay.classList.contains('show')) {
+      if (videoIntro.currentTime >= 3.2 && logoOverlay && !logoOverlay.classList.contains('show')) {
         logoOverlay.classList.add('show');
       }
 
