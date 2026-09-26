@@ -105,15 +105,17 @@
       <img src="assets/images/couple-logo.png" alt="Aanchal & Arpit Monogram" class="video-logo-img" />
     </div>
 
-    <!-- Tap to Open Prompt / Wax Seal Button -->
+    <!-- Tap to Open Prompt / Center Wax Seal Button -->
     <div id="tapToOpenPrompt" class="tap-to-open-prompt">
       <div class="pulse-ring"></div>
       <div class="wax-seal-icon">
         <img src="assets/images/couple-logo.png" alt="Couple Logo" />
       </div>
-      <div class="tap-text-pill">
-        <span>✨ TAP TO OPEN ✨</span>
-      </div>
+    </div>
+
+    <!-- Small Single-Line Tap Hint at Bottom -->
+    <div id="tapTextPill" class="tap-text-pill">
+      <span>✨ TAP TO OPEN ✨</span>
     </div>
 
     <!-- Skip Intro Button -->
@@ -160,20 +162,20 @@
 
     <!-- ================= 2. SCRATCH CARD SECTION (A SPECIAL REVEAL - SCREENSHOT 2) ================= -->
     <section id="scratch-card"
-      class="scratch-section relative min-h-screen w-full flex flex-col justify-between items-center text-center overflow-hidden py-12 px-4">
+      class="scratch-section relative min-h-screen w-full flex flex-col justify-between items-center text-center overflow-hidden py-8 sm:py-12 px-4">
 
       <!-- High Quality Floral Frame Background -->
       <div class="scratch-bg-frame pointer-events-none"></div>
 
       <!-- Top Spacer -->
-      <div class="h-4 sm:h-6"></div>
+      <div class="h-2 sm:h-4"></div>
 
       <div class="relative z-10 max-w-xl mx-auto flex flex-col items-center my-auto">
 
         <!-- Section Heading & Gold Flourish Divider -->
-        <div class="space-y-2 mb-4 sm:mb-6">
+        <div class="space-y-1.5 mb-3 sm:mb-5">
           <h2
-            class="font-heading text-2xl sm:text-3xl md:text-4xl text-[#84651d] font-bold tracking-[0.2em] uppercase filter drop-shadow-sm">
+            class="font-heading text-xl sm:text-3xl md:text-4xl text-[#84651d] font-bold tracking-[0.2em] uppercase filter drop-shadow-sm">
             A Special Reveal
           </h2>
           <div class="flex items-center justify-center gap-3">
@@ -184,9 +186,9 @@
         </div>
 
         <!-- Interactive Heart Scratch Card -->
-        <div class="flex justify-center w-full my-3">
+        <div class="flex justify-center w-full my-2">
           <div id="scratchCardContainer"
-            class="scratch-card-wrapper relative w-[320px] h-[295px] sm:w-[350px] sm:h-[322px] md:w-[380px] md:h-[350px]">
+            class="scratch-card-wrapper relative w-[295px] h-[272px] sm:w-[340px] sm:h-[313px] md:w-[380px] md:h-[350px]">
 
             <!-- Revealed Date Card (Underneath the Scratch Canvas) -->
             <div id="revealedDateCard" class="absolute inset-0 flex items-center justify-center z-0">
@@ -225,7 +227,7 @@
         </div>
 
         <!-- Bottom Elegant Text matching Image 1 -->
-        <div class="space-y-1.5 mt-4 sm:mt-6">
+        <div class="space-y-1.5 mt-3 sm:mt-5">
           <p
             class="font-label text-xs sm:text-sm tracking-[0.22em] text-[#84651d] uppercase font-semibold flex items-center justify-center gap-2">
             <span class="text-[#c59b27] text-sm">❧</span> SCRATCH THE HEART TO REVEAL <span
@@ -244,18 +246,18 @@
       </div>
 
       <!-- Bottom Spacer -->
-      <div class="h-4 sm:h-6"></div>
+      <div class="h-2 sm:h-4"></div>
     </section>
 
 
     <!-- ================= 3. WELCOME & FAMILY INVITATION SECTION (SCREENSHOT 3) ================= -->
-    <section id="welcome" class="welcome-section relative min-h-screen w-full flex flex-col justify-center items-center py-16 px-4 text-center overflow-hidden">
+    <section id="welcome" class="welcome-section relative min-h-screen w-full flex flex-col justify-center items-center py-10 sm:py-16 px-4 text-center overflow-hidden">
       
       <!-- Full Floral Frame Background -->
       <div class="welcome-bg-frame pointer-events-none"></div>
 
       <!-- Center Content Container -->
-      <div class="relative z-10 max-w-xl w-full mx-auto px-6 py-10 sm:py-14 my-auto">
+      <div class="relative z-10 max-w-xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-12 my-auto">
 
         <!-- Sacred Ganesha & Invocations -->
         <div class="flex flex-col items-center">

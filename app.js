@@ -23,6 +23,7 @@ function initVideoIntroSequence() {
   const videoIntro = document.getElementById('videoIntro');
   const logoOverlay = document.getElementById('videoLogoOverlay');
   const tapPrompt = document.getElementById('tapToOpenPrompt');
+  const tapPill = document.getElementById('tapTextPill');
   const skipBtn = document.getElementById('skipIntroBtn');
   const mainContent = document.getElementById('mainContent');
   const audio = document.getElementById('weddingAudio');
@@ -45,6 +46,7 @@ function initVideoIntroSequence() {
     hasStarted = true;
 
     if (tapPrompt) tapPrompt.classList.add('hide');
+    if (tapPill) tapPill.classList.add('hide');
     if (skipBtn) skipBtn.classList.remove('hidden');
 
     // Start background romantic instrumental audio
