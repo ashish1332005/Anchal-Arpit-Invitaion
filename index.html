@@ -257,53 +257,33 @@
       <div class="welcome-bg-frame pointer-events-none"></div>
 
       <!-- Center Content Container -->
-      <div class="relative z-10 max-w-xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-12 my-auto">
+      <div class="relative z-10 max-w-lg w-full mx-auto px-4 sm:px-6 py-6 sm:py-10 my-auto flex flex-col items-center justify-center">
 
         <!-- Sacred Ganesha & Invocations -->
-        <div class="flex flex-col items-center">
+        <div class="flex flex-col items-center mb-3 sm:mb-4">
           <img src="assets/ganesh-idol-TubyYjSJ.png" alt="Lord Ganesha"
-            class="w-14 h-14 md:w-16 md:h-16 object-contain opacity-95 mb-2 select-none pointer-events-none filter drop-shadow-sm" />
+            class="w-12 h-12 sm:w-14 sm:h-14 object-contain opacity-95 mb-1.5 select-none pointer-events-none filter drop-shadow-sm" />
 
-          <p class="text-[#84651d] font-hindi-calligraphy text-base md:text-lg mb-2 tracking-wide font-semibold">
+          <p class="text-[#84651d] font-hindi-calligraphy text-base sm:text-lg mb-1 tracking-wide font-semibold">
             ॥ श्री गणेशाय नमः ॥
           </p>
 
           <p
-            class="text-[#556b4a] font-hindi-shloka text-xs sm:text-sm leading-relaxed max-w-sm mx-auto mb-4 font-medium">
+            class="text-[#556b4a] font-hindi-shloka text-xs sm:text-sm leading-relaxed max-w-xs sm:max-w-sm mx-auto font-medium">
             वक्रतुण्ड महाकाय सूर्यकोटि समप्रभः ।<br />
             निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥
           </p>
         </div>
 
-        <!-- Invitation Intro Quote -->
-        <p
-          class="font-body italic font-semibold text-sm md:text-base leading-relaxed text-[#233924]/85 max-w-md mx-auto mb-5 whitespace-pre-line">
-          Every beautiful beginning deserves to be celebrated<br />
-          with the ones who matter most
-        </p>
-
-        <!-- Host Parents & Grandparents Details from PDF Page 1 -->
-        <div class="space-y-2">
-          <h4 class="font-heading text-base md:text-lg font-bold text-[#84651d] tracking-wider uppercase">
-            Smt. Leela Devi &amp; Shree Dinesh Kumar Chechani
-          </h4>
-          <p class="font-body italic font-semibold text-xs md:text-sm text-[#556b4a]">
-            and
-          </p>
-          <h4 class="font-heading text-base md:text-lg font-bold text-[#84651d] tracking-wider uppercase">
-            Smt. Rinku Kabra &amp; Shree Sanjay ji Kabra
-          </h4>
-
-          <p class="font-body italic font-medium text-xs md:text-sm text-[#233924]/80 py-2">
-            joyfully invite you to celebrate the wedding celebrations of their beloved children
-          </p>
+        <!-- Bride & Groom Details with Lineage -->
+        <div class="space-y-3 sm:space-y-4 my-2 w-full">
 
           <!-- Bride Name & Lineage from PDF Page 1 -->
-          <div class="py-1">
-            <h3 class="font-script text-5xl md:text-6xl text-[#8b3a4a] leading-tight">
+          <div>
+            <h3 class="font-script text-5xl sm:text-6xl text-[#8b3a4a] leading-tight">
               Aanchal
             </h3>
-            <p class="font-body text-xs sm:text-sm text-[#556b4a] italic mt-0.5">
+            <p class="font-body text-xs sm:text-sm text-[#556b4a] italic mt-0.5 leading-relaxed">
               <span class="font-semibold text-[#84651d]">D/o</span> Smt. Leela Devi &amp; Shree Dinesh Kumar
               Chechani<br />
               <span class="font-semibold text-[#84651d]">G/d/o</span> Late Smt. Janki Devi &amp; Lt. Shree Shiv Lal ji
@@ -312,16 +292,16 @@
           </div>
 
           <!-- With -->
-          <p class="font-script text-3xl md:text-4xl text-[#84651d] my-1">
+          <p class="font-script text-3xl sm:text-4xl text-[#84651d] my-1">
             with
           </p>
 
           <!-- Groom Name & Lineage from PDF Page 1 -->
-          <div class="py-1">
-            <h3 class="font-script text-5xl md:text-6xl text-[#8b3a4a] leading-tight">
+          <div>
+            <h3 class="font-script text-5xl sm:text-6xl text-[#8b3a4a] leading-tight">
               Arpit
             </h3>
-            <p class="font-body text-xs sm:text-sm text-[#556b4a] italic mt-0.5">
+            <p class="font-body text-xs sm:text-sm text-[#556b4a] italic mt-0.5 leading-relaxed">
               <span class="font-semibold text-[#84651d]">S/o</span> Smt. Rinku Kabra &amp; Shree Sanjay ji Kabra<br />
               <span class="font-semibold text-[#84651d]">G/s/o</span> Shree Ram Rai ji &amp; Smt. Ratan Devi Kabra
             </p>
@@ -329,10 +309,15 @@
         </div>
 
         <!-- Occasion Description -->
-        <div class="mt-4">
-          <p class="max-w-xs mx-auto uppercase tracking-[0.14em] text-xs sm:text-sm font-semibold text-[#8b3a4a]">
+        <div class="mt-4 sm:mt-5">
+          <p class="max-w-xs mx-auto uppercase tracking-[0.16em] text-xs sm:text-sm font-semibold text-[#8b3a4a]">
             for their Wedding Celebrations
           </p>
+          <div class="flex items-center justify-center gap-2 pt-1.5">
+            <span class="w-10 sm:w-14 h-[1px] bg-[#c59b27]/60"></span>
+            <span class="text-[#c59b27] text-xs">✤</span>
+            <span class="w-10 sm:w-14 h-[1px] bg-[#c59b27]/60"></span>
+          </div>
         </div>
 
       </div>
