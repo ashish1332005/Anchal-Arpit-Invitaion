@@ -15,8 +15,37 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ===================================================================
-   1. INTRO VIDEO SEQUENCE
+   1. INTRO VIDEO SEQUENCE & MUSIC PLAYBACK
    =================================================================== */
+function playWeddingMusic() {
+  const audio = document.getElementById('weddingAudio');
+  const btn = document.getElementById('musicToggleBtn');
+  const iconWrapper = btn ? btn.querySelector('.music-icon-wrapper') : null;
+  if (!audio) return;
+
+  audio.muted = false;
+  audio.volume = 1.0;
+
+  const playPromise = audio.play();
+  if (playPromise !== undefined) {
+    playPromise.then(() => {
+      if (iconWrapper) iconWrapper.innerHTML = '<i class="fa-solid fa-pause"></i>';
+    }).catch(err => {
+      console.log('Audio autoplay policy note:', err);
+      // Fallback: unlock on next interaction anywhere
+      const unlock = () => {
+        audio.play().then(() => {
+          if (iconWrapper) iconWrapper.innerHTML = '<i class="fa-solid fa-pause"></i>';
+        }).catch(() => {});
+        document.removeEventListener('click', unlock);
+        document.removeEventListener('touchstart', unlock);
+      };
+      document.addEventListener('click', unlock, { once: true });
+      document.addEventListener('touchstart', unlock, { once: true });
+    });
+  }
+}
+
 function initVideoIntroSequence() {
   const stage = document.getElementById('introEnvelopeStage');
   const videoEnv = document.getElementById('videoEnv');
@@ -34,6 +63,13 @@ function initVideoIntroSequence() {
   let hasTransitioned = false;
   let video2Started = false;
 
+  // Pre-load / warm audio
+  if (audio) {
+    try {
+      audio.load();
+    } catch (e) {}
+  }
+
   videoEnv.muted = true;
   videoEnv.defaultMuted = true;
   if (videoIntro) {
@@ -42,23 +78,15 @@ function initVideoIntroSequence() {
   }
 
   function startExperience() {
+    // Start background romantic instrumental audio immediately on user gesture
+    playWeddingMusic();
+
     if (hasStarted) return;
     hasStarted = true;
 
     if (tapPrompt) tapPrompt.classList.add('hide');
     if (tapPill) tapPill.classList.add('hide');
     if (skipBtn) skipBtn.classList.remove('hidden');
-
-    // Start background romantic instrumental audio
-    if (audio) {
-      audio.currentTime = 0.2;
-      const playPromise = audio.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(err => {
-          console.log('Audio autoplay policy note:', err);
-        });
-      }
-    }
 
     // Play Envelope Video 1
     videoEnv.currentTime = 0;
@@ -125,6 +153,9 @@ function initVideoIntroSequence() {
     if (hasTransitioned) return;
     hasTransitioned = true;
 
+    // Ensure music is running
+    playWeddingMusic();
+
     stage.classList.add('fade-out');
     mainContent.classList.remove('opacity-0');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -134,6 +165,19 @@ function initVideoIntroSequence() {
     }, 850);
   }
 
+  // Direct listeners for Tap to Open / Wax Seal
+  if (tapPrompt) {
+    tapPrompt.addEventListener('pointerdown', startExperience);
+    tapPrompt.addEventListener('click', startExperience);
+    tapPrompt.addEventListener('touchstart', startExperience, { passive: true });
+  }
+
+  if (tapPill) {
+    tapPill.addEventListener('pointerdown', startExperience);
+    tapPill.addEventListener('click', startExperience);
+    tapPill.addEventListener('touchstart', startExperience, { passive: true });
+  }
+
   stage.addEventListener('pointerdown', startExperience);
   stage.addEventListener('touchstart', startExperience, { passive: true });
   stage.addEventListener('click', startExperience);
@@ -141,6 +185,7 @@ function initVideoIntroSequence() {
   if (skipBtn) {
     skipBtn.addEventListener('click', (e) => {
       e.stopPropagation();
+      playWeddingMusic();
       transitionToMain();
     });
   }
