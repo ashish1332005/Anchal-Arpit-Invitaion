@@ -59,7 +59,7 @@
   </script>
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=2026_reveal" />
 
   <!-- Preload Critical Media Assets -->
   <link rel="preload" href="assets/env.mp4?v=2026_new" as="video" type="video/mp4" />
@@ -91,7 +91,8 @@
 
     <!-- Video 1: Envelope Opening Video -->
     <video id="videoEnv" src="assets/env.mp4?v=fixed_env" poster="assets/1s.png?v=fixed_poster" playsinline
-      webkit-playsinline muted preload="auto" class="absolute inset-0 w-full h-full object-cover pointer-events-none z-10">
+      webkit-playsinline muted preload="auto"
+      class="absolute inset-0 w-full h-full object-cover pointer-events-none z-10">
     </video>
 
     <!-- Video 2: Animated Botanical & Flying Butterflies Video -->
@@ -226,20 +227,38 @@
           </div>
         </div>
 
-        <!-- Bottom Elegant Text matching Image 1 -->
-        <div class="space-y-1.5 mt-3 sm:mt-5">
+        <!-- Bottom Elegant Text & Countdown -->
+        <div class="space-y-1 mt-2 sm:mt-3">
           <p
-            class="font-label text-xs sm:text-sm tracking-[0.22em] text-[#84651d] uppercase font-semibold flex items-center justify-center gap-2">
-            <span class="text-[#c59b27] text-sm">❧</span> SCRATCH THE HEART TO REVEAL <span
-              class="text-[#c59b27] text-sm">☙</span>
+            class="font-label text-[11px] sm:text-xs tracking-[0.2em] text-[#84651d] uppercase font-semibold flex items-center justify-center gap-1.5">
+            <span class="text-[#c59b27] text-xs">❧</span> SCRATCH THE HEART TO REVEAL <span
+              class="text-[#c59b27] text-xs">☙</span>
           </p>
-          <p class="font-heading text-xs sm:text-sm tracking-[0.28em] text-[#8b3a4a] uppercase font-bold">
+          <p class="font-heading text-xs sm:text-sm tracking-[0.24em] text-[#8b3a4a] uppercase font-bold">
             THE AUSPICIOUS DATES
           </p>
-          <div class="flex items-center justify-center gap-2 pt-1">
-            <span class="w-10 sm:w-14 h-[1px] bg-[#c59b27]/60"></span>
-            <span class="text-[#c59b27] text-xs">♥</span>
-            <span class="w-10 sm:w-14 h-[1px] bg-[#c59b27]/60"></span>
+        </div>
+
+        <!-- Countdown Timer Under Heart (Reveals after Scratching) -->
+        <div id="heartCountdownWrapper"
+          class="countdown-wrapper mt-3 sm:mt-4 w-full max-w-[320px] sm:max-w-[350px] mx-auto countdown-hidden">
+          <div class="countdown-grid" id="countdownGrid">
+            <div class="timer-box">
+              <span id="cdDays" class="timer-value">00</span>
+              <span class="timer-label">DAYS</span>
+            </div>
+            <div class="timer-box">
+              <span id="cdHours" class="timer-value">00</span>
+              <span class="timer-label">HOURS</span>
+            </div>
+            <div class="timer-box">
+              <span id="cdMinutes" class="timer-value">00</span>
+              <span class="timer-label">MINUTES</span>
+            </div>
+            <div class="timer-box">
+              <span id="cdSeconds" class="timer-value">00</span>
+              <span class="timer-label">SECONDS</span>
+            </div>
           </div>
         </div>
 
@@ -251,13 +270,15 @@
 
 
     <!-- ================= 3. WELCOME & FAMILY INVITATION SECTION (SCREENSHOT 3) ================= -->
-    <section id="welcome" class="welcome-section relative min-h-screen w-full flex flex-col justify-center items-center py-10 sm:py-16 px-4 text-center overflow-hidden">
-      
+    <section id="welcome"
+      class="welcome-section relative min-h-screen w-full flex flex-col justify-center items-center py-10 sm:py-16 px-4 text-center overflow-hidden">
+
       <!-- Full Floral Frame Background -->
       <div class="welcome-bg-frame pointer-events-none"></div>
 
       <!-- Center Content Container -->
-      <div class="relative z-10 max-w-lg w-full mx-auto px-4 sm:px-6 py-6 sm:py-10 my-auto flex flex-col items-center justify-center">
+      <div
+        class="relative z-10 max-w-lg w-full mx-auto px-4 sm:px-6 py-6 sm:py-10 my-auto flex flex-col items-center justify-center">
 
         <!-- Sacred Ganesha & Invocations -->
         <div class="flex flex-col items-center mb-3 sm:mb-4">
@@ -647,33 +668,6 @@
     </section>
 
 
-    <!-- ================= 6. COUNTDOWN SECTION ================= -->
-    <section class="py-14 px-6 bg-[#faf6ee] text-center border-y border-[#c59b27]/30">
-      <div class="max-w-xl mx-auto space-y-4">
-        <span class="kamal-eyebrow !text-[#84651d]">COUNTDOWN TO THE AUSPICIOUS DAY</span>
-        <h3 class="font-heading text-2xl md:text-3xl font-medium text-[#8b3a4a]">11th &amp; 12th December 2026</h3>
-
-        <div class="countdown-grid" id="countdownGrid">
-          <div class="timer-box">
-            <span id="cdDays" class="timer-value">00</span>
-            <span class="timer-label">DAYS</span>
-          </div>
-          <div class="timer-box">
-            <span id="cdHours" class="timer-value">00</span>
-            <span class="timer-label">HOURS</span>
-          </div>
-          <div class="timer-box">
-            <span id="cdMinutes" class="timer-value">00</span>
-            <span class="timer-label">MINUTES</span>
-          </div>
-          <div class="timer-box">
-            <span id="cdSeconds" class="timer-value">00</span>
-            <span class="timer-label">SECONDS</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
 
     <!-- ================= 7. REGARDS & LOVE SECTION (IMAGE 4 REPLICA) ================= -->
     <section id="regards-love" class="relative py-28 md:py-36 px-6 bg-[#fdf9f0] overflow-hidden text-center">
@@ -821,7 +815,7 @@
   <!-- Toast Notification -->
   <div id="toastNotification" class="toast-popup"></div>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=2026_reveal"></script>
 </body>
 
 </html>

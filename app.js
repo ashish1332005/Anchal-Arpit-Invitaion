@@ -191,6 +191,7 @@ function initScratchCard() {
   const ctx = canvas.getContext('2d');
   let isDrawing = false;
   let isRevealed = false;
+  let scratchPointsCount = 0;
 
   let width = container.clientWidth || 340;
   let height = container.clientHeight || 340;
@@ -251,11 +252,49 @@ function initScratchCard() {
     };
   }
 
+  function revealCard() {
+    if (isRevealed) return;
+    isRevealed = true;
+
+    // Fade out scratch cover smoothly
+    canvas.style.transition = 'opacity 0.6s ease';
+    canvas.style.opacity = '0';
+    setTimeout(() => {
+      canvas.style.pointerEvents = 'none';
+      canvas.style.display = 'none';
+    }, 600);
+
+    // Reveal Countdown Timer with smooth animation
+    const countdownWrapper = document.getElementById('heartCountdownWrapper');
+    if (countdownWrapper) {
+      countdownWrapper.classList.remove('countdown-hidden');
+      countdownWrapper.classList.add('countdown-revealed');
+      countdownWrapper.style.display = 'block';
+    }
+
+    // Celebration Confetti
+    if (typeof confetti === 'function') {
+      confetti({
+        particleCount: 75,
+        spread: 65,
+        origin: { y: 0.6 }
+      });
+    }
+    showToast('Dates Revealed! 🌸 11 & 12 December 2026');
+  }
+
   function scratch(pos) {
     ctx.globalCompositeOperation = 'destination-out';
     ctx.beginPath();
     ctx.arc(pos.x, pos.y, 28, 0, Math.PI * 2, false);
     ctx.fill();
+
+    scratchPointsCount++;
+    if (scratchPointsCount >= 6) {
+      revealCard();
+      return;
+    }
+
     checkScratchPercent();
   }
 
@@ -271,25 +310,13 @@ function initScratchCard() {
         if (data[i] === 0) clearPixels += 4;
       }
 
-      if (clearPixels / totalPixels > 0.4) {
-        isRevealed = true;
-        canvas.style.transition = 'opacity 0.6s ease';
-        canvas.style.opacity = '0';
-        setTimeout(() => {
-          canvas.style.pointerEvents = 'none';
-        }, 600);
-
-        if (typeof confetti === 'function') {
-          confetti({
-            particleCount: 70,
-            spread: 60,
-            origin: { y: 0.6 }
-          });
-        }
-        showToast('Dates Revealed! 🌸 11 & 12 December 2026');
+      if (clearPixels / totalPixels > 0.15) {
+        revealCard();
       }
     } catch (e) {
-      console.log('Scratch percent check note:', e);
+      if (scratchPointsCount >= 4) {
+        revealCard();
+      }
     }
   }
 
@@ -314,12 +341,22 @@ function initScratchCard() {
 
   canvas.addEventListener('touchend', () => {
     isDrawing = false;
+    if (scratchPointsCount >= 3) {
+      revealCard();
+    }
   });
 
   canvas.addEventListener('touchmove', (e) => {
     if (!isDrawing) return;
     scratch(getPosition(e));
   }, { passive: true });
+
+  canvas.addEventListener('click', () => {
+    scratchPointsCount += 3;
+    if (scratchPointsCount >= 3) {
+      revealCard();
+    }
+  });
 }
 
 /* ===================================================================

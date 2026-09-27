@@ -742,38 +742,91 @@ html, body {
 
 
 /* ================= 5. COUNTDOWN GRID ================= */
+.countdown-wrapper {
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), max-height 0.7s ease, margin-top 0.7s ease;
+}
+
+.countdown-hidden {
+  opacity: 0 !important;
+  transform: translateY(18px) scale(0.92) !important;
+  pointer-events: none !important;
+  max-height: 0 !important;
+  margin-top: 0 !important;
+  overflow: hidden !important;
+}
+
+.countdown-revealed {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  pointer-events: auto !important;
+  max-height: 140px !important;
+  animation: gentleCountdownPop 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes gentleCountdownPop {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.92);
+  }
+  70% {
+    transform: translateY(-2px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .countdown-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  max-width: 360px;
-  margin: 16px auto 0;
+  gap: 6px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .countdown-grid {
+    gap: 8px;
+    max-width: 340px;
+  }
 }
 
 .timer-box {
-  background: #fdfbf7;
-  border: 1px solid rgba(197, 155, 39, 0.4);
+  background: rgba(255, 253, 248, 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(197, 155, 39, 0.45);
+  box-shadow: 0 4px 12px rgba(139, 58, 74, 0.07);
   border-radius: 8px;
-  padding: 10px 4px;
+  padding: 6px 3px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.timer-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(139, 58, 74, 0.12);
+  border-color: rgba(197, 155, 39, 0.7);
 }
 
 .timer-value {
-  font-family: 'Cinzel', 'Marcellus', serif;
-  font-size: clamp(20px, 5vw, 28px);
-  font-weight: 600;
+  font-family: 'Cinzel', 'Playfair Display', serif;
+  font-size: clamp(17px, 4.2vw, 22px);
+  font-weight: 700;
   color: var(--wed-accent-deep);
-  line-height: 1;
+  line-height: 1.1;
 }
 
 .timer-label {
   font-family: 'Marcellus', 'Montserrat', sans-serif;
-  font-size: 9px;
-  letter-spacing: 0.15em;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
   color: var(--wed-gold-text);
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 
