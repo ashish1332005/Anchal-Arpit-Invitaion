@@ -573,6 +573,35 @@ html, body {
     0 22px 50px -18px rgba(31, 40, 24, 0.45);
 }
 
+.date-section-header {
+  text-align: center;
+  margin: 28px 0 16px;
+  position: relative;
+}
+
+.date-header-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #8b3a4a, #84651d);
+  color: #fffdf7;
+  font-family: 'Cinzel', 'Marcellus', serif;
+  font-size: clamp(11px, 3.2vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  padding: 6px 18px;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px rgba(139, 58, 74, 0.25);
+  border: 1px solid rgba(197, 155, 39, 0.6);
+}
+
+.date-header-sub {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(13px, 3.5vw, 15px);
+  font-style: italic;
+  color: var(--wed-ink-soft);
+  margin-top: 6px;
+  letter-spacing: 0.05em;
+}
+
 .event-card-title {
   font-family: 'Great Vibes', 'Alex Brush', cursive;
   font-size: clamp(38px, 9vw, 54px);
