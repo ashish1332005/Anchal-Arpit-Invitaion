@@ -200,23 +200,22 @@ function initPetalsLayer() {
 
   const petalImages = [
     'assets/falling-daisy-DWyrh5i3.png',
-    'assets/falling-rose-petal-CzrX2ZBd.png',
-    'assets/kamal-kunj/art/divider-flourish.webp'
+    'assets/falling-rose-petal-CzrX2ZBd.png'
   ];
 
-  const totalPetals = 16;
+  const totalPetals = 7; // Gentle, subtle petal fall as requested
 
   for (let i = 0; i < totalPetals; i++) {
     const el = document.createElement('div');
     el.className = 'floating-petal';
 
     const imgSrc = petalImages[i % 2];
-    const size = Math.floor(Math.random() * 18) + 14;
-    const left = Math.random() * 96;
-    const duration = Math.random() * 8 + 7;
-    const delay = Math.random() * 8;
+    const size = Math.floor(Math.random() * 14) + 12;
+    const left = Math.random() * 92 + 4;
+    const duration = Math.random() * 9 + 9;
+    const delay = Math.random() * 7;
 
-    el.innerHTML = `<img src="${imgSrc}" style="width: ${size}px; height: auto; opacity: 0.75;" />`;
+    el.innerHTML = `<img src="${imgSrc}" style="width: ${size}px; height: auto; opacity: 0.65;" />`;
     el.style.left = `${left}%`;
     el.style.animationDuration = `${duration}s`;
     el.style.animationDelay = `${delay}s`;
@@ -445,6 +444,7 @@ function initRsvpModal() {
   const modal = document.getElementById('rsvpModal');
   const openFloatingBtn = document.getElementById('floatingRsvpBtn');
   const openCardBtn = document.getElementById('cardRsvpTriggerBtn');
+  const openSectionBtn = document.getElementById('openRsvpBtn');
   const closeBtn = document.getElementById('closeRsvpModalBtn');
   const form = document.getElementById('rsvpForm');
 
@@ -462,6 +462,7 @@ function initRsvpModal() {
 
   if (openFloatingBtn) openFloatingBtn.addEventListener('click', openModal);
   if (openCardBtn) openCardBtn.addEventListener('click', openModal);
+  if (openSectionBtn) openSectionBtn.addEventListener('click', openModal);
   if (closeBtn) closeBtn.addEventListener('click', closeModal);
 
   if (modal) {
@@ -491,7 +492,7 @@ function initRsvpModal() {
       }
 
       // Format WhatsApp Message
-      const message = `*Wedding RSVP — Aanchal & Arpit*%0A` +
+      const message = `*Wedding RSVP — Anchal & Arpit*%0A` +
         `━━━━━━━━━━━━━━━━━━%0A` +
         `*Guest Name:* ${encodeURIComponent(guestName)}%0A` +
         `*Status:* ${encodeURIComponent(attendance)}%0A` +
@@ -576,7 +577,7 @@ function initSocialShare() {
 
   if (waBtn) {
     waBtn.addEventListener('click', () => {
-      const text = `🌸 *Wedding Invitation: Aanchal & Arpit* 🌸%0A%0AWe cordially invite you to celebrate with us on 11th & 12th December 2026 at Gloria Inn, Bhilwara.%0A%0AView the invitation card here:%0A${window.location.href}`;
+      const text = `🌸 *Wedding Invitation: Anchal & Arpit* 🌸%0A%0AWe cordially invite you to celebrate with us on 11th & 12th December 2026 at Gloria Inn, Bhilwara.%0A%0AView the invitation card here:%0A${window.location.href}`;
       window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
     });
   }
