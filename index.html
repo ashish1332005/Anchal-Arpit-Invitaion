@@ -59,7 +59,7 @@
   </script>
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=2026_cap_v35" />
+  <link rel="stylesheet" href="styles.css?v=2026_harmonious_v40" />
 
   <!-- Preload Critical Media Assets -->
   <link rel="preload" href="assets/env.mp4?v=2026_new" as="video" type="video/mp4" />
@@ -149,7 +149,7 @@
 
       <!-- Swipe Down Button -->
       <div id="scrollToScratchBtn"
-        class="relative z-10 pb-6 cursor-pointer flex flex-col items-center gap-1.5 transition-transform hover:scale-105 group">
+        class="relative z-20 pb-6 cursor-pointer flex flex-col items-center gap-1.5 transition-transform hover:scale-105 group">
         <div class="px-4 py-1.5 rounded-full bg-[#8b3a4a]/90 border border-[#c59b27] shadow-lg flex items-center gap-2 backdrop-blur-sm">
           <span class="text-[12px] sm:text-[13px] tracking-[0.2em] uppercase font-label font-bold text-[#fdf9f0]">
             ✨ Swipe Down ✨
@@ -158,18 +158,21 @@
         </div>
       </div>
 
+      <!-- Soft Bottom Watercolor Blend into Section 2 -->
+      <div class="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-[#fdf9f0] via-[#fdf9f0]/60 to-transparent pointer-events-none z-10"></div>
+
     </section>
 
 
     <!-- ================= 2. SCRATCH CARD SECTION (INTERACTIVE HEART IN FLORAL LANDSCAPE BANNER) ================= -->
     <section id="scratch-card"
-      class="scratch-section relative w-full flex flex-col justify-center items-center text-center overflow-hidden z-20 pointer-events-auto">
+      class="scratch-section relative w-full flex flex-col justify-center items-center text-center overflow-visible z-20 pointer-events-auto">
 
       <!-- The Grand Floral Wreath Card (Spacious full landscape banner layout) -->
       <div class="grand-wreath-container relative flex flex-col items-center justify-center mx-auto">
         
-        <!-- High Quality Gold-Bordered Floral Artwork Background with Seamless Blush Fill -->
-        <img src="assets/scratch-banner-frame-full.jpg?v=30" alt="Floral Gold Border Frame"
+        <!-- Transparent Floral Artwork Background Floating Seamlessly on Page Ivory Background -->
+        <img src="assets/scratch-banner-frame-clean.png?v=40" alt="Floral Gold Border Frame"
           class="grand-wreath-bg pointer-events-none select-none" />
 
         <!-- Inner Content: Centered Interactive Heart Scratch Card -->
@@ -249,6 +252,9 @@
       <!-- Full Floral Frame Background (Directly set to new uploaded frame) -->
       <div class="absolute inset-0 w-full h-full bg-cover bg-center pointer-events-none"
         style="background-image: url('assets/frame-floral-vertical.jpg?v=2'); opacity: 0.98;"></div>
+
+      <!-- Soft Top Watercolor Blend into Section 2 -->
+      <div class="absolute top-0 inset-x-0 h-28 bg-gradient-to-b from-[#fdf9f0] via-[#fdf9f0]/60 to-transparent pointer-events-none z-0"></div>
 
       <!-- Center Content Container inside Floral Border -->
       <div
