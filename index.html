@@ -59,7 +59,7 @@
   </script>
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=2026_crisp_artwork_v50" />
+  <link rel="stylesheet" href="styles.css?v=2026_crisp_artwork_v52" />
 
   <!-- Preload Critical Media Assets -->
   <link rel="preload" href="assets/env.mp4?v=2026_new" as="video" type="video/mp4" />
@@ -147,10 +147,10 @@
         </div>
       </div>
 
-      <!-- Swipe Down Button -->
+      <!-- Swipe Down Button (Positioned higher up inside open space) -->
       <div id="scrollToScratchBtn"
-        class="relative z-20 pb-6 cursor-pointer flex flex-col items-center gap-1.5 transition-transform hover:scale-105 group">
-        <div class="px-4 py-1.5 rounded-full bg-[#8b3a4a]/90 border border-[#c59b27] shadow-lg flex items-center gap-2 backdrop-blur-sm">
+        class="relative z-20 pb-20 sm:pb-28 mb-8 sm:mb-12 cursor-pointer flex flex-col items-center gap-1.5 transition-transform hover:scale-105 group">
+        <div class="px-5 py-2 rounded-full bg-[#8b3a4a]/95 border-2 border-[#c59b27] shadow-xl flex items-center gap-2 backdrop-blur-md">
           <span class="text-[12px] sm:text-[13px] tracking-[0.2em] uppercase font-label font-bold text-[#fdf9f0]">
             ✨ Swipe Down ✨
           </span>
@@ -161,81 +161,78 @@
     </section>
 
 
-    <!-- ================= 2. SCRATCH CARD SECTION (INTERACTIVE HEART IN FLORAL LANDSCAPE BANNER) ================= -->
+    <!-- ================= 2. SCRATCH CARD SECTION (INTERACTIVE HEART & COUNTDOWN) ================= -->
     <section id="scratch-card"
-      class="scratch-section relative w-full flex flex-col justify-center items-center text-center overflow-hidden z-20 pointer-events-auto">
+      class="scratch-section relative w-full flex flex-col justify-center items-center text-center overflow-hidden z-20 pointer-events-auto bg-[#fdf9f0] py-14 sm:py-20 px-4">
 
-      <!-- The Grand Floral Wreath Card (Spacious full landscape banner layout) -->
-      <div class="grand-wreath-container relative flex flex-col items-center justify-center mx-auto">
-        
-        <!-- High Quality Gold-Bordered Floral Artwork Background with Seamless Blush Fill -->
-        <img src="assets/scratch-banner-frame-full.jpg?v=50" alt="Floral Gold Border Frame"
-          class="grand-wreath-bg pointer-events-none select-none" />
+      <!-- Corner Floral Watercolor Bouquets (Properly positioned within section boundaries so they are never cut off) -->
+      <img src="assets/floral-top-right-CS2uPFt2.png" alt=""
+        class="pointer-events-none select-none absolute top-0 right-0 w-32 sm:w-44 md:w-52 z-0 opacity-95 object-contain" />
+      <img src="assets/floral-bottom-left-_kTL5SSX.png" alt=""
+        class="pointer-events-none select-none absolute bottom-0 left-0 w-32 sm:w-44 md:w-52 z-0 opacity-95 object-contain" />
 
-        <!-- Inner Content: Centered Interactive Heart Scratch Card -->
-        <div class="relative z-10 w-full flex flex-col items-center justify-center my-auto">
+      <!-- Inner Content: Centered Interactive Heart Scratch Card -->
+      <div class="relative z-10 w-full max-w-md mx-auto flex flex-col items-center justify-center my-auto">
 
-          <!-- Interactive Heart Scratch Card (Positioned in Center with Crystal Clean Transparency) -->
-          <div class="flex justify-center w-full py-1">
-            <div id="scratchCardContainer"
-              class="scratch-card-wrapper relative z-10 w-[180px] h-[165px] sm:w-[220px] sm:h-[200px] md:w-[250px] md:h-[230px]">
+        <!-- Interactive Heart Scratch Card -->
+        <div class="flex justify-center w-full py-2">
+          <div id="scratchCardContainer"
+            class="scratch-card-wrapper relative z-10 w-[190px] h-[175px] sm:w-[220px] sm:h-[200px] md:w-[250px] md:h-[230px]">
 
-              <!-- Revealed Date Card (Underneath the Scratch Canvas) -->
-              <div id="revealedDateCard" class="absolute inset-0 flex items-center justify-center z-0">
-                <svg viewBox="0 0 323 297" class="w-full h-full drop-shadow-[0_10px_24px_rgba(141,110,99,0.22)]">
-                  <defs>
-                    <radialGradient id="cardGoldGlow" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stop-color="#fffdfa" />
-                      <stop offset="100%" stop-color="#f8efe0" />
-                    </radialGradient>
-                  </defs>
-                  <path
-                    d="M 161.5,80 C 161.5,18 40,18 40,110 C 40,172 121,215 161.5,265 C 202,215 283,172 283,110 C 283,18 161.5,18 161.5,80 Z"
-                    fill="url(#cardGoldGlow)" stroke="#c59b27" stroke-width="3" />
+            <!-- Revealed Date Card (Underneath the Scratch Canvas) -->
+            <div id="revealedDateCard" class="absolute inset-0 flex items-center justify-center z-0">
+              <svg viewBox="0 0 323 297" class="w-full h-full drop-shadow-[0_10px_24px_rgba(141,110,99,0.22)]">
+                <defs>
+                  <radialGradient id="cardGoldGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#fffdfa" />
+                    <stop offset="100%" stop-color="#f8efe0" />
+                  </radialGradient>
+                </defs>
+                <path
+                  d="M 161.5,80 C 161.5,18 40,18 40,110 C 40,172 121,215 161.5,265 C 202,215 283,172 283,110 C 283,18 161.5,18 161.5,80 Z"
+                  fill="url(#cardGoldGlow)" stroke="#c59b27" stroke-width="3" />
 
-                  <text x="161.5" y="125" text-anchor="middle" class="fill-[#8b3a4a]">
-                    <tspan font-family="'Cinzel', 'Playfair Display', serif" font-size="22" font-weight="700">12 December, 2026</tspan>
-                  </text>
-                  <text x="161.5" y="152" text-anchor="middle" fill="#84651d" font-family="'Marcellus', sans-serif"
-                    font-size="12" font-weight="700" letter-spacing="3">
-                    SATURDAY
-                  </text>
-                  <text x="161.5" y="172" text-anchor="middle" fill="#556b4a" font-family="'Marcellus', sans-serif"
-                    font-size="10.5" font-weight="600" letter-spacing="1.5">
-                    GLORIA INN • BHILWARA
-                  </text>
-                </svg>
-              </div>
+                <text x="161.5" y="125" text-anchor="middle" class="fill-[#8b3a4a]">
+                  <tspan font-family="'Cinzel', 'Playfair Display', serif" font-size="22" font-weight="700">12 December, 2026</tspan>
+                </text>
+                <text x="161.5" y="152" text-anchor="middle" fill="#84651d" font-family="'Marcellus', sans-serif"
+                  font-size="12" font-weight="700" letter-spacing="3">
+                  SATURDAY
+                </text>
+                <text x="161.5" y="172" text-anchor="middle" fill="#556b4a" font-family="'Marcellus', sans-serif"
+                  font-size="10.5" font-weight="600" letter-spacing="1.5">
+                  GLORIA INN • BHILWARA
+                </text>
+              </svg>
+            </div>
 
-              <!-- Interactive Scratch Canvas Layer -->
-              <canvas id="scratchCanvas"
-                class="scratch-canvas absolute inset-0 z-10 w-full h-full cursor-pointer"></canvas>
+            <!-- Interactive Scratch Canvas Layer -->
+            <canvas id="scratchCanvas"
+              class="scratch-canvas absolute inset-0 z-10 w-full h-full cursor-pointer"></canvas>
+          </div>
+        </div>
+
+        <!-- Countdown Timer Under Heart (Reveals after Scratching) -->
+        <div id="heartCountdownWrapper"
+          class="countdown-wrapper mt-3 sm:mt-4 w-full max-w-[290px] sm:max-w-[340px] mx-auto countdown-hidden">
+          <div class="countdown-grid" id="countdownGrid">
+            <div class="timer-box">
+              <span id="cdDays" class="timer-value">00</span>
+              <span class="timer-label">DAYS</span>
+            </div>
+            <div class="timer-box">
+              <span id="cdHours" class="timer-value">00</span>
+              <span class="timer-label">HOURS</span>
+            </div>
+            <div class="timer-box">
+              <span id="cdMinutes" class="timer-value">00</span>
+              <span class="timer-label">MINUTES</span>
+            </div>
+            <div class="timer-box">
+              <span id="cdSeconds" class="timer-value">00</span>
+              <span class="timer-label">SECONDS</span>
             </div>
           </div>
-
-          <!-- Countdown Timer Under Heart (Reveals after Scratching) -->
-          <div id="heartCountdownWrapper"
-            class="countdown-wrapper mt-2 sm:mt-3 w-full max-w-[280px] sm:max-w-[320px] mx-auto countdown-hidden">
-            <div class="countdown-grid" id="countdownGrid">
-              <div class="timer-box">
-                <span id="cdDays" class="timer-value">00</span>
-                <span class="timer-label">DAYS</span>
-              </div>
-              <div class="timer-box">
-                <span id="cdHours" class="timer-value">00</span>
-                <span class="timer-label">HOURS</span>
-              </div>
-              <div class="timer-box">
-                <span id="cdMinutes" class="timer-value">00</span>
-                <span class="timer-label">MINUTES</span>
-              </div>
-              <div class="timer-box">
-                <span id="cdSeconds" class="timer-value">00</span>
-                <span class="timer-label">SECONDS</span>
-              </div>
-            </div>
-          </div>
-
         </div>
 
       </div>
@@ -271,33 +268,32 @@
         </div>
 
         <!-- Bride & Groom Details with Lineage -->
-        <div class="space-y-3 sm:space-y-4 my-2 w-full">
+        <div class="space-y-4 my-2 w-full">
 
           <!-- Bride Name & Lineage -->
           <div>
             <h3 class="bride-groom-name">
-              <span class="cap-initial">A</span>nchal
+              Anchal
             </h3>
-            <p class="font-body text-xs sm:text-sm text-[#556b4a] mt-1 leading-relaxed font-semibold">
-              <span class="font-bold text-[#84651d]">G/d/o</span> Late Smt. Janki Devi &amp; Late Shri Shiv Lal ji Chechani<br />
-              <span class="font-bold text-[#84651d]">D/o</span> Smt. Leela Devi &amp; Shri Dinesh Kumar Chechani
+            <p class="lineage-text">
+              <span class="lineage-tag">G/d/o</span> Late Smt. Janki Devi &amp; Late Shri Shiv Lal ji Chechani<br />
+              <span class="lineage-tag">D/o</span> Smt. Leela Devi &amp; Shri Dinesh Kumar Chechani
             </p>
           </div>
 
           <!-- With -->
-          <p class="font-script text-3xl sm:text-4xl text-[#84651d] my-1 font-semibold"
-            style="font-family: 'Great Vibes', 'Alex Brush', cursive !important;">
+          <p class="font-script text-3xl sm:text-4xl text-[#84651d] my-1 font-semibold">
             with
           </p>
 
           <!-- Groom Name & Lineage -->
           <div>
             <h3 class="bride-groom-name">
-              <span class="cap-initial">A</span>rpit
+              Arpit
             </h3>
-            <p class="font-body text-xs sm:text-sm text-[#556b4a] mt-1 leading-relaxed font-semibold">
-              <span class="font-bold text-[#84651d]">G/s/o</span> Smt. Ratan Devi Kabra &amp; Shri Ramrai ji Kabra<br />
-              <span class="font-bold text-[#84651d]">S/o</span> Smt. Rinku ji Kabra &amp; Shri Sanjay ji Kabra
+            <p class="lineage-text">
+              <span class="lineage-tag">G/s/o</span> Smt. Ratan Devi Kabra &amp; Shri Ramrai ji Kabra<br />
+              <span class="lineage-tag">S/o</span> Smt. Rinku ji Kabra &amp; Shri Sanjay ji Kabra
             </p>
           </div>
         </div>
@@ -544,11 +540,17 @@
 
       <div class="max-w-xl w-full mx-auto relative z-10 py-4 sm:py-8">
 
-        <!-- Floral Watercolor Corner Bouquets (Exact match to screenshot) -->
+        <!-- Floral Watercolor Corner Bouquets (All 4 corners framed with rotated/flipped florals) -->
         <img src="assets/floral-top-right-CS2uPFt2.png" alt=""
           class="pointer-events-none select-none absolute -top-8 -right-6 w-44 sm:w-52 md:w-60 z-0 opacity-90" />
+        <img src="assets/floral-top-right-CS2uPFt2.png" alt=""
+          class="pointer-events-none select-none absolute -top-8 -left-6 w-44 sm:w-52 md:w-60 z-0 opacity-90"
+          style="transform: scaleX(-1);" />
         <img src="assets/floral-bottom-left-_kTL5SSX.png" alt=""
           class="pointer-events-none select-none absolute -bottom-10 -left-6 w-44 sm:w-52 md:w-60 z-0 opacity-90" />
+        <img src="assets/floral-bottom-left-_kTL5SSX.png" alt=""
+          class="pointer-events-none select-none absolute -bottom-10 -right-6 w-44 sm:w-52 md:w-60 z-0 opacity-90"
+          style="transform: scaleX(-1);" />
 
         <!-- Main Content inside the Floral Frame -->
         <div class="relative z-10 space-y-5 px-4">
@@ -574,13 +576,16 @@
             </div>
           </div>
 
-          <!-- RSVP & Regards (Clean English without Hindi script heading) -->
-          <div class="space-y-1">
+          <!-- RSVP & Regards -->
+          <div class="space-y-1.5">
             <h3 class="font-heading text-base sm:text-lg text-[#8b3a4a] font-bold tracking-wider uppercase">
               WITH BEST COMPLIMENTS / RSVP
             </h3>
             <p class="font-heading text-xl sm:text-2xl text-[#233924] font-bold tracking-wide">
               Chechani Family
+            </p>
+            <p class="font-heading text-base sm:text-lg font-bold text-[#84651d] tracking-wide">
+              Dinesh Kumar &amp; Abhishek Chechani
             </p>
             <p class="font-body italic text-base sm:text-lg text-[#556b4a] max-w-md mx-auto pt-1">
               With love in our hearts, we await your gracious presence
