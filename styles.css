@@ -320,10 +320,10 @@ html, body {
 /* ================= 2. SCRATCH CARD SECTION ================= */
 .scratch-section {
   position: relative;
-  min-height: 480px;
+  min-height: 520px;
   width: 100%;
   margin: 0;
-  padding: 60px 16px 68px;
+  padding: 64px 16px 72px;
   background-color: #fdf9f0;
   display: flex;
   flex-direction: column;
@@ -334,9 +334,45 @@ html, body {
 
 @media (min-width: 640px) {
   .scratch-section {
-    min-height: 540px;
-    padding: 72px 24px 80px;
+    min-height: 580px;
+    padding: 80px 24px 88px;
   }
+}
+
+.scratch-ambient-aura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(92vw, 560px);
+  height: min(92vw, 560px);
+  background: radial-gradient(circle, rgba(254, 226, 232, 0.7) 0%, rgba(254, 244, 228, 0.45) 50%, rgba(253, 249, 240, 0) 75%);
+  border-radius: 50%;
+  filter: blur(28px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.scratch-corner-floral {
+  filter: drop-shadow(0 8px 24px rgba(139, 40, 60, 0.16));
+  transition: transform 0.4s ease;
+}
+
+.scratch-royal-card {
+  position: relative;
+  background: linear-gradient(165deg, rgba(255, 255, 252, 0.9) 0%, rgba(254, 249, 242, 0.82) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(197, 155, 39, 0.38);
+  box-shadow: 0 20px 48px -12px rgba(139, 40, 60, 0.14),
+              0 0 0 1px rgba(255, 255, 255, 0.9) inset;
+  border-radius: 28px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scratch-royal-card:hover {
+  box-shadow: 0 24px 54px -12px rgba(139, 40, 60, 0.18),
+              0 0 0 1px rgba(255, 255, 255, 0.95) inset;
 }
 
 .scratch-card-wrapper {
@@ -344,12 +380,12 @@ html, body {
   touch-action: none;
   position: relative;
   z-index: 5;
-  filter: drop-shadow(0 10px 22px rgba(180, 110, 120, 0.28));
+  filter: drop-shadow(0 14px 28px rgba(180, 110, 120, 0.32));
   transition: transform 0.3s ease;
 }
 
 .scratch-card-wrapper:hover {
-  transform: scale(1.02);
+  transform: scale(1.025);
 }
 
 .scratch-canvas {
@@ -830,13 +866,13 @@ html, body {
 }
 
 .timer-box {
-  background: rgba(255, 253, 248, 0.88);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(197, 155, 39, 0.45);
-  box-shadow: 0 4px 12px rgba(139, 58, 74, 0.07);
-  border-radius: 8px;
-  padding: 6px 3px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(253, 246, 236, 0.9) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(197, 155, 39, 0.45);
+  box-shadow: 0 4px 14px rgba(139, 58, 74, 0.08), inset 0 1px 0 #ffffff;
+  border-radius: 10px;
+  padding: 8px 4px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -845,7 +881,7 @@ html, body {
 
 .timer-box:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(139, 58, 74, 0.12);
+  box-shadow: 0 6px 16px rgba(139, 58, 74, 0.14);
   border-color: rgba(197, 155, 39, 0.7);
 }
 

@@ -59,7 +59,7 @@
   </script>
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=2026_crisp_artwork_v53" />
+  <link rel="stylesheet" href="styles.css?v=2026_crisp_artwork_v54" />
 
   <!-- Preload Critical Media Assets -->
   <link rel="preload" href="assets/env.mp4?v=2026_new" as="video" type="video/mp4" />
@@ -162,60 +162,120 @@
 
 
     <!-- ================= 2. SCRATCH CARD SECTION (INTERACTIVE HEART & COUNTDOWN) ================= -->
+    <!-- ================= 2. SCRATCH CARD SECTION (INTERACTIVE HEART & COUNTDOWN) ================= -->
     <section id="scratch-card"
       class="scratch-section relative w-full flex flex-col justify-center items-center text-center overflow-hidden z-20 pointer-events-auto bg-[#fdf9f0] py-14 sm:py-20 px-4">
 
-      <!-- Corner Floral Watercolor Bouquets (Enlarged & Prominent, Properly Inset) -->
-      <img src="assets/floral-top-right-CS2uPFt2.png" alt=""
-        class="pointer-events-none select-none absolute top-0 right-0 w-44 sm:w-56 md:w-68 lg:w-72 z-0 opacity-95 object-contain" />
-      <img src="assets/floral-bottom-left-_kTL5SSX.png" alt=""
-        class="pointer-events-none select-none absolute bottom-0 left-0 w-44 sm:w-56 md:w-68 lg:w-72 z-0 opacity-95 object-contain" />
+      <!-- Ambient Romantic Background Aura (Gives depth, eliminates dull flatness) -->
+      <div class="scratch-ambient-aura" aria-hidden="true"></div>
 
-      <!-- Inner Content: Centered Interactive Heart Scratch Card -->
-      <div class="relative z-10 w-full max-w-md mx-auto flex flex-col items-center justify-center my-auto">
+      <!-- Corner Floral Watercolor Bouquets (Enlarged & Prominent with Soft Shadow) -->
+      <img src="assets/floral-top-right-CS2uPFt2.png" alt=""
+        class="scratch-corner-floral pointer-events-none select-none absolute top-0 right-0 w-44 sm:w-56 md:w-68 lg:w-72 z-0 opacity-95 object-contain" />
+      <img src="assets/floral-bottom-left-_kTL5SSX.png" alt=""
+        class="scratch-corner-floral pointer-events-none select-none absolute bottom-0 left-0 w-44 sm:w-56 md:w-68 lg:w-72 z-0 opacity-95 object-contain" />
+
+      <!-- Inner Royal Luxury Card (Frames heart & countdown, creating perfect balance) -->
+      <div class="scratch-royal-card relative z-10 w-full max-w-lg mx-auto flex flex-col items-center justify-center p-6 sm:p-9 my-auto">
 
         <!-- Header / Text above Heart -->
-        <div class="mb-4 sm:mb-5 text-center">
-          <span class="kamal-eyebrow !text-[#84651d] text-[11px] sm:text-xs tracking-[0.24em] font-bold">
+        <div class="mb-4 sm:mb-6 text-center">
+          <span class="kamal-eyebrow !text-[#84651d] text-[11px] sm:text-xs tracking-[0.25em] font-bold">
             ✨ SAVE THE DATE ✨
           </span>
-          <h2 class="font-heading text-2xl sm:text-3xl text-[#8b3a4a] font-bold tracking-wide">
+          <h2 class="font-heading text-2xl sm:text-3xl md:text-4xl text-[#8b3a4a] font-bold tracking-wide">
             A Special Reveal
           </h2>
-          <p class="font-body italic text-xs sm:text-sm text-[#556b4a] mt-0.5">
+          <div class="flex items-center justify-center gap-2 my-1.5">
+            <span class="w-8 sm:w-12 h-[1px] bg-[#c59b27]/50"></span>
+            <span class="text-[#c59b27] text-xs">✤</span>
+            <span class="w-8 sm:w-12 h-[1px] bg-[#c59b27]/50"></span>
+          </div>
+          <p class="font-body italic text-xs sm:text-sm text-[#556b4a]">
             Scratch the golden heart to reveal our wedding date
           </p>
         </div>
 
-        <!-- Interactive Heart Scratch Card -->
+        <!-- Interactive Heart Scratch Card Container -->
         <div class="flex justify-center w-full py-1">
           <div id="scratchCardContainer"
-            class="scratch-card-wrapper relative z-10 w-[190px] h-[175px] sm:w-[220px] sm:h-[200px] md:w-[250px] md:h-[230px]">
+            class="scratch-card-wrapper relative z-10 w-[220px] h-[200px] sm:w-[250px] sm:h-[230px] md:w-[275px] md:h-[250px]">
 
-            <!-- Revealed Date Card (Underneath the Scratch Canvas) -->
+            <!-- Revealed Date Card (Underneath Scratch Canvas - Royal Gold Foil & Pearl Blush Design) -->
             <div id="revealedDateCard" class="absolute inset-0 flex items-center justify-center z-0">
-              <svg viewBox="0 0 323 297" class="w-full h-full drop-shadow-[0_10px_24px_rgba(141,110,99,0.22)]">
+              <svg viewBox="0 0 340 310" class="w-full h-full filter drop-shadow-[0_14px_30px_rgba(139,30,63,0.24)]">
                 <defs>
-                  <radialGradient id="cardGoldGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stop-color="#fffdfa" />
-                    <stop offset="100%" stop-color="#f8efe0" />
-                  </radialGradient>
-                </defs>
-                <path
-                  d="M 161.5,80 C 161.5,18 40,18 40,110 C 40,172 121,215 161.5,265 C 202,215 283,172 283,110 C 283,18 161.5,18 161.5,80 Z"
-                  fill="url(#cardGoldGlow)" stroke="#c59b27" stroke-width="3" />
+                  <!-- 3D Luxury Gold Metallic Gradient -->
+                  <linearGradient id="goldMetallicGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#b8860b" />
+                    <stop offset="25%" stop-color="#ffd700" />
+                    <stop offset="50%" stop-color="#fff8d1" />
+                    <stop offset="75%" stop-color="#d4af37" />
+                    <stop offset="100%" stop-color="#8a6217" />
+                  </linearGradient>
 
-                <text x="161.5" y="125" text-anchor="middle" class="fill-[#8b3a4a]">
-                  <tspan font-family="'Cinzel', 'Playfair Display', serif" font-size="22" font-weight="700">12 December, 2026</tspan>
+                  <!-- Pearlescent Soft Romantic Blush Fill -->
+                  <radialGradient id="pearlBlushGlow" cx="50%" cy="38%" r="62%">
+                    <stop offset="0%" stop-color="#ffffff" />
+                    <stop offset="40%" stop-color="#fffdfa" />
+                    <stop offset="80%" stop-color="#fdefef" />
+                    <stop offset="100%" stop-color="#f8dde2" />
+                  </radialGradient>
+
+                  <!-- Subtle Inset Depth Shadow -->
+                  <filter id="heartShadowEffect" x="-10%" y="-10%" width="120%" height="120%">
+                    <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#8b1e3f" flood-opacity="0.12"/>
+                  </filter>
+                </defs>
+
+                <!-- Outer Gold Metallic Border Rim -->
+                <path
+                  d="M 170,82 C 170,16 42,16 42,112 C 42,176 128,222 170,274 C 212,222 298,176 298,112 C 298,16 170,16 170,82 Z"
+                  fill="url(#pearlBlushGlow)" stroke="url(#goldMetallicGradient)" stroke-width="5"
+                  filter="url(#heartShadowEffect)" />
+
+                <!-- Inner Delicate Gold Filigree Ring (Double Rim) -->
+                <path
+                  d="M 170,88 C 170,26 50,26 50,113 C 50,171 130,214 170,263 C 210,214 290,171 290,113 C 290,26 170,26 170,88 Z"
+                  fill="none" stroke="#c59b27" stroke-width="1.3" stroke-dasharray="6 3" opacity="0.75" />
+
+                <!-- Golden Sparkle Stars around Heart -->
+                <g fill="#d4af37">
+                  <path d="M 28 50 Q 28 60 20 60 Q 28 60 28 70 Q 28 60 36 60 Q 28 60 28 50 Z" />
+                  <path d="M 312 45 Q 312 55 304 55 Q 312 55 312 65 Q 312 55 320 55 Q 312 55 312 45 Z" />
+                  <circle cx="35" cy="185" r="2.5" />
+                  <path d="M 306 200 Q 306 208 300 208 Q 306 208 306 216 Q 306 208 312 208 Q 306 208 306 200 Z" />
+                </g>
+
+                <!-- Save Our Date Header -->
+                <text x="170" y="78" text-anchor="middle" fill="#84651d" font-family="'Cinzel', serif" font-size="10.5" font-weight="700" letter-spacing="3.5">
+                  ✦ SAVE OUR DATE ✦
                 </text>
-                <text x="161.5" y="152" text-anchor="middle" fill="#84651d" font-family="'Marcellus', sans-serif"
-                  font-size="12" font-weight="700" letter-spacing="3">
+
+                <!-- Grand Date Typography -->
+                <text x="170" y="125" text-anchor="middle" class="fill-[#8b1e3f]">
+                  <tspan font-family="'Cinzel', 'Playfair Display', serif" font-size="23" font-weight="800" letter-spacing="0.5">12 December, 2026</tspan>
+                </text>
+
+                <!-- Decorative Gold Divider -->
+                <line x1="88" y1="144" x2="145" y2="144" stroke="#c59b27" stroke-width="1.2" opacity="0.8" />
+                <circle cx="170" cy="144" r="3" fill="#84651d" />
+                <line x1="195" y1="144" x2="252" y2="144" stroke="#c59b27" stroke-width="1.2" opacity="0.8" />
+
+                <!-- Saturday -->
+                <text x="170" y="170" text-anchor="middle" fill="#84651d" font-family="'Marcellus', serif"
+                  font-size="13" font-weight="700" letter-spacing="4">
                   SATURDAY
                 </text>
-                <text x="161.5" y="172" text-anchor="middle" fill="#556b4a" font-family="'Marcellus', sans-serif"
-                  font-size="10.5" font-weight="600" letter-spacing="1.5">
+
+                <!-- Venue Location -->
+                <text x="170" y="194" text-anchor="middle" fill="#2d4a2e" font-family="'Marcellus', serif"
+                  font-size="11" font-weight="600" letter-spacing="2">
                   GLORIA INN • BHILWARA
                 </text>
+
+                <!-- Bottom Tiny Heart Accent -->
+                <path d="M 170 216 C 167 212 162 212 162 216 C 162 220 170 225 170 225 C 170 225 178 220 178 216 C 178 212 173 212 170 216 Z" fill="#c59b27" opacity="0.85" />
               </svg>
             </div>
 
@@ -227,7 +287,14 @@
 
         <!-- Countdown Timer Under Heart (Reveals after Scratching) -->
         <div id="heartCountdownWrapper"
-          class="countdown-wrapper mt-3 sm:mt-4 w-full max-w-[290px] sm:max-w-[340px] mx-auto countdown-hidden">
+          class="countdown-wrapper mt-5 w-full max-w-[300px] sm:max-w-[350px] mx-auto countdown-hidden">
+          
+          <div class="text-center mb-2.5">
+            <span class="font-label text-[10px] sm:text-[11px] tracking-[0.24em] text-[#84651d] font-bold uppercase">
+              ⏳ The Countdown Begins ⏳
+            </span>
+          </div>
+
           <div class="countdown-grid" id="countdownGrid">
             <div class="timer-box">
               <span id="cdDays" class="timer-value">00</span>
