@@ -59,7 +59,7 @@
   </script>
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=2026_crisp_artwork_v52" />
+  <link rel="stylesheet" href="styles.css?v=2026_crisp_artwork_v53" />
 
   <!-- Preload Critical Media Assets -->
   <link rel="preload" href="assets/env.mp4?v=2026_new" as="video" type="video/mp4" />
@@ -165,17 +165,30 @@
     <section id="scratch-card"
       class="scratch-section relative w-full flex flex-col justify-center items-center text-center overflow-hidden z-20 pointer-events-auto bg-[#fdf9f0] py-14 sm:py-20 px-4">
 
-      <!-- Corner Floral Watercolor Bouquets (Properly positioned within section boundaries so they are never cut off) -->
+      <!-- Corner Floral Watercolor Bouquets (Enlarged & Prominent, Properly Inset) -->
       <img src="assets/floral-top-right-CS2uPFt2.png" alt=""
-        class="pointer-events-none select-none absolute top-0 right-0 w-32 sm:w-44 md:w-52 z-0 opacity-95 object-contain" />
+        class="pointer-events-none select-none absolute top-0 right-0 w-44 sm:w-56 md:w-68 lg:w-72 z-0 opacity-95 object-contain" />
       <img src="assets/floral-bottom-left-_kTL5SSX.png" alt=""
-        class="pointer-events-none select-none absolute bottom-0 left-0 w-32 sm:w-44 md:w-52 z-0 opacity-95 object-contain" />
+        class="pointer-events-none select-none absolute bottom-0 left-0 w-44 sm:w-56 md:w-68 lg:w-72 z-0 opacity-95 object-contain" />
 
       <!-- Inner Content: Centered Interactive Heart Scratch Card -->
       <div class="relative z-10 w-full max-w-md mx-auto flex flex-col items-center justify-center my-auto">
 
+        <!-- Header / Text above Heart -->
+        <div class="mb-4 sm:mb-5 text-center">
+          <span class="kamal-eyebrow !text-[#84651d] text-[11px] sm:text-xs tracking-[0.24em] font-bold">
+            ✨ SAVE THE DATE ✨
+          </span>
+          <h2 class="font-heading text-2xl sm:text-3xl text-[#8b3a4a] font-bold tracking-wide">
+            A Special Reveal
+          </h2>
+          <p class="font-body italic text-xs sm:text-sm text-[#556b4a] mt-0.5">
+            Scratch the golden heart to reveal our wedding date
+          </p>
+        </div>
+
         <!-- Interactive Heart Scratch Card -->
-        <div class="flex justify-center w-full py-2">
+        <div class="flex justify-center w-full py-1">
           <div id="scratchCardContainer"
             class="scratch-card-wrapper relative z-10 w-[190px] h-[175px] sm:w-[220px] sm:h-[200px] md:w-[250px] md:h-[230px]">
 
