@@ -59,7 +59,7 @@
   </script>
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=2026_luxury_v56" />
+  <link rel="stylesheet" href="styles.css?v=2026_luxury_v58" />
 
   <!-- Preload Critical Media Assets -->
   <link rel="preload" href="assets/env.mp4?v=2026_new" as="video" type="video/mp4" />
@@ -131,22 +131,25 @@
 
     <!-- ================= 1. HERO SECTION (CLEAN EDGE-TO-EDGE BOTANICAL OVAL WITH ONLY COUPLE LOGO) ================= -->
     <section id="hero"
-      class="hero-section relative min-h-screen w-full flex flex-col items-center justify-center text-center overflow-hidden">
+      class="hero-section relative min-h-screen w-full flex flex-col justify-between items-center text-center overflow-hidden py-8 px-4">
 
       <!-- Fullscreen Botanical Frame Background (Clean without any pre-printed logo) -->
       <div class="hero-bg-frame pointer-events-none" style="background-image: url('assets/hero-bg.png');"></div>
 
-      <!-- Center Couple Monogram Logo Perfectly Centered in Oval Frame -->
-      <div class="hero-monogram-container relative z-10 flex flex-col items-center justify-center pointer-events-none">
+      <!-- Top Spacer -->
+      <div class="h-6"></div>
+
+      <!-- Center Couple Monogram Logo ONLY (Original Position) -->
+      <div class="relative z-10 flex flex-col items-center justify-center my-auto">
         <div class="monogram-wrapper">
           <img src="assets/images/couple-logo.png" alt="Anchal & Arpit Monogram Logo"
-            class="w-36 sm:w-48 md:w-56 lg:w-60 h-auto filter drop-shadow-md animate-gentle-pulse select-none pointer-events-none" />
+            class="w-40 sm:w-52 md:w-60 lg:w-64 h-auto filter drop-shadow-lg animate-gentle-pulse select-none pointer-events-none" />
         </div>
       </div>
 
-      <!-- Swipe Down Button (Positioned gracefully at bottom over beach, without overlapping the oval) -->
+      <!-- Swipe Down Button (Positioned down in calm area, properly aligned) -->
       <div id="scrollToScratchBtn"
-        class="hero-swipe-btn absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 z-20 cursor-pointer flex flex-col items-center gap-1.5 transition-transform hover:scale-105 group">
+        class="relative z-20 pb-4 sm:pb-6 mb-2 sm:mb-4 cursor-pointer flex flex-col items-center gap-1.5 transition-transform hover:scale-105 group">
         <div class="px-5 py-2 rounded-full bg-[#8b3a4a]/95 border-2 border-[#c59b27] shadow-xl flex items-center gap-2 backdrop-blur-md">
           <span class="text-[12px] sm:text-[13px] tracking-[0.2em] uppercase font-label font-bold text-[#fdf9f0]">
             ✨ Swipe Down ✨
@@ -161,9 +164,6 @@
     <!-- ================= 2. SCRATCH CARD SECTION (INTERACTIVE HEART & COUNTDOWN) ================= -->
     <section id="scratch-card"
       class="scratch-section relative w-full flex flex-col justify-center items-center text-center overflow-hidden z-20 pointer-events-auto bg-[#fdf9f0] py-14 sm:py-20 px-4">
-
-      <!-- Ambient Romantic Background Aura (Gives depth, eliminates dull flatness) -->
-      <div class="scratch-ambient-aura" aria-hidden="true"></div>
 
       <!-- Corner Floral Watercolor Bouquets (Layered in FRONT so they NEVER hide behind the box) -->
       <img src="assets/floral-top-right-CS2uPFt2.png" alt=""
@@ -198,8 +198,8 @@
             class="scratch-card-wrapper relative z-10 w-[270px] h-[250px] sm:w-[305px] sm:h-[280px] md:w-[330px] md:h-[305px]">
 
             <!-- Revealed Date Card (Underneath Scratch Canvas - Royal Gold Foil & Pearl Blush Design) -->
-            <div id="revealedDateCard" class="absolute inset-0 flex items-center justify-center z-0 opacity-100 transition-opacity duration-300 pointer-events-none">
-              <svg viewBox="0 0 340 310" class="w-full h-full filter drop-shadow-[0_14px_30px_rgba(139,30,63,0.24)]">
+            <div id="revealedDateCard" class="absolute inset-0 flex items-center justify-center z-0 opacity-0 transition-opacity duration-300 pointer-events-none">
+              <svg viewBox="0 0 340 310" class="w-full h-full">
                 <defs>
                   <!-- 3D Luxury Gold Metallic Gradient -->
                   <linearGradient id="goldMetallicGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -217,54 +217,42 @@
                     <stop offset="80%" stop-color="#fdefef" />
                     <stop offset="100%" stop-color="#f8dde2" />
                   </radialGradient>
-
-                  <!-- Subtle Inset Depth Shadow -->
-                  <filter id="heartShadowEffect" x="-10%" y="-10%" width="120%" height="120%">
-                    <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#8b1e3f" flood-opacity="0.12"/>
-                  </filter>
                 </defs>
 
                 <!-- Outer Gold Metallic Border Rim -->
                 <path
-                  d="M 170,82 C 170,16 40,16 40,112 C 40,178 128,224 170,278 C 212,224 300,178 300,112 C 300,16 170,16 170,82 Z"
-                  fill="url(#pearlBlushGlow)" stroke="url(#goldMetallicGradient)" stroke-width="4.5"
-                  filter="url(#heartShadowEffect)" />
+                  d="M 170,82 C 170,16 42,16 42,112 C 42,176 128,222 170,274 C 212,222 298,176 298,112 C 298,16 170,16 170,82 Z"
+                  fill="url(#pearlBlushGlow)" stroke="url(#goldMetallicGradient)" stroke-width="4.5" />
 
                 <!-- Inner Delicate Gold Filigree Ring (Double Rim) -->
                 <path
-                  d="M 170,88 C 170,24 48,24 48,113 C 48,172 130,216 170,268 C 210,216 292,172 292,113 C 292,24 170,24 170,88 Z"
+                  d="M 170,88 C 170,24 50,24 50,113 C 50,171 130,215 170,265 C 210,215 290,171 290,113 C 290,24 170,24 170,88 Z"
                   fill="none" stroke="#c59b27" stroke-width="1.2" stroke-dasharray="6 3" opacity="0.75" />
 
-                <!-- Save Our Date Header -->
-                <text x="170" y="80" text-anchor="middle" fill="#84651d" font-family="'Cinzel', 'Marcellus', serif"
-                  font-size="10.5" font-weight="700" letter-spacing="3.5">
-                  ✦ SAVE OUR DATE ✦
-                </text>
-
                 <!-- Grand Date Typography -->
-                <text x="170" y="118" text-anchor="middle" class="fill-[#8b1e3f]">
+                <text x="170" y="124" text-anchor="middle" class="fill-[#8b1e3f]">
                   <tspan font-family="'Cinzel', 'Playfair Display', serif" font-size="22" font-weight="800" letter-spacing="0.5">12 December, 2026</tspan>
                 </text>
 
                 <!-- Decorative Gold Divider -->
-                <line x1="92" y1="135" x2="148" y2="135" stroke="#c59b27" stroke-width="1.2" opacity="0.8" />
-                <circle cx="170" cy="135" r="3" fill="#84651d" />
-                <line x1="192" y1="135" x2="248" y2="135" stroke="#c59b27" stroke-width="1.2" opacity="0.8" />
+                <line x1="92" y1="142" x2="148" y2="142" stroke="#c59b27" stroke-width="1.2" opacity="0.8" />
+                <circle cx="170" cy="142" r="3" fill="#84651d" />
+                <line x1="192" y1="142" x2="248" y2="142" stroke="#c59b27" stroke-width="1.2" opacity="0.8" />
 
                 <!-- Saturday -->
-                <text x="170" y="157" text-anchor="middle" fill="#84651d" font-family="'Marcellus', serif"
-                  font-size="12.5" font-weight="700" letter-spacing="3.5">
+                <text x="170" y="166" text-anchor="middle" fill="#84651d" font-family="'Marcellus', serif"
+                  font-size="13" font-weight="700" letter-spacing="3.5">
                   SATURDAY
                 </text>
 
                 <!-- Venue Location: Gloria Inn cleanly inside the heart -->
-                <text x="170" y="179" text-anchor="middle" fill="#2d4a2e" font-family="'Marcellus', serif"
+                <text x="170" y="190" text-anchor="middle" fill="#2d4a2e" font-family="'Marcellus', serif"
                   font-size="11" font-weight="600" letter-spacing="2">
                   GLORIA INN
                 </text>
 
                 <!-- Bottom Tiny Heart Accent -->
-                <path d="M 170 198 C 167 194 163 194 163 198 C 163 202 170 207 170 207 C 170 207 177 202 177 198 C 177 194 173 194 170 198 Z" fill="#c59b27" opacity="0.85" />
+                <path d="M 170 208 C 167 204 163 204 163 208 C 163 212 170 217 170 217 C 170 217 177 212 177 208 C 177 204 173 204 170 208 Z" fill="#c59b27" opacity="0.85" />
               </svg>
             </div>
 
@@ -782,7 +770,7 @@
   <!-- Toast Notification -->
   <div id="toastNotification" class="toast-popup"></div>
 
-  <script src="app.js?v=2026_reveal"></script>
+  <script src="app.js?v=2026_reveal_v58"></script>
 </body>
 
 </html>

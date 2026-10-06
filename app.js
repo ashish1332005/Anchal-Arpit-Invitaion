@@ -300,6 +300,12 @@ function initScratchCard() {
     if (isRevealed) return;
     isRevealed = true;
 
+    const revealedCard = document.getElementById('revealedDateCard');
+    if (revealedCard) {
+      revealedCard.classList.remove('opacity-0');
+      revealedCard.classList.add('opacity-100');
+    }
+
     // Fade out scratch cover smoothly
     canvas.style.transition = 'opacity 0.6s ease';
     canvas.style.opacity = '0';
@@ -328,6 +334,12 @@ function initScratchCard() {
   }
 
   function scratch(pos) {
+    const revealedCard = document.getElementById('revealedDateCard');
+    if (revealedCard && revealedCard.classList.contains('opacity-0')) {
+      revealedCard.classList.remove('opacity-0');
+      revealedCard.classList.add('opacity-100');
+    }
+
     ctx.globalCompositeOperation = 'destination-out';
     ctx.beginPath();
     ctx.arc(pos.x, pos.y, 28, 0, Math.PI * 2, false);
