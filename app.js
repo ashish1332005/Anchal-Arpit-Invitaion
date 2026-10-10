@@ -156,33 +156,13 @@ function initVideoIntroSequence() {
     // Ensure music is running
     playWeddingMusic();
 
-    // Pause videoIntro at the last frame so it stays as the hero background
-    if (videoIntro) {
-      videoIntro.pause();
-    }
-
-    // Convert introEnvelopeStage into static/relative hero section at the top of document
-    stage.classList.add('as-hero-section');
-    stage.classList.remove('cursor-pointer');
-    
-    // Hide the tap elements and skip button
-    if (tapPrompt) tapPrompt.classList.add('hide');
-    if (tapPill) tapPill.classList.add('hide');
-    if (skipBtn) skipBtn.classList.add('hidden');
-
-    // Show the Swipe Down button
-    const scrollBtn = document.getElementById('scrollToScratchBtn');
-    if (scrollBtn) {
-      scrollBtn.classList.remove('hidden');
-    }
-
-    // Ensure the center logo is displayed
-    if (logoOverlay) {
-      logoOverlay.classList.add('show');
-    }
-
-    // Reveal main content directly below
+    stage.classList.add('fade-out');
     mainContent.classList.remove('opacity-0');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    setTimeout(() => {
+      stage.style.display = 'none';
+    }, 850);
   }
 
   // Direct listeners for Tap to Open / Wax Seal
@@ -206,15 +186,6 @@ function initVideoIntroSequence() {
     skipBtn.addEventListener('click', (e) => {
       e.stopPropagation();
       playWeddingMusic();
-      if (videoIntro) {
-        videoIntro.classList.remove('opacity-0');
-        videoIntro.classList.add('opacity-100');
-        if (videoIntro.duration) {
-          try {
-            videoIntro.currentTime = Math.max(0, videoIntro.duration - 0.1);
-          } catch(err) {}
-        }
-      }
       transitionToMain();
     });
   }
@@ -600,18 +571,12 @@ function initCountdown() {
 function initScrollButtons() {
   const btn = document.getElementById('scrollToScratchBtn');
   if (btn) {
-    const handleScroll = (e) => {
-      if (e) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
+    btn.addEventListener('click', () => {
       const section = document.getElementById('scratch-card') || document.getElementById('welcome');
       if (section) {
         section.scrollIntoView({ behavior: 'smooth' });
       }
-    };
-    btn.addEventListener('click', handleScroll);
-    btn.addEventListener('touchend', handleScroll);
+    });
   }
 }
 
@@ -654,58 +619,3 @@ function showToast(msg) {
     toast.classList.remove('show');
   }, 2800);
 }
-
-
-
-/* Butterflies fly from both sides as the guest scrolls */
-(() => {
-  const leftButterfly = document.querySelector(".sb-left");
-  const rightButterfly = document.querySelector(".sb-right");
-
-  if (!leftButterfly || !rightButterfly) return;
-
-  let ticking = false;
-
-  function updateButterflies() {
-    const scrollY = window.scrollY;
-    const maxScroll =
-      document.documentElement.scrollHeight - window.innerHeight;
-
-    const progress = maxScroll > 0 ? scrollY / maxScroll : 0;
-    const time = scrollY * 0.018;
-
-    // Butterflies appear after scrolling starts and fade near the bottom.
-    const visibility = Math.min(1, scrollY / 100) *
-      Math.min(1, (maxScroll - scrollY + 100) / 100);
-
-    const leftX = 15 + Math.sin(time) * 35;
-    const leftY = Math.sin(time * 1.4) * 100;
-
-    const rightX = 15 + Math.cos(time * 0.9) * 35;
-    const rightY = Math.cos(time * 1.3) * 110;
-
-    leftButterfly.style.opacity = visibility;
-    rightButterfly.style.opacity = visibility;
-
-    leftButterfly.style.transform =
-      `translate(${leftX}px, ${leftY}px) rotate(${Math.sin(time) * 22}deg)`;
-
-    rightButterfly.style.transform =
-      `translate(${-rightX}px, ${rightY}px) rotate(${Math.cos(time) * 22}deg) scaleX(-1)`;
-
-    // Their vertical position also progresses as the page scrolls.
-    leftButterfly.style.top = `${25 + progress * 45}%`;
-    rightButterfly.style.top = `${55 - progress * 35}%`;
-
-    ticking = false;
-  }
-
-  window.addEventListener("scroll", () => {
-    if (!ticking) {
-      window.requestAnimationFrame(updateButterflies);
-      ticking = true;
-    }
-  }, { passive: true });
-
-  updateButterflies();
-})();
