@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Anchal &amp; Arpit - Wedding Invitation | 11 &amp; 12 December 2026</title>
+
+  <!-- Meta & OpenGraph -->
+  <meta name="description"
+    content="Anchal Chechani &amp; Arpit Kabra Wedding Invitation - 11th &amp; 12th December 2026 at Gloria Inn, Bhilwara." />
+  <meta property="og:title" content="Anchal &amp; Arpit - Wedding Invitation" />
+  <meta property="og:description"
+    content="Join us in celebrating the wedding of Anchal &amp; Arpit on 11th &amp; 12th December 2026 at Gloria Inn, Bhilwara." />
+  <meta property="og:image" content="assets/images/couple-logo.png" />
+  <meta name="theme-color" content="#fdf9f0" />
+
+  <!-- Google Fonts & Typekit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Alex+Brush&family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Cinzel:wght@400;500;600;700&family=Marcellus&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600;1,700&family=Rozha+One&family=Yatra+One&family=Noto+Serif+Devanagari:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ivory: '#fdf9f0',
+            'sky-pastel': '#dce9f2',
+            'sage-dark': '#233924',
+            'ink-soft': '#556b4a',
+            gold: '#c59b27',
+            'gold-dark': '#84651d',
+            'crimson-deep': '#8b3a4a',
+            maroon: '#8b263e'
+          },
+          fontFamily: {
+            script: ['"Great Vibes"', '"Alex Brush"', 'cursive'],
+            heading: ['"Cinzel"', '"Marcellus"', '"Playfair Display"', 'serif'],
+            body: ['"Cormorant Garamond"', '"Marcellus"', 'serif'],
+            label: ['"Marcellus"', '"Montserrat"', 'sans-serif'],
+            hindi: ['"Rozha One"', 'serif'],
+            'hindi-calligraphy': ['"Yatra One"', 'cursive'],
+            'hindi-shloka': ['"Noto Serif Devanagari"', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css?v=2026_luxury_v58" />
+
+  <!-- Preload Critical Media Assets -->
+  <link rel="preload" href="assets/env.mp4?v=2026_new" as="video" type="video/mp4" />
+  <link rel="preload" href="assets/intro-video-2-a-H3NxSy.mp4" as="video" type="video/mp4" />
+  <link rel="preload" as="image" href="assets/frame-floral-vertical.jpg" />
+  <link rel="preload" as="image" href="assets/hero-bg.png" />
+  <link rel="preload" as="image" href="assets/pink-heart.png" />
+</head>
+
+<body class="bg-[#fdf9f0] select-none font-body antialiased text-[#233924]">
+
+  <!-- ==================== BACKGROUND AUDIO & MUSIC CONTROLLER ==================== -->
+  <audio id="weddingAudio" src="assets/audio.mp3" preload="auto" loop></audio>
+
+  <!-- Floating Audio Pause/Play Pill (Bottom-Right, Kamal Kunj Style) -->
+  <button id="musicToggleBtn" class="floating-music-btn" aria-label="Toggle Music" title="Play/Pause Music">
+    <span class="music-icon-wrapper">
+      <i class="fa-solid fa-pause"></i>
+    </span>
+  </button>
+
+  <!-- ==================== FLOATING FALLING PETALS CANVAS / OVERLAY ==================== -->
+  <div id="petalsOverlay" class="pointer-events-none fixed inset-0 z-20 overflow-hidden"></div>
+
+
+  <!-- ==================== 1. FULLSCREEN INTRO / ENVELOPE VIDEO STAGE ==================== -->
+  <div id="introEnvelopeStage" class="fixed inset-0 z-50 cursor-pointer overflow-hidden bg-[#362f22]">
+
+    <!-- Video 1: Envelope Opening Video -->
+    <video id="videoEnv" src="assets/env.mp4?v=fixed_env" poster="assets/1s.png?v=fixed_poster" playsinline
+      webkit-playsinline muted preload="auto"
+      class="absolute inset-0 w-full h-full object-cover pointer-events-none z-10">
+    </video>
+
+    <!-- Video 2: Animated Botanical & Flying Butterflies Video -->
+    <video id="videoIntro" src="assets/intro-video-2-a-H3NxSy.mp4" playsinline webkit-playsinline muted preload="auto"
+      class="absolute inset-0 w-full h-full object-cover pointer-events-none z-20 opacity-0 transition-opacity duration-700">
+    </video>
+
+    <!-- Center Monogram Logo Overlay in Center of Video 2 -->
+    <div id="videoLogoOverlay" class="video-logo-overlay">
+      <div class="logo-aura-glow"></div>
+      <img src="assets/images/couple-logo.png" alt="Anchal & Arpit Monogram" class="video-logo-img" />
+    </div>
+
+    <!-- Tap to Open Prompt / Center Wax Seal Button -->
+    <div id="tapToOpenPrompt" class="tap-to-open-prompt">
+      <div class="pulse-ring"></div>
+      <div class="wax-seal-icon">
+        <img src="assets/images/couple-logo.png" alt="Couple Logo" />
+      </div>
+    </div>
+
+    <!-- Small Single-Line Tap Hint at Bottom -->
+    <div id="tapTextPill" class="tap-text-pill">
+      <span>✨ TAP TO OPEN ✨</span>
+    </div>
+
+    <!-- Skip Intro Button -->
+    <button id="skipIntroBtn" class="skip-intro-btn hidden">
+      <span>Skip <i class="fa-solid fa-forward"></i></span>
+    </button>
+  </div>
+
+
+  <!-- ==================== 2. MAIN INVITATION CARD CONTENT ==================== -->
+  <main id="mainContent"
+    class="relative bg-[#fdf9f0] min-h-screen text-[#233924] overflow-x-hidden font-body antialiased select-none opacity-0 transition-opacity duration-1000">
+
+    <!-- ================= 1. HERO SECTION (CLEAN EDGE-TO-EDGE BOTANICAL OVAL WITH ONLY COUPLE LOGO) ================= -->
+    <section id="hero"
+      class="hero-section relative min-h-screen w-full flex flex-col justify-between items-center text-center overflow-hidden py-8 px-4">
+
+      <!-- Fullscreen Botanical Frame Background (Clean without any pre-printed logo) -->
+      <div class="hero-bg-frame pointer-events-none" style="background-image: url('assets/hero-bg.png');"></div>
+
+        <!-- Animated Birds and Butterflies -->
+        <div class="hero-creature-layer" aria-hidden="true">
+
+          <!-- Flying Bird 1 -->
+          <svg class="hero-creature bird bird-one" viewBox="0 0 100 70">
+            <g class="bird-wings">
+              <path class="bird-wing"
+                d="M48 39 Q24 2 4 9 Q24 12 39 43 Z"
+                fill="#82916d"/>
+              <path class="bird-wing"
+                d="M48 39 Q73 5 94 15 Q70 17 55 45 Z"
+                fill="#a6b18a"/>
+            </g>
+            <path d="M29 40 Q46 25 63 40 L79 36 L66 46 Q47 55 29 40Z"
+              fill="#75896a"/>
+            <path d="M76 37 L95 32 L80 42Z" fill="#b77a56"/>
+            <circle cx="67" cy="36" r="1.8" fill="#352d28"/>
+          </svg>
+
+          <!-- Flying Bird 2 -->
+          <svg class="hero-creature bird bird-two" viewBox="0 0 100 70">
+            <g class="bird-wings">
+              <path class="bird-wing"
+                d="M48 40 Q26 4 5 12 Q27 16 40 45Z"
+                fill="#c5a58b"/>
+              <path class="bird-wing"
+                d="M49 40 Q74 6 94 14 Q72 19 56 45Z"
+                fill="#e0c6a7"/>
+            </g>
+            <path d="M28 41 Q47 26 64 40 L79 36 L65 46 Q46 55 28 41Z"
+              fill="#9c8069"/>
+            <path d="M76 38 L96 33 L80 42Z" fill="#b77a56"/>
+            <circle cx="67" cy="36" r="1.8" fill="#352d28"/>
+          </svg>
+
+          <!-- Butterfly 1 -->
+          <svg class="hero-creature butterfly butterfly-one" viewBox="0 0 80 70">
+            <g class="butterfly-left-wing">
+              <path d="M39 35 Q9 0 5 20 Q4 36 37 40Z"
+                fill="#e99cb1" stroke="#bd718b" stroke-width="1.5"/>
+              <path d="M37 40 Q9 35 17 57 Q28 66 39 43Z"
+                fill="#d887a1" stroke="#bd718b" stroke-width="1.5"/>
+            </g>
+            <g class="butterfly-right-wing">
+              <path d="M41 35 Q71 0 75 20 Q76 36 43 40Z"
+                fill="#f2c5a5" stroke="#bd9b79" stroke-width="1.5"/>
+              <path d="M43 40 Q71 35 63 57 Q52 66 41 43Z"
+                fill="#e6a7a1" stroke="#bd9b79" stroke-width="1.5"/>
+            </g>
+            <path d="M40 31 Q36 42 40 48 Q44 42 40 31Z" fill="#65443d"/>
+            <path d="M39 32 Q29 19 29 16 M41 32 Q51 19 51 16"
+              fill="none" stroke="#65443d" stroke-width="1.5"/>
+          </svg>
+
+          <!-- Butterfly 2 -->
+          <svg class="hero-creature butterfly butterfly-two" viewBox="0 0 80 70">
+            <g class="butterfly-left-wing">
+              <path d="M39 35 Q9 0 5 20 Q4 36 37 40Z"
+                fill="#e7a2a4" stroke="#bf7b83" stroke-width="1.5"/>
+              <path d="M37 40 Q9 35 17 57 Q28 66 39 43Z"
+                fill="#f2c8a7" stroke="#bf7b83" stroke-width="1.5"/>
+            </g>
+            <g class="butterfly-right-wing">
+              <path d="M41 35 Q71 0 75 20 Q76 36 43 40Z"
+                fill="#b7c9d7" stroke="#819cad" stroke-width="1.5"/>
+              <path d="M43 40 Q71 35 63 57 Q52 66 41 43Z"
+                fill="#d7b8ce" stroke="#819cad" stroke-width="1.5"/>
+            </g>
+            <path d="M40 31 Q36 42 40 48 Q44 42 40 31Z" fill="#65443d"/>
+            <path d="M39 32 Q29 19 29 16 M41 32 Q51 19 51 16"
+              fill="none" stroke="#65443d" stroke-width="1.5"/>
+          </svg>
+
+          <!-- Butterfly 3 -->
+          <svg class="hero-creature butterfly butterfly-three" viewBox="0 0 80 70">
+            <g class="butterfly-left-wing">
+              <path d="M39 35 Q9 0 5 20 Q4 36 37 40Z"
+                fill="#e9b66f" stroke="#bf8950" stroke-width="1.5"/>
+              <path d="M37 40 Q9 35 17 57 Q28 66 39 43Z"
+                fill="#f2d69d" stroke="#bf8950" stroke-width="1.5"/>
+            </g>
+            <g class="butterfly-right-wing">
+              <path d="M41 35 Q71 0 75 20 Q76 36 43 40Z"
+                fill="#efb5bb" stroke="#c77e91" stroke-width="1.5"/>
+              <path d="M43 40 Q71 35 63 57 Q52 66 41 43Z"
+                fill="#d99bb7" stroke="#c77e91" stroke-width="1.5"/>
+            </g>
+            <path d="M40 31 Q36 42 40 48 Q44 42 40 31Z" fill="#65443d"/>
+            <path d="M39 32 Q29 19 29 16 M41 32 Q51 19 51 16"
+              fill="none" stroke="#65443d" stroke-width="1.5"/>
+          </svg>
+
+        </div>
+      <!-- Top Spacer -->
+      <div class="h-6"></div>
+
+      <!-- Center Couple Monogram Logo ONLY (Original Position) -->
+      <div class="relative z-10 flex flex-col items-center justify-center my-auto">
+        <div class="monogram-wrapper">
+          <img src="assets/images/couple-logo.png" alt="Anchal & Arpit Monogram Logo"
+            class="w-40 sm:w-52 md:w-60 lg:w-64 h-auto filter drop-shadow-lg animate-gentle-pulse select-none pointer-events-none" />
+        </div>
+      </div>
+
+      <!-- Swipe Down Button (Positioned down in calm area, properly aligned) -->
+      <div id="scrollToScratchBtn"
+        class="relative z-20 pb-4 sm:pb-6 mb-2 sm:mb-4 cursor-pointer flex flex-col items-center gap-1.5 transition-transform hover:scale-105 group">
+        <div class="px-5 py-2 rounded-full bg-[#8b3a4a]/95 border-2 border-[#c59b27] shadow-xl flex items-center gap-2 backdrop-blur-md">
+          <span class="text-[12px] sm:text-[13px] tracking-[0.2em] uppercase font-label font-bold text-[#fdf9f0]">
+            ✨ Swipe Down ✨
+          </span>
+          <i class="fa-solid fa-chevron-down text-[#ffd700] text-sm animate-bounce"></i>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ================= 2. SCRATCH CARD SECTION (INTERACTIVE HEART & COUNTDOWN) ================= -->
+    <section id="scratch-card"
+      class="scratch-section relative w-full flex flex-col justify-center items-center text-center overflow-hidden z-20 pointer-events-auto bg-[#fdf9f0] py-14 sm:py-20 px-4">
+
+      <!-- Corner Floral Watercolor Bouquets (Layered in FRONT so they NEVER hide behind the box) -->
+      <img src="assets/floral-top-right-CS2uPFt2.png" alt=""
+        class="scratch-corner-floral pointer-events-none select-none absolute top-0 right-0 w-44 sm:w-56 md:w-68 lg:w-72 !z-20 opacity-95 object-contain" />
+      <img src="assets/floral-bottom-left-_kTL5SSX.png" alt=""
+        class="scratch-corner-floral pointer-events-none select-none absolute bottom-0 left-0 w-44 sm:w-56 md:w-68 lg:w-72 !z-20 opacity-95 object-contain" />
+
+      <!-- Inner Royal Luxury Card (Frames heart & countdown with elegant margins) -->
+      <div class="scratch-royal-card relative z-10 w-full max-w-[92%] sm:max-w-md mx-auto flex flex-col items-center justify-center p-5 sm:p-8 my-auto">
+
+        <!-- Header / Text above Heart -->
+        <div class="mb-4 sm:mb-6 text-center">
+          <span class="kamal-eyebrow !text-[#84651d] text-[11px] sm:text-xs tracking-[0.25em] font-bold">
+            ✨ SAVE THE DATE ✨
+          </span>
+          <h2 class="font-heading text-2xl sm:text-3xl md:text-4xl text-[#8b3a4a] font-bold tracking-wide">
+            A Special Reveal
+          </h2>
+          <div class="flex items-center justify-center gap-2 my-1.5">
+            <span class="w-8 sm:w-12 h-[1px] bg-[#c59b27]/50"></span>
+            <span class="text-[#c59b27] text-xs">✤</span>
+            <span class="w-8 sm:w-12 h-[1px] bg-[#c59b27]/50"></span>
+          </div>
+          <p class="font-body italic text-xs sm:text-sm text-[#556b4a]">
+            Scratch the golden heart to reveal our wedding date
+          </p>
+        </div>
+
+        <!-- Interactive Heart Scratch Card Container -->
+        <div class="flex justify-center w-full py-1">
+          <div id="scratchCardContainer"
+            class="scratch-card-wrapper relative z-10 w-[270px] h-[250px] sm:w-[305px] sm:h-[280px] md:w-[330px] md:h-[305px]">
+
+            <!-- Revealed Date Card (Underneath Scratch Canvas - Royal Gold Foil & Pearl Blush Design) -->
+            <div id="revealedDateCard" class="absolute inset-0 flex items-center justify-center z-0 opacity-0 transition-opacity duration-300 pointer-events-none">
+              <svg viewBox="0 0 340 310" class="w-full h-full">
+                <defs>
+                  <!-- 3D Luxury Gold Metallic Gradient -->
+                  <linearGradient id="goldMetallicGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#b8860b" />
+                    <stop offset="25%" stop-color="#ffd700" />
+                    <stop offset="50%" stop-color="#fff8d1" />
+                    <stop offset="75%" stop-color="#d4af37" />
+                    <stop offset="100%" stop-color="#8a6217" />
+                  </linearGradient>
+
+                  <!-- Pearlescent Soft Romantic Blush Fill -->
+                  <radialGradient id="pearlBlushGlow" cx="50%" cy="38%" r="62%">
+                    <stop offset="0%" stop-color="#ffffff" />
+                    <stop offset="40%" stop-color="#fffdfa" />
+                    <stop offset="80%" stop-color="#fdefef" />
+                    <stop offset="100%" stop-color="#f8dde2" />
+                  </radialGradient>
+                </defs>
+
+                <!-- Outer Gold Metallic Border Rim -->
+                <path
+                  d="M 170,82 C 170,16 42,16 42,112 C 42,176 128,222 170,274 C 212,222 298,176 298,112 C 298,16 170,16 170,82 Z"
+                  fill="url(#pearlBlushGlow)" stroke="url(#goldMetallicGradient)" stroke-width="4.5" />
+
+                <!-- Inner Delicate Gold Filigree Ring (Double Rim) -->
+                <path
+                  d="M 170,88 C 170,24 50,24 50,113 C 50,171 130,215 170,265 C 210,215 290,171 290,113 C 290,24 170,24 170,88 Z"
+                  fill="none" stroke="#c59b27" stroke-width="1.2" stroke-dasharray="6 3" opacity="0.75" />
+
+                <!-- Grand Date Typography -->
+                <text x="170" y="124" text-anchor="middle" class="fill-[#8b1e3f]">
+                  <tspan font-family="'Cinzel', 'Playfair Display', serif" font-size="22" font-weight="800" letter-spacing="0.5">12 December, 2026</tspan>
+                </text>
+
+                <!-- Decorative Gold Divider -->
+                <line x1="92" y1="142" x2="148" y2="142" stroke="#c59b27" stroke-width="1.2" opacity="0.8" />
+                <circle cx="170" cy="142" r="3" fill="#84651d" />
+                <line x1="192" y1="142" x2="248" y2="142" stroke="#c59b27" stroke-width="1.2" opacity="0.8" />
+
+                <!-- Saturday -->
+                <text x="170" y="166" text-anchor="middle" fill="#84651d" font-family="'Marcellus', serif"
+                  font-size="13" font-weight="700" letter-spacing="3.5">
+                  SATURDAY
+                </text>
+
+                <!-- Venue Location: Gloria Inn cleanly inside the heart -->
+                <text x="170" y="190" text-anchor="middle" fill="#2d4a2e" font-family="'Marcellus', serif"
+                  font-size="11" font-weight="600" letter-spacing="2">
+                  GLORIA INN
+                </text>
+
+                <!-- Bottom Tiny Heart Accent -->
+                <path d="M 170 208 C 167 204 163 204 163 208 C 163 212 170 217 170 217 C 170 217 177 212 177 208 C 177 204 173 204 170 208 Z" fill="#c59b27" opacity="0.85" />
+              </svg>
+            </div>
+
+            <!-- Interactive Scratch Canvas Layer -->
+            <canvas id="scratchCanvas"
+              class="scratch-canvas absolute inset-0 z-10 w-full h-full cursor-pointer"></canvas>
+          </div>
+        </div>
+
+        <!-- Countdown Timer Under Heart (Reveals after Scratching) -->
+        <div id="heartCountdownWrapper"
+          class="countdown-wrapper mt-5 w-full max-w-[300px] sm:max-w-[350px] mx-auto countdown-hidden">
+          
+          <div class="text-center mb-2.5">
+            <span class="font-label text-[10px] sm:text-[11px] tracking-[0.24em] text-[#84651d] font-bold uppercase">
+              ⏳ The Countdown Begins ⏳
+            </span>
+          </div>
+
+          <div class="countdown-grid" id="countdownGrid">
+            <div class="timer-box">
+              <span id="cdDays" class="timer-value">00</span>
+              <span class="timer-label">DAYS</span>
+            </div>
+            <div class="timer-box">
+              <span id="cdHours" class="timer-value">00</span>
+              <span class="timer-label">HOURS</span>
+            </div>
+            <div class="timer-box">
+              <span id="cdMinutes" class="timer-value">00</span>
+              <span class="timer-label">MINUTES</span>
+            </div>
+            <div class="timer-box">
+              <span id="cdSeconds" class="timer-value">00</span>
+              <span class="timer-label">SECONDS</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= 3. WELCOME & FAMILY INVITATION SECTION ================= -->
+    <section id="welcome"
+      class="welcome-section relative min-h-screen w-full flex flex-col justify-center items-center py-12 sm:py-16 px-3 sm:px-6 text-center overflow-hidden bg-[#fdf9f0]">
+
+      <!-- Full Floral Frame Background -->
+      <div class="absolute inset-0 w-full h-full bg-cover bg-center pointer-events-none"
+        style="background-image: url('assets/frame-floral-vertical.jpg?v=3'); opacity: 1;"></div>
+
+      <!-- Center Content Container inside Floral Border -->
+      <div
+        class="relative z-10 max-w-lg w-full mx-auto px-2 sm:px-6 py-6 sm:py-10 my-auto flex flex-col items-center justify-center">
+
+        <!-- Sacred Ganesha & Invocations -->
+        <div class="flex flex-col items-center mb-3 sm:mb-4">
+          <img src="assets/ganesh-idol-TubyYjSJ.png" alt="Lord Ganesha"
+            class="w-12 h-12 sm:w-14 sm:h-14 object-contain opacity-95 mb-1.5 select-none pointer-events-none filter drop-shadow-sm" />
+
+          <p class="text-[#84651d] font-hindi-calligraphy text-base sm:text-lg mb-1 tracking-wide font-medium">
+            ॥ श्री गणेशाय नमः ॥
+          </p>
+
+          <p
+            class="text-[#556b4a] font-hindi-shloka text-xs sm:text-sm leading-relaxed max-w-xs sm:max-w-sm mx-auto font-normal">
+            वक्रतुण्ड महाकाय सूर्यकोटि समप्रभः ।<br />
+            निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥
+          </p>
+        </div>
+
+        <!-- Bride & Groom Details with Lineage -->
+        <div class="space-y-4 my-2 w-full">
+
+          <!-- Bride Name & Lineage -->
+          <div>
+            <h3 class="bride-groom-name">
+              Anchal
+            </h3>
+            <p class="lineage-text">
+              <span class="lineage-row"><span class="lineage-tag">G/D/o</span> Late Smt. Janki Devi &amp; Late Shri Shiv Lal ji Chechani</span>
+              <span class="lineage-row"><span class="lineage-tag">D/o</span> Smt. Leela Devi &amp; Shri Dinesh Kumar Chechani</span>
+            </p>
+          </div>
+
+          <!-- With -->
+          <p class="font-script text-2xl sm:text-3xl text-[#9c7a28] my-0.5 font-normal">
+            with
+          </p>
+
+          <!-- Groom Name & Lineage -->
+          <div>
+            <h3 class="bride-groom-name">
+              Arpit
+            </h3>
+            <p class="lineage-text">
+              <span class="lineage-row"><span class="lineage-tag">G/s/o</span> Smt. Ratan Devi Kabra &amp; Shri Ramrai ji Kabra</span>
+              <span class="lineage-row"><span class="lineage-tag">S/o</span> Smt. Rinku ji Kabra &amp; Shri Sanjay ji Kabra</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Occasion Description -->
+        <div class="mt-4 sm:mt-5">
+          <p class="max-w-xs mx-auto uppercase tracking-[0.2em] text-xs sm:text-[13px] font-medium font-label text-[#8b3a4a]">
+            for their Wedding Celebrations
+          </p>
+          <div class="flex items-center justify-center gap-2 pt-1.5">
+            <span class="w-10 sm:w-14 h-[1px] bg-[#c59b27]/60"></span>
+            <span class="text-[#c59b27] text-xs">✤</span>
+            <span class="w-10 sm:w-14 h-[1px] bg-[#c59b27]/60"></span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= 4. CONSOLIDATED WEDDING EVENTS (2 CLEAN COMPACT SLIDES) ================= -->
+    <section id="events" class="kamal-events-section relative pt-10 sm:pt-14 md:pt-16 pb-16 sm:pb-20 md:pb-24 px-4 overflow-hidden">
+
+      <!-- Swaying Marigold Floral Garlands along Left and Right Edges -->
+      <div class="garland-edge-left" aria-hidden="true">
+        <img src="assets/kamal-kunj/art/garland-strand.webp" alt="" class="garland-img" />
+      </div>
+      <div class="garland-edge-right" aria-hidden="true">
+        <img src="assets/kamal-kunj/art/garland-strand.webp" alt="" class="garland-img garland-flipped" />
+      </div>
+
+      <!-- Subtle Swan Motif Top-Right -->
+      <div class="swan-watermark" aria-hidden="true">
+        <img src="assets/kamal-kunj/art/motif-swan.webp" alt="" class="swan-img" />
+      </div>
+
+      <div class="relative z-10 max-w-xl mx-auto text-center">
+
+        <!-- Section Header -->
+        <span class="kamal-eyebrow">
+          CELEBRATE WITH US
+        </span>
+        <h2 class="kamal-main-heading">
+          Wedding Events
+        </h2>
+
+        <!-- Event Cards Container: Consolidated 2 Days -->
+        <div class="event-cards-container space-y-8 mt-8">
+
+          <!-- ================= DAY 1 CARD: FRIDAY, 11TH DECEMBER 2026 ================= -->
+          <article class="kamal-event-card">
+
+           
+          <!-- Creative Date Band -->
+          <div class="card-date-band">
+            <div class="date-row">
+              <span class="date-side">FRI</span>
+              <span class="date-day">11</span>
+              <span class="date-side">DEC</span>
+            </div>
+            <span class="date-year">2026</span>
+          </div>
+
+            <!-- Subheading / Title -->
+            <h3 class="event-card-title text-2xl sm:text-3xl">
+              Day of Celebrations
+            </h3>
+
+            <!-- Floral Flourish Divider -->
+            <img src="assets/kamal-kunj/art/divider-flourish.webp" alt="" class="card-divider-flourish !my-3" />
+
+            <!-- Schedule List for 11th Dec -->
+            <div class="space-y-4 text-left px-2 sm:px-4 my-4">
+
+              <!-- Item 1: Vinayak Sthapana & Breakfast -->
+              <div class="border-b border-[#c59b27]/25 pb-3">
+                <div class="flex justify-between items-center gap-2">
+                  <h4 class="font-heading text-base sm:text-lg text-[#8b3a4a] font-bold flex-1 min-w-0">
+                    Vinayak Sthapana
+                  </h4>
+                  <span class="font-label text-xs sm:text-sm font-bold text-[#84651d] bg-[#f8efe0] px-2.5 py-0.5 rounded-full event-time-pill whitespace-nowrap flex-shrink-0">
+                    7:00 AM
+                  </span>
+                </div>
+                <p class="font-body italic text-xs sm:text-sm text-[#556b4a] mt-0.5">
+                  Followed by Breakfast at 9:00 AM
+                </p>
+              </div>
+
+              <!-- Item 2: Carnival & Lunch -->
+              <div class="border-b border-[#c59b27]/25 pb-3">
+                <div class="flex justify-between items-center gap-2">
+                  <h4 class="font-heading text-base sm:text-lg text-[#8b3a4a] font-bold flex-1 min-w-0">
+                    Carnival
+                  </h4>
+                  <span class="font-label text-xs sm:text-sm font-bold text-[#84651d] bg-[#f8efe0] px-2.5 py-0.5 rounded-full event-time-pill whitespace-nowrap flex-shrink-0">
+                    11:00 AM
+                  </span>
+                </div>
+                <p class="font-body italic text-xs sm:text-sm text-[#556b4a] mt-0.5">
+                  Followed by Lunch
+                </p>
+              </div>
+
+              <!-- Item 3: Sangeet & Ring Ceremony / Followed by Dinner -->
+              <div class="pb-1">
+                <div class="flex justify-between items-center gap-2">
+                  <h4 class="font-heading text-base sm:text-lg text-[#8b3a4a] font-bold flex-1 min-w-0">
+                    Sangeet &amp; Ring Ceremony
+                  </h4>
+                  <span class="font-label text-xs sm:text-sm font-bold text-[#84651d] bg-[#f8efe0] px-2.5 py-0.5 rounded-full event-time-pill whitespace-nowrap flex-shrink-0">
+                    7:00 PM
+                  </span>
+                </div>
+                <p class="font-body italic text-xs sm:text-sm text-[#556b4a] mt-0.5">
+                  Followed by Dinner
+                </p>
+              </div>
+
+            </div>
+          </article>
+
+
+          <!-- ================= DAY 2 CARD: SATURDAY, 12TH DECEMBER 2026 ================= -->
+          <article class="kamal-event-card">
+
+            <!-- Creative Date Band (Exact reference design) -->
+            <div class="card-date-band">
+              <div class="date-row">
+                <span class="date-side">SAT</span>
+                <span class="date-day">12</span>
+                <span class="date-side">DEC</span>
+              </div>
+              <span class="date-year">2026</span>
+            </div>
+
+            <!-- Subheading / Title -->
+            <h3 class="event-card-title text-2xl sm:text-3xl">
+              The Auspicious Wedding Day
+            </h3>
+
+            <!-- Floral Flourish Divider -->
+            <img src="assets/kamal-kunj/art/divider-flourish.webp" alt="" class="card-divider-flourish !my-3" />
+
+            <!-- Schedule List for 12th Dec -->
+            <div class="space-y-4 text-left px-2 sm:px-4 my-4">
+
+              <!-- Item 1: Kalash & Breakfast -->
+              <div class="border-b border-[#c59b27]/25 pb-3">
+                <div class="flex justify-between items-center gap-2">
+                  <h4 class="font-heading text-base sm:text-lg text-[#8b3a4a] font-bold flex-1 min-w-0">
+                    Kalash
+                  </h4>
+                  <span class="font-label text-xs sm:text-sm font-bold text-[#84651d] bg-[#f8efe0] px-2.5 py-0.5 rounded-full event-time-pill whitespace-nowrap flex-shrink-0">
+                    9:00 AM
+                  </span>
+                </div>
+                <p class="font-body italic text-xs sm:text-sm text-[#556b4a] mt-0.5">
+                  Followed by Breakfast
+                </p>
+              </div>
+
+              <!-- Item 2: Mayra & Lunch -->
+              <div class="border-b border-[#c59b27]/25 pb-3">
+                <div class="flex justify-between items-center gap-2">
+                  <h4 class="font-heading text-base sm:text-lg text-[#8b3a4a] font-bold flex-1 min-w-0">
+                    Mayra
+                  </h4>
+                  <span class="font-label text-xs sm:text-sm font-bold text-[#84651d] bg-[#f8efe0] px-2.5 py-0.5 rounded-full event-time-pill whitespace-nowrap flex-shrink-0">
+                    11:00 AM
+                  </span>
+                </div>
+                <p class="font-body italic text-xs sm:text-sm text-[#556b4a] mt-0.5">
+                  Followed by Lunch
+                </p>
+              </div>
+
+              <!-- Item 3: Baraat Swagat & Reception -->
+              <div class="border-b border-[#c59b27]/25 pb-3">
+                <div class="flex justify-between items-center gap-2">
+                  <h4 class="font-heading text-base sm:text-lg text-[#8b3a4a] font-bold flex-1 min-w-0">
+                    Baraat Swagat &amp; Reception
+                  </h4>
+                  <span class="font-label text-xs sm:text-sm font-bold text-[#84651d] bg-[#f8efe0] px-2.5 py-0.5 rounded-full event-time-pill whitespace-nowrap flex-shrink-0">
+                    7:00 PM
+                  </span>
+                </div>
+                <p class="font-body italic text-xs sm:text-sm text-[#556b4a] mt-0.5">
+                  Followed by Dinner
+                </p>
+              </div>
+
+              <!-- Item 4: Sacred Pheras -->
+              <div class="pb-1">
+                <div class="flex justify-between items-center gap-2">
+                  <h4 class="font-heading text-base sm:text-lg text-[#8b3a4a] font-bold flex-1 min-w-0">
+                    Sacred Pheras
+                  </h4>
+                  <span class="font-label text-xs sm:text-sm font-bold text-[#84651d] bg-[#f8efe0] px-2.5 py-0.5 rounded-full event-time-pill whitespace-nowrap flex-shrink-0">
+                    10:30 PM
+                  </span>
+                </div>
+                <p class="font-body italic text-xs sm:text-sm text-[#556b4a] mt-0.5">
+                  Auspicious Wedding Nuptials
+                </p>
+              </div>
+
+            </div>
+          </article>
+
+
+          <!-- ================= CONSOLIDATED VENUE CARD ================= -->
+          <div class="scallop-card relative p-6 sm:p-8 text-center mt-6">
+            <img src="assets/venue-illustration-CJozVy2q.png" alt="Gloria Inn"
+              class="w-16 h-auto mx-auto mb-2 opacity-90" />
+            <h4 class="font-heading text-lg sm:text-xl text-[#233924] font-bold tracking-wider uppercase">
+              Venue: Gloria Inn
+            </h4>
+            <p class="font-label text-xs uppercase tracking-[0.18em] text-[#84651d] font-semibold mt-0.5">
+              Bhilwara, Rajasthan
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap justify-center gap-3 mt-4">
+              <a href="https://maps.google.com/?q=Gloria+Inn+Bhilwara" target="_blank" rel="noopener noreferrer"
+                class="scallop-action-btn">
+                <i class="fa-solid fa-location-dot"></i> Open in Maps
+              </a>
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Anchal%20%26%20Arpit%20Wedding&dates=20261211/20261213&location=Gloria%20Inn%2C%20Bhilwara"
+                target="_blank" rel="noopener noreferrer" class="scallop-action-btn">
+                <i class="fa-regular fa-calendar-check"></i> Add to Calendar
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <!-- ================= 5. LUXURY FLORAL SECTION: SAMDHI PRAVAR, RSVP & REGARDS ================= -->
+    <section id="regards-love" class="relative pt-12 sm:pt-16 pb-16 sm:pb-20 px-4 bg-[#fdf9f0] overflow-hidden text-center flex flex-col justify-center items-center mt-2 sm:mt-4">
+
+      <div class="max-w-xl w-full mx-auto relative z-10 py-4 sm:py-8">
+
+        <!-- Floral Watercolor Corner Bouquets (All 4 corners framed with rotated/flipped florals) -->
+        <img src="assets/floral-top-right-CS2uPFt2.png" alt=""
+          class="pointer-events-none select-none absolute -top-8 -right-6 w-44 sm:w-52 md:w-60 z-0 opacity-90" />
+        <img src="assets/floral-top-right-CS2uPFt2.png" alt=""
+          class="pointer-events-none select-none absolute -top-8 -left-6 w-44 sm:w-52 md:w-60 z-0 opacity-90"
+          style="transform: scaleX(-1);" />
+        <img src="assets/floral-bottom-left-_kTL5SSX.png" alt=""
+          class="pointer-events-none select-none absolute -bottom-10 -left-6 w-44 sm:w-52 md:w-60 z-0 opacity-90" />
+        <img src="assets/floral-bottom-left-_kTL5SSX.png" alt=""
+          class="pointer-events-none select-none absolute -bottom-10 -right-6 w-44 sm:w-52 md:w-60 z-0 opacity-90"
+          style="transform: scaleX(-1);" />
+
+        <!-- Main Content inside the Floral Frame -->
+        <div class="relative z-10 space-y-5 px-4">
+
+          <!-- Top Inviting Quote -->
+          <div class="space-y-1">
+            <p class="font-body italic text-lg sm:text-2xl leading-relaxed text-[#233924] max-w-md mx-auto">
+              We would be delighted to share this beautiful beginning with you
+            </p>
+          </div>
+
+                    
+            <!-- Samdhi Pariwar Block -->
+            <div class="my-3 py-3 bg-[#faf6ee]/85 rounded-2xl border border-[#c59b27]/30 backdrop-blur-[2px] shadow-sm max-w-lg mx-auto px-3">
+              <h3 class="font-heading text-lg sm:text-xl text-[#8b3a4a] font-bold tracking-wider uppercase mb-3">
+                SAMDHI PARIWAR
+              </h3>
+
+              <div class="flex flex-nowrap items-center justify-center gap-x-2 sm:gap-x-3 text-[10px] sm:text-sm font-body font-semibold text-[#233924] whitespace-nowrap">
+                <span>Byaaji Ramrai ji</span>
+                <span>,</span>
+                <span>Vinod ji</span>
+                <span>,</span>
+                <span>Sanjay ji</span>
+                <span>,</span>
+                <span>Dilip ji Kabra</span>
+              </div>
+
+              <div class="mt-2 text-xs sm:text-sm font-body font-semibold text-[#233924]">
+                Bhilwara Waale
+              </div>
+            </div>
+
+          <!-- RSVP & Regards -->
+          <div class="space-y-1.5">
+            <h3 class="font-heading text-base sm:text-lg text-[#8b3a4a] font-bold tracking-wider uppercase">
+              WITH BEST COMPLIMENTS / RSVP
+            </h3>
+            <p class="font-heading text-xl sm:text-2xl text-[#233924] font-bold tracking-wide">
+              Chechani Family
+            </p>
+            <p class="font-heading text-base sm:text-lg font-bold text-[#84651d] tracking-wide">
+              Dinesh Kumar &amp; Abhishek Chechani
+            </p>
+            <p class="font-body italic text-base sm:text-lg text-[#556b4a] max-w-md mx-auto pt-1">
+              With love in our hearts, we await your gracious presence
+            </p>
+          </div>
+
+          <!-- Interactive Action Buttons -->
+          <div class="flex flex-wrap justify-center gap-3 pt-3">
+            <button id="whatsappShareBtn" class="scallop-action-btn !bg-[#25D366] !text-white !border-[#25D366] hover:!bg-[#1ebc59] shadow-md">
+              <i class="fa-brands fa-whatsapp"></i> Share on WhatsApp
+            </button>
+            <button id="copyInviteLinkBtn" class="scallop-action-btn shadow-md">
+              <i class="fa-solid fa-link"></i> Copy Link
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="py-12 bg-[#1b261c] text-center text-[#fdf9f0] px-4">
+      <img src="assets/images/couple-logo.png" alt="A & A"
+        class="w-14 h-auto mx-auto mb-3 filter brightness-0 invert opacity-80" />
+      <h4 class="font-script text-3xl text-[#c59b27]">Anchal &amp; Arpit</h4>
+      <p class="font-label text-xs tracking-widest uppercase text-[#c59b27]/80 mt-2">11th &amp; 12th December 2026 •
+        Gloria Inn, Bhilwara</p>
+    </footer>
+
+  </main>
+
+
+  <!-- ==================== INTERACTIVE RSVP MODAL DIALOG ==================== -->
+  <div id="rsvpModal"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 p-4">
+    <div
+      class="rsvp-modal-content relative w-full max-w-md bg-[#fdf9f0] border-2 border-[#c59b27] rounded-lg p-6 sm:p-8 shadow-2xl">
+
+      <!-- Close Button -->
+      <button id="closeRsvpModalBtn"
+        class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full text-[#84651d] hover:bg-[#c59b27]/20 text-lg">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="text-center mb-5">
+        <span class="kamal-eyebrow !text-[#84651d]">CELEBRATE WITH US</span>
+        <h3 class="font-heading text-2xl text-[#8b3a4a] font-medium">RSVP</h3>
+        <p class="font-body italic text-xs sm:text-sm text-[#556b4a] mt-1">Please confirm your gracious presence by
+          filling below</p>
+      </div>
+
+      <form id="rsvpForm" class="space-y-4 text-left">
+        <div>
+          <label class="block font-label text-xs uppercase tracking-wider text-[#84651d] font-semibold mb-1">Your
+            Name</label>
+          <input type="text" id="rsvpGuestName" required placeholder="E.g. Rajesh Sharma & Family"
+            class="wish-input !mb-0" />
+        </div>
+
+        <div>
+          <label class="block font-label text-xs uppercase tracking-wider text-[#84651d] font-semibold mb-1">Will you
+            attend?</label>
+          <div class="flex gap-4">
+            <label class="flex items-center gap-2 text-sm text-[#233924] cursor-pointer">
+              <input type="radio" name="attendance" value="Yes, Joyfully Attending!" checked class="accent-[#8b3a4a]" />
+              <span>Yes, Joyfully! 🎉</span>
+            </label>
+            <label class="flex items-center gap-2 text-sm text-[#233924] cursor-pointer">
+              <input type="radio" name="attendance" value="Regretfully Unable to Attend" class="accent-[#8b3a4a]" />
+              <span>Regretfully Unable</span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-label text-xs uppercase tracking-wider text-[#84651d] font-semibold mb-1">Number of
+            Guests</label>
+          <select id="rsvpGuestCount" class="wish-input !mb-0">
+            <option value="1">1 Person</option>
+            <option value="2" selected>2 Persons</option>
+            <option value="3">3 Persons</option>
+            <option value="4">4 Persons</option>
+            <option value="5+">5+ Family Members</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-label text-xs uppercase tracking-wider text-[#84651d] font-semibold mb-1">Attending
+            Events</label>
+          <div class="grid grid-cols-2 gap-2 text-xs text-[#233924]">
+            <label class="flex items-center gap-1.5 cursor-pointer">
+              <input type="checkbox" name="rsvpEvents" value="Vinayak Sthapana & Carnival (11 Dec)" checked
+                class="accent-[#8b3a4a]" />
+              <span>Carnival (11 Dec)</span>
+            </label>
+            <label class="flex items-center gap-1.5 cursor-pointer">
+              <input type="checkbox" name="rsvpEvents" value="Sangeet & DJ Night (11 Dec)" checked
+                class="accent-[#8b3a4a]" />
+              <span>Sangeet (11 Dec)</span>
+            </label>
+            <label class="flex items-center gap-1.5 cursor-pointer">
+              <input type="checkbox" name="rsvpEvents" value="Kalash & Mayra (12 Dec)" checked
+                class="accent-[#8b3a4a]" />
+              <span>Mayra (12 Dec)</span>
+            </label>
+            <label class="flex items-center gap-1.5 cursor-pointer">
+              <input type="checkbox" name="rsvpEvents" value="Wedding & Pheras (12 Dec)" checked
+                class="accent-[#8b3a4a]" />
+              <span>Wedding (12 Dec)</span>
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-wish-btn !mt-4 w-full">
+          <i class="fa-brands fa-whatsapp"></i> Send RSVP via WhatsApp
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+
+  <!-- Toast Notification -->
+  <div id="toastNotification" class="toast-popup"></div>
+
+
+  <!-- Scroll-triggered Flying Butterflies -->
+  <div id="scrollButterflies"
+       class="scroll-butterfly-layer"
+       aria-hidden="true">
+
+    <!-- Left Butterfly---->
+    <svg class="scroll-butterfly sb-left" viewBox="0 0 80 70">
+      <g class="sb-wing sb-wing-left">
+        <path d="M39 35 Q9 0 5 20 Q4 36 37 40Z"
+              fill="#ef9db8" stroke="#bd718b" stroke-width="1.5"/>
+        <path d="M37 40 Q9 35 17 57 Q28 66 39 43Z"
+              fill="#e8b5ce" stroke="#bd718b" stroke-width="1.5"/>
+      </g>
+      <g class="sb-wing sb-wing-right">
+        <path d="M41 35 Q71 0 75 20 Q76 36 43 40Z"
+              fill="#f5c6a3" stroke="#bd9b79" stroke-width="1.5"/>
+        <path d="M43 40 Q71 35 63 57 Q52 66 41 43Z"
+              fill="#efb4a7" stroke="#bd9b79" stroke-width="1.5"/>
+      </g>
+      <path d="M40 31 Q36 42 40 48 Q44 42 40 31Z" fill="#65443d"/>
+      <path d="M39 32 Q29 19 29 16 M41 32 Q51 19 51 16"
+            fill="none" stroke="#65443d" stroke-width="1.5"/>
+    </svg>
+
+    <!-- Right Butterfly -->
+    <svg class="scroll-butterfly sb-right" viewBox="0 0 80 70">
+      <g class="sb-wing sb-wing-left">
+        <path d="M39 35 Q9 0 5 20 Q4 36 37 40Z"
+              fill="#eab66d" stroke="#bd8950" stroke-width="1.5"/>
+        <path d="M37 40 Q9 35 17 57 Q28 66 39 43Z"
+              fill="#f3d5a0" stroke="#bd8950" stroke-width="1.5"/>
+      </g>
+      <g class="sb-wing sb-wing-right">
+        <path d="M41 35 Q71 0 75 20 Q76 36 43 40Z"
+              fill="#e8a2b1" stroke="#c77e91" stroke-width="1.5"/>
+        <path d="M43 40 Q71 35 63 57 Q52 66 41 43Z"
+              fill="#d8a0c2" stroke="#c77e91" stroke-width="1.5"/>
+      </g>
+      <path d="M40 31 Q36 42 40 48 Q44 42 40 31Z" fill="#65443d"/>
+      <path d="M39 32 Q29 19 29 16 M41 32 Q51 19 51 16"
+            fill="none" stroke="#65443d" stroke-width="1.5"/>
+    </svg>
+
+  </div>
+
+
+</html>
+  <script src="app.js?v=2026_reveal_v58"></script>
+</body>
+
+</html>

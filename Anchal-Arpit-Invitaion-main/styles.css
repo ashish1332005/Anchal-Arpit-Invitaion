@@ -1,0 +1,1379 @@
+/* ===================================================================
+   AANCHAL & ARPIT - WEDDING INVITATION PREMIUM STYLESHEET
+   Accurate replica of Kamal Kunj Events, Scallop Ceremony & Regards 
+   =================================================================== */
+
+:root {
+  --wed-page-bg: #fdf9f0;
+  --wed-surface: #faf6ee;
+  --wed-ink: #233924;
+  --wed-ink-soft: #556b4a;
+  --wed-accent-deep: #8b3a4a;
+  --wed-gold: #c59b27;
+  --wed-gold-text: #84651d;
+  --sv-ground-events: #dce9f2;
+  --sv-ground-invite: #fdf9f0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: var(--wed-page-bg);
+  color: var(--wed-ink);
+  font-family: 'Cormorant Garamond', 'Marcellus', Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ================= FULLSCREEN VIDEO & INTRO STAGE ================= */
+#introEnvelopeStage {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: #362f22;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+}
+
+#introEnvelopeStage.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#videoEnv, #videoIntro {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+
+.video-logo-overlay {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.6);
+  z-index: 25;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.2s ease, transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.video-logo-overlay.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.video-logo-img {
+  width: 150px;
+  max-width: 45vw;
+  height: auto;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.35));
+}
+
+.logo-aura-glow {
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.45) 0%, transparent 70%);
+  animation: auraPulse 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes auraPulse {
+  0% { transform: scale(0.9); opacity: 0.4; }
+  100% { transform: scale(1.35); opacity: 0.95; }
+}
+
+.tap-to-open-prompt {
+  position: absolute;
+  top: 56%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.tap-to-open-prompt.hide {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(1.15);
+}
+
+.pulse-ring {
+  position: absolute;
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.65) 0%, transparent 70%);
+  animation: ringPulse 1.8s ease-in-out infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+@keyframes ringPulse {
+  0% { transform: translate(-50%, -50%) scale(0.85); opacity: 0.85; }
+  100% { transform: translate(-50%, -50%) scale(1.35); opacity: 0; }
+}
+
+.wax-seal-icon {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #ffd700 0%, #d4af37 40%, #aa771c 85%, #664400 100%);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45), inset 0 2px 4px rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #fff2aa;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.wax-seal-icon:hover {
+  transform: scale(1.06);
+}
+
+.wax-seal-icon img {
+  width: 50px;
+  height: auto;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.35));
+}
+
+.tap-text-pill {
+  position: fixed;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 35;
+  background: rgba(28, 22, 18, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #fff;
+  padding: 6px 18px;
+  border-radius: 999px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  white-space: nowrap;
+  border: 1px solid rgba(212, 175, 55, 0.65);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  animation: bounceHint 2s ease infinite;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.tap-text-pill.hide {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(12px);
+}
+
+@keyframes bounceHint {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-5px); }
+}
+
+.skip-intro-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 40;
+  background: rgba(44, 36, 32, 0.75);
+  backdrop-filter: blur(4px);
+  color: #f4ede1;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  padding: 7px 15px;
+  border-radius: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.skip-intro-btn:hover {
+  background: rgba(44, 36, 32, 0.95);
+  border-color: #d4af37;
+  transform: scale(1.04);
+}
+
+
+/* ================= FLOATING CONTROLLERS (KAMAL KUNJ STYLE) ================= */
+.floating-music-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 900;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(35, 57, 36, 0.88);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(197, 155, 39, 0.5);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #faf6ee;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.floating-music-btn:hover {
+  transform: scale(1.1);
+  background: rgba(35, 57, 36, 1);
+  border-color: #c59b27;
+}
+
+.music-icon-wrapper {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.floating-rsvp-btn {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 900;
+  padding: 8px 20px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #d8bc79 0%, #c59b27 100%);
+  color: #233924;
+  font-family: 'Marcellus', 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-rsvp-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(197, 155, 39, 0.4);
+}
+
+
+/* ================= 1. HERO SECTION (FULLSCREEN EDGE-TO-EDGE BOTANICAL OVAL) ================= */
+.hero-section {
+  position: relative;
+  min-height: 100svh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+.hero-bg-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  opacity: 1;
+}
+
+.monogram-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -4vh;
+}
+
+.animate-gentle-pulse {
+  animation: gentlePulse 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes gentlePulse {
+  0% { transform: scale(0.97); }
+  100% { transform: scale(1.03); }
+}
+
+
+/* ================= 2. SCRATCH CARD SECTION ================= */
+.scratch-section {
+  position: relative;
+  min-height: 520px;
+  width: 100%;
+  margin: 0;
+  padding: 64px 16px 72px;
+  background-color: #fdf9f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+@media (min-width: 640px) {
+  .scratch-section {
+    min-height: 580px;
+    padding: 80px 24px 88px;
+  }
+}
+
+.scratch-ambient-aura {
+  display: none !important;
+}
+
+.scratch-corner-floral {
+  position: absolute;
+  z-index: 25 !important;
+  pointer-events: none;
+  filter: drop-shadow(0 8px 24px rgba(139, 40, 60, 0.16));
+  transition: transform 0.4s ease;
+}
+
+.scratch-royal-card {
+  position: relative;
+  z-index: 10;
+  background: linear-gradient(165deg, rgba(255, 255, 252, 0.88) 0%, rgba(254, 249, 242, 0.78) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(197, 155, 39, 0.38);
+  box-shadow: 0 20px 48px -12px rgba(139, 40, 60, 0.14),
+              0 0 0 1px rgba(255, 255, 255, 0.9) inset;
+  border-radius: 28px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scratch-royal-card:hover {
+  box-shadow: 0 24px 54px -12px rgba(139, 40, 60, 0.18),
+              0 0 0 1px rgba(255, 255, 255, 0.95) inset;
+}
+
+.scratch-card-wrapper {
+  user-select: none;
+  touch-action: none;
+  position: relative;
+  z-index: 5;
+  filter: drop-shadow(0 14px 28px rgba(180, 110, 120, 0.32));
+  transition: transform 0.3s ease;
+}
+
+.scratch-card-wrapper:hover {
+  transform: scale(1.025);
+}
+
+.scratch-canvas {
+  touch-action: none;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* ================= 3. WELCOME & FAMILY SECTION ================= */
+.welcome-section {
+  position: relative;
+  min-height: 100svh;
+  width: 100%;
+  margin: 0;
+  padding: 40px 16px;
+  background-color: #fdf9f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-bg-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('assets/welcome-new-bg.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .welcome-bg-frame {
+    background-size: 100% 100%;
+  }
+}
+
+
+/* ================= 4. CEREMONY LEAD SECTION (SCALLOP CARD) ================= */
+.ceremony-lead-section {
+  background: #faf6ee;
+}
+
+.watercolor-stripes-bg {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(229, 238, 218, 0.35) 0px,
+    rgba(229, 238, 218, 0.35) 45px,
+    transparent 45px,
+    transparent 90px
+  );
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.scallop-card {
+  background: #fdfbf7;
+  border: 2px solid #d4c8af;
+  border-radius: 42px;
+  box-shadow: 
+    0 0 0 6px #fdfbf7,
+    0 0 0 8px rgba(197, 155, 39, 0.35),
+    0 20px 40px -15px rgba(35, 57, 36, 0.15);
+  position: relative;
+}
+
+.scallop-action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(197, 155, 39, 0.65);
+  background: #faf6ee;
+  color: var(--wed-gold-text);
+  font-family: 'Marcellus', 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.scallop-action-btn:hover {
+  background: #c59b27;
+  color: #fff;
+  border-color: #c59b27;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(197, 155, 39, 0.3);
+}
+
+
+/* ================= 4. KAMAL KUNJ "OUR EVENTS" SECTION (SCREENSHOTS 1 & 2) ================= */
+.kamal-events-section {
+  position: relative;
+  background: var(--sv-ground-events);
+  background: linear-gradient(180deg, #fdf9f0 0%, #dce9f2 6%, #dce9f2 94%, #faf6ee 100%);
+}
+
+/* Swaying Marigold Garlands */
+.garland-edge-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 15;
+  width: clamp(38px, 10vw, 75px);
+  pointer-events: none;
+  transform-origin: 50% 0;
+  animation: garlandSwayLeft 5.2s ease-in-out infinite;
+}
+
+.garland-edge-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 15;
+  width: clamp(38px, 10vw, 75px);
+  pointer-events: none;
+  transform-origin: 50% 0;
+  animation: garlandSwayRight 5.6s ease-in-out infinite -1.4s;
+}
+
+.garland-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 1400px;
+  object-fit: cover;
+  object-position: top center;
+  -webkit-mask-image: linear-gradient(180deg, #000 85%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 85%, transparent 100%);
+}
+
+.garland-flipped {
+  transform: scaleX(-1);
+}
+
+@keyframes garlandSwayLeft {
+  0%, 100% { transform: rotate(-1.2deg); }
+  50% { transform: rotate(1.2deg); }
+}
+
+@keyframes garlandSwayRight {
+  0%, 100% { transform: scaleX(-1) rotate(1.2deg); }
+  50% { transform: scaleX(-1) rotate(-1.2deg); }
+}
+
+/* Subtle Swan Top-Right */
+.swan-watermark {
+  position: absolute;
+  top: 15px;
+  right: clamp(15px, 8vw, 80px);
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.38;
+  max-width: 140px;
+}
+
+.swan-img {
+  width: 100%;
+  height: auto;
+}
+
+/* Headings */
+.kamal-eyebrow {
+  display: block;
+  font-family: 'Marcellus', 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--wed-accent-deep);
+  margin-bottom: 8px;
+}
+
+.kamal-main-heading {
+  font-family: 'Cinzel', 'Marcellus', 'Playfair Display', serif;
+  font-size: clamp(32px, 7vw, 44px);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--wed-ink);
+  margin: 0;
+}
+
+/* Event Cards (Gilded Ivory Plaque) */
+.event-cards-container {
+  max-width: 490px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(14px, 4vw, 24px);
+  padding-right: clamp(14px, 4vw, 24px);
+}
+
+.kamal-event-card {
+  position: relative;
+  background: #fdfbf7;
+  border: 1px solid rgba(197, 155, 39, 0.65);
+  border-radius: 4px;
+  padding: clamp(22px, 4.5vw, 32px) clamp(16px, 4.5vw, 28px);
+  text-align: center;
+  box-shadow: 
+    0 0 0 5px #fdfbf7,
+    0 0 0 6px rgba(197, 155, 39, 0.35),
+    0 18px 45px -20px rgba(31, 40, 24, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.kamal-event-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 0 0 5px #fdfbf7,
+    0 0 0 6px rgba(197, 155, 39, 0.5),
+    0 22px 50px -18px rgba(31, 40, 24, 0.45);
+}
+
+.date-section-header {
+  text-align: center;
+  margin: 28px 0 16px;
+  position: relative;
+}
+
+.date-header-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #8b3a4a, #84651d);
+  color: #fffdf7;
+  font-family: 'Cinzel', 'Marcellus', serif;
+  font-size: clamp(11px, 3.2vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  padding: 6px 18px;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px rgba(139, 58, 74, 0.25);
+  border: 1px solid rgba(197, 155, 39, 0.6);
+}
+
+.date-header-sub {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(13px, 3.5vw, 15px);
+  font-style: italic;
+  color: var(--wed-ink-soft);
+  margin-top: 6px;
+  letter-spacing: 0.05em;
+}
+
+.event-card-title {
+  font-family: 'Great Vibes', 'Alex Brush', cursive;
+  font-size: clamp(38px, 9vw, 54px);
+  font-weight: 400;
+  color: var(--wed-accent-deep);
+  margin: 0 0 6px 0;
+  line-height: 1.1;
+}
+
+.card-divider-flourish {
+  width: min(60%, 180px);
+  height: auto;
+  margin: 4px auto 14px;
+  display: block;
+  opacity: 0.95;
+}
+
+/* Date Band (Exact replica of user reference) */
+
+/* Creative Date Band */
+.card-date-band {
+  width: 100%;
+  max-width: 420px;
+  margin: 18px auto;
+  text-align: center;
+  color: #173c30;
+}
+
+.card-date-band .date-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 18px;
+  width: 100%;
+}
+
+.card-date-band .date-side {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  color: #173c30;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  padding-bottom: 12px;
+}
+
+.card-date-band .date-side::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1.5px;
+  background: #c5a04b;
+}
+
+.card-date-band .date-day {
+  flex: 0 0 auto;
+  color: #91394b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 64px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: 0;
+  white-space: nowrap;
+  font-variant-numeric: lining-nums;
+}
+
+.card-date-band .date-year {
+  display: block;
+  margin-top: 12px;
+  color: #173c30;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 8px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Mobile layout */
+@media (max-width: 380px) {
+  .card-date-band .date-row {
+    gap: 10px;
+  }
+
+  .card-date-band .date-side {
+    font-size: 15px;
+    letter-spacing: 2px;
+  }
+
+  .card-date-band .date-day {
+    font-size: 54px;
+  }
+
+  .card-date-band .date-year {
+    font-size: 17px;
+    letter-spacing: 6px;
+  }
+}
+
+.date-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(14px, 4vw, 24px);
+}
+
+.date-side {
+  min-width: 5.4ch;
+  padding-bottom: 4px;
+  border-bottom: 1.5px solid #84651d;
+  font-family: 'Marcellus', 'Montserrat', sans-serif;
+  font-size: clamp(12px, 3.2vw, 14px);
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #233924;
+}
+
+.date-day {
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  font-size: clamp(40px, 9vw, 52px);
+  font-weight: 700;
+  line-height: 0.9;
+  color: #8b3a4a;
+  padding: 0 4px;
+}
+
+.date-year {
+  font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+  font-size: clamp(16px, 4vw, 19px);
+  letter-spacing: 0.22em;
+  color: #233924;
+  font-weight: 600;
+  margin-top: 1px;
+}
+
+.event-time {
+  font-family: 'Cinzel', 'Marcellus', serif;
+  font-size: clamp(12px, 3.3vw, 14px);
+  font-weight: 600;
+  color: var(--wed-ink);
+  margin: 10px 0 3px;
+  line-height: 1.45;
+  padding: 0 4px;
+}
+
+.event-venue {
+  font-family: 'Cinzel', 'Marcellus', serif;
+  font-size: clamp(11.5px, 3.1vw, 13px);
+  color: var(--wed-accent-deep);
+  font-weight: 500;
+  margin: 3px 0 10px;
+  line-height: 1.4;
+  padding: 0 4px;
+}
+
+.event-desc {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(12px, 3.2vw, 13.5px);
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--wed-ink-soft);
+  max-width: 25em;
+  margin: 0 auto 12px;
+  padding: 0 6px;
+}
+
+/* Attire Row */
+.event-attire {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin-bottom: 14px;
+  padding: 0 4px;
+}
+
+.attire-label {
+  font-family: 'Marcellus', 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-style: italic;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--wed-ink);
+}
+
+.attire-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 12.5px;
+  font-style: italic;
+  color: var(--wed-ink-soft);
+}
+
+.attire-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Action Buttons */
+.event-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 4px;
+}
+
+.kamal-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  min-height: 32px;
+  padding: 5px 12px;
+  border: 1px solid rgba(197, 155, 39, 0.7);
+  border-radius: 999px;
+  font-family: 'Marcellus', 'Montserrat', sans-serif;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--wed-gold-text);
+  text-decoration: none;
+  background: #faf6ee;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+/***** Section *****/  /***** End Section *****/
+
+.kamal-btn:hover {
+  border-color: var(--wed-accent-deep);
+  color: var(--wed-accent-deep);
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+
+/* ================= 5. COUNTDOWN GRID ================= */
+.countdown-wrapper {
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), max-height 0.7s ease, margin-top 0.7s ease;
+}
+
+.countdown-hidden {
+  opacity: 0 !important;
+  transform: translateY(18px) scale(0.92) !important;
+  pointer-events: none !important;
+  max-height: 0 !important;
+  margin-top: 0 !important;
+  overflow: hidden !important;
+}
+
+.countdown-revealed {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  pointer-events: auto !important;
+  max-height: 140px !important;
+  animation: gentleCountdownPop 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes gentleCountdownPop {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.92);
+  }
+  70% {
+    transform: translateY(-2px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .countdown-grid {
+    gap: 8px;
+    max-width: 340px;
+  }
+}
+
+.timer-box {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(253, 246, 236, 0.9) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(197, 155, 39, 0.45);
+  box-shadow: 0 4px 14px rgba(139, 58, 74, 0.08), inset 0 1px 0 #ffffff;
+  border-radius: 10px;
+  padding: 8px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.timer-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(139, 58, 74, 0.14);
+  border-color: rgba(197, 155, 39, 0.7);
+}
+
+.timer-value {
+  font-family: 'Cinzel', 'Playfair Display', serif;
+  font-size: clamp(17px, 4.2vw, 22px);
+  font-weight: 700;
+  color: var(--wed-accent-deep);
+  line-height: 1.1;
+}
+
+.timer-label {
+  font-family: 'Marcellus', 'Montserrat', sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--wed-gold-text);
+  margin-top: 2px;
+}
+
+
+/* ================= RSVP MODAL & BUTTONS ================= */
+.wish-input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: 1px solid rgba(197, 155, 39, 0.4);
+  background: #fff;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 15px;
+  color: var(--wed-ink);
+  outline: none;
+  margin-bottom: 10px;
+  transition: border-color 0.3s;
+}
+
+.wish-input:focus {
+  border-color: var(--wed-gold);
+}
+
+.submit-wish-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #8b3a4a 0%, #6e2534 100%);
+  color: #fff;
+  font-family: 'Marcellus', 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submit-wish-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(139, 58, 74, 0.35);
+}
+
+.share-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s;
+}
+
+.share-pill-btn.whatsapp {
+  background: #25D366;
+  color: #fff;
+}
+
+.share-pill-btn.copy {
+  background: #233924;
+  color: #fff;
+}
+
+.share-pill-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+
+/* ================= FLOATING PETALS EFFECT ================= */
+.floating-petal {
+  position: absolute;
+  top: -40px;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform, opacity;
+  animation: petalFall linear infinite;
+}
+
+@keyframes petalFall {
+  0% {
+    transform: translateY(0) rotate(0deg) translateX(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  85% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateY(105vh) rotate(360deg) translateX(45px);
+    opacity: 0;
+  }
+}
+
+
+/* ================= TOAST NOTIFICATION ================= */
+.toast-popup {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(30px);
+  background: #233924;
+  color: #faf6ee;
+  border: 1px solid #c59b27;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.35s ease;
+  z-index: 10000;
+}
+
+.toast-popup.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ================= TYPOGRAPHY & READABILITY ENHANCEMENTS ================= */
+.font-script {
+  font-family: 'Alex Brush', 'Pinyon Script', cursive !important;
+  text-transform: none !important;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+}
+
+.font-heading {
+  font-family: 'Cinzel', 'Marcellus', 'Playfair Display', serif !important;
+}
+
+.font-body {
+  font-family: 'Cormorant Garamond', 'Marcellus', Georgia, serif !important;
+}
+
+.font-label {
+  font-family: 'Marcellus', 'Montserrat', sans-serif !important;
+}
+
+/* Couple Names with Royal Distinction, Elegant & Graceful */
+.bride-groom-name {
+  font-family: 'Alex Brush', 'Pinyon Script', cursive !important;
+  font-size: clamp(44px, 11vw, 64px);
+  color: #8b1e3f;
+  line-height: 1.2;
+  font-weight: 500;
+  text-transform: none !important;
+  letter-spacing: 0.02em;
+  margin: 0;
+  display: inline-block;
+}
+
+.couple-with-text {
+  font-family: 'Alex Brush', 'Pinyon Script', cursive !important;
+  font-weight: 500;
+}
+
+/* Elegant & Highly Legible Lineage Typography (Soft, Non-Distracting) */
+.lineage-text {
+  font-family: 'Cormorant Garamond', 'Marcellus', Georgia, serif !important;
+  font-size: clamp(11.5px, 3.1vw, 15px) !important;
+  font-weight: 500 !important;
+  color: #384839 !important;
+  line-height: 1.65 !important;
+  margin-top: 4px !important;
+  letter-spacing: 0.01em;
+}
+
+.lineage-row {
+  display: block;
+  white-space: nowrap;
+}
+
+.lineage-tag {
+  font-family: 'Marcellus', 'Cormorant Garamond', serif !important;
+  font-weight: 600 !important;
+  font-size: 0.92em;
+  color: #84651d !important;
+  letter-spacing: 0.05em;
+  margin-right: 5px;
+  text-transform: uppercase;
+}
+
+/* Single-Line Event Time Pill */
+.event-time-pill {
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+
+/* ===== HERO BIRDS & BUTTERFLIES ANIMATION ===== */
+
+#hero {
+  position: relative;
+  isolation: isolate;
+}
+
+.hero-creature-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-creature {
+  position: absolute;
+  display: block;
+  overflow: visible;
+  will-change: transform;
+}
+
+/* Birds fly across the floral background */
+.bird {
+  width: clamp(38px, 5.5vw, 72px);
+  height: auto;
+}
+
+.bird-one {
+  top: 24%;
+  left: 8%;
+  animation: bird-flight-one 13s ease-in-out infinite;
+}
+
+.bird-two {
+  top: 39%;
+  right: 7%;
+  animation: bird-flight-two 16s ease-in-out infinite;
+  animation-delay: -5s;
+}
+
+/* Wings repeatedly flap */
+.bird-wing {
+  transform-box: view-box;
+  transform-origin: 50% 90%;
+  animation: bird-wing-flap 0.42s ease-in-out infinite alternate;
+}
+
+.bird-two .bird-wing {
+  animation-duration: 0.5s;
+}
+
+/* Butterflies */
+.butterfly {
+  width: clamp(22px, 3.2vw, 42px);
+  height: auto;
+  transform-origin: center;
+}
+
+.butterfly-one {
+  top: 32%;
+  left: 20%;
+  animation: butterfly-flight-one 10s ease-in-out infinite;
+}
+
+.butterfly-two {
+  top: 17%;
+  right: 19%;
+  animation: butterfly-flight-two 12s ease-in-out infinite;
+  animation-delay: -3s;
+}
+
+.butterfly-three {
+  bottom: 24%;
+  left: 36%;
+  animation: butterfly-flight-three 11s ease-in-out infinite;
+  animation-delay: -6s;
+}
+
+/* Butterfly wings open and close */
+.butterfly-left-wing,
+.butterfly-right-wing {
+  transform-box: view-box;
+  transform-origin: 40px 40px;
+  animation: butterfly-flap 0.3s ease-in-out infinite alternate;
+}
+
+.butterfly-right-wing {
+  animation-delay: -0.15s;
+}
+
+/* Bird flight paths */
+@keyframes bird-flight-one {
+  0%, 100% { transform: translate(0, 0) rotate(-3deg); }
+  25%      { transform: translate(35px, -20px) rotate(4deg); }
+  50%      { transform: translate(75px, 8px) rotate(-2deg); }
+  75%      { transform: translate(35px, -12px) rotate(3deg); }
+}
+
+@keyframes bird-flight-two {
+  0%, 100% { transform: translate(0, 0) rotate(3deg); }
+  30%      { transform: translate(-35px, -18px) rotate(-4deg); }
+  65%      { transform: translate(-75px, 10px) rotate(2deg); }
+}
+
+/* Wing motion */
+@keyframes bird-wing-flap {
+  from { transform: scaleY(0.55) rotate(-8deg); }
+  to   { transform: scaleY(1) rotate(8deg); }
+}
+
+/* Butterflies flutter along curved paths */
+@keyframes butterfly-flight-one {
+  0%, 100% { transform: translate(0, 0) rotate(-8deg); }
+  25%      { transform: translate(35px, -25px) rotate(12deg); }
+  50%      { transform: translate(70px, 8px) rotate(-10deg); }
+  75%      { transform: translate(30px, 22px) rotate(8deg); }
+}
+
+@keyframes butterfly-flight-two {
+  0%, 100% { transform: translate(0, 0) rotate(8deg); }
+  30%      { transform: translate(-30px, 22px) rotate(-12deg); }
+  65%      { transform: translate(-65px, -18px) rotate(10deg); }
+}
+
+@keyframes butterfly-flight-three {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  35%      { transform: translate(28px, -25px) rotate(12deg); }
+  70%      { transform: translate(60px, -5px) rotate(-10deg); }
+}
+
+@keyframes butterfly-flap {
+  from { transform: scaleX(1); }
+  to   { transform: scaleX(0.18); }
+}
+
+/* Accessibility: respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .hero-creature,
+  .bird-wing,
+  .butterfly-left-wing,
+  .butterfly-right-wing {
+    animation: none !important;
+  }
+}
+
+
+
+
+/* ===== Butterflies that follow page scrolling ===== */
+
+.scroll-butterfly-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.scroll-butterfly {
+  position: absolute;
+  top: 45%;
+  width: clamp(30px, 4vw, 48px);
+  height: auto;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.sb-left {
+  left: 0;
+  transform: translate(-70px, 0) rotate(-15deg);
+}
+
+.sb-right {
+  right: 0;
+  transform: translate(70px, 0) rotate(15deg) scaleX(-1);
+}
+
+/* Wings keep flapping while butterflies are visible */
+.sb-wing {
+  transform-box: view-box;
+  transform-origin: 40px 40px;
+  animation: scroll-butterfly-flap 0.24s ease-in-out infinite alternate;
+}
+
+.sb-wing-right {
+  animation-delay: -0.12s;
+}
+
+@keyframes scroll-butterfly-flap {
+  from { transform: scaleX(1); }
+  to   { transform: scaleX(0.15); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sb-wing {
+    animation: none;
+  }
+}
+
