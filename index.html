@@ -12,7 +12,7 @@
   <meta property="og:title" content="Anchal &amp; Arpit - Wedding Invitation" />
   <meta property="og:description"
     content="Join us in celebrating the wedding of Anchal &amp; Arpit on 11th &amp; 12th December 2026 at Gloria Inn, Bhilwara." />
-  <meta property="og:image" content="assets/images/couple-logo.png" />
+  <meta property="og:image" content="assets/couple-logo.png" />
   <meta name="theme-color" content="#fdf9f0" />
 
   <!-- Google Fonts & Typekit -->
@@ -102,14 +102,14 @@
     <!-- Center Monogram Logo Overlay in Center of Video 2 -->
     <div id="videoLogoOverlay" class="video-logo-overlay">
       <div class="logo-aura-glow"></div>
-      <img src="assets/images/couple-logo.png" alt="Anchal & Arpit Monogram" class="video-logo-img" />
+      <img src="assets/couple-logo.png" alt="Anchal & Arpit Monogram" class="video-logo-img" />
     </div>
 
     <!-- Tap to Open Prompt / Center Wax Seal Button -->
     <div id="tapToOpenPrompt" class="tap-to-open-prompt">
       <div class="pulse-ring"></div>
       <div class="wax-seal-icon">
-        <img src="assets/images/couple-logo.png" alt="Couple Logo" />
+        <img src="assets/couple-logo.png" alt="Couple Logo" />
       </div>
     </div>
 
@@ -122,6 +122,17 @@
     <button id="skipIntroBtn" class="skip-intro-btn hidden">
       <span>Skip <i class="fa-solid fa-forward"></i></span>
     </button>
+
+    <!-- Swipe Down Button (Shows when Video ends) -->
+    <div id="scrollToScratchBtn"
+      class="hero-scroll-btn hidden">
+      <div class="px-5 py-2.5 rounded-full bg-[#8b3a4a]/95 border-2 border-[#c59b27] shadow-xl flex items-center gap-2 backdrop-blur-md">
+        <span class="text-[12px] sm:text-[13px] tracking-[0.2em] uppercase font-label font-bold text-[#fdf9f0]">
+          ✨ Swipe Down ✨
+        </span>
+        <i class="fa-solid fa-chevron-down text-[#ffd700] text-sm animate-bounce"></i>
+      </div>
+    </div>
   </div>
 
 
@@ -130,34 +141,117 @@
     class="relative bg-[#fdf9f0] min-h-screen text-[#233924] overflow-x-hidden font-body antialiased select-none opacity-0 transition-opacity duration-1000">
 
     <!-- ================= 1. HERO SECTION (CLEAN EDGE-TO-EDGE BOTANICAL OVAL WITH ONLY COUPLE LOGO) ================= -->
-    <section id="hero"
+    <section id="hero" style="display: none;"
       class="hero-section relative min-h-screen w-full flex flex-col justify-between items-center text-center overflow-hidden py-8 px-4">
 
       <!-- Fullscreen Botanical Frame Background (Clean without any pre-printed logo) -->
       <div class="hero-bg-frame pointer-events-none" style="background-image: url('assets/hero-bg.png');"></div>
 
+        <!-- Animated Birds and Butterflies -->
+        <div class="hero-creature-layer" aria-hidden="true">
+
+          <!-- Flying Bird 1 -->
+          <svg class="hero-creature bird bird-one" viewBox="0 0 100 70">
+            <g class="bird-wings">
+              <path class="bird-wing"
+                d="M48 39 Q24 2 4 9 Q24 12 39 43 Z"
+                fill="#82916d"/>
+              <path class="bird-wing"
+                d="M48 39 Q73 5 94 15 Q70 17 55 45 Z"
+                fill="#a6b18a"/>
+            </g>
+            <path d="M29 40 Q46 25 63 40 L79 36 L66 46 Q47 55 29 40Z"
+              fill="#75896a"/>
+            <path d="M76 37 L95 32 L80 42Z" fill="#b77a56"/>
+            <circle cx="67" cy="36" r="1.8" fill="#352d28"/>
+          </svg>
+
+          <!-- Flying Bird 2 -->
+          <svg class="hero-creature bird bird-two" viewBox="0 0 100 70">
+            <g class="bird-wings">
+              <path class="bird-wing"
+                d="M48 40 Q26 4 5 12 Q27 16 40 45Z"
+                fill="#c5a58b"/>
+              <path class="bird-wing"
+                d="M49 40 Q74 6 94 14 Q72 19 56 45Z"
+                fill="#e0c6a7"/>
+            </g>
+            <path d="M28 41 Q47 26 64 40 L79 36 L65 46 Q46 55 28 41Z"
+              fill="#9c8069"/>
+            <path d="M76 38 L96 33 L80 42Z" fill="#b77a56"/>
+            <circle cx="67" cy="36" r="1.8" fill="#352d28"/>
+          </svg>
+
+          <!-- Butterfly 1 -->
+          <svg class="hero-creature butterfly butterfly-one" viewBox="0 0 80 70">
+            <g class="butterfly-left-wing">
+              <path d="M39 35 Q9 0 5 20 Q4 36 37 40Z"
+                fill="#e99cb1" stroke="#bd718b" stroke-width="1.5"/>
+              <path d="M37 40 Q9 35 17 57 Q28 66 39 43Z"
+                fill="#d887a1" stroke="#bd718b" stroke-width="1.5"/>
+            </g>
+            <g class="butterfly-right-wing">
+              <path d="M41 35 Q71 0 75 20 Q76 36 43 40Z"
+                fill="#f2c5a5" stroke="#bd9b79" stroke-width="1.5"/>
+              <path d="M43 40 Q71 35 63 57 Q52 66 41 43Z"
+                fill="#e6a7a1" stroke="#bd9b79" stroke-width="1.5"/>
+            </g>
+            <path d="M40 31 Q36 42 40 48 Q44 42 40 31Z" fill="#65443d"/>
+            <path d="M39 32 Q29 19 29 16 M41 32 Q51 19 51 16"
+              fill="none" stroke="#65443d" stroke-width="1.5"/>
+          </svg>
+
+          <!-- Butterfly 2 -->
+          <svg class="hero-creature butterfly butterfly-two" viewBox="0 0 80 70">
+            <g class="butterfly-left-wing">
+              <path d="M39 35 Q9 0 5 20 Q4 36 37 40Z"
+                fill="#e7a2a4" stroke="#bf7b83" stroke-width="1.5"/>
+              <path d="M37 40 Q9 35 17 57 Q28 66 39 43Z"
+                fill="#f2c8a7" stroke="#bf7b83" stroke-width="1.5"/>
+            </g>
+            <g class="butterfly-right-wing">
+              <path d="M41 35 Q71 0 75 20 Q76 36 43 40Z"
+                fill="#b7c9d7" stroke="#819cad" stroke-width="1.5"/>
+              <path d="M43 40 Q71 35 63 57 Q52 66 41 43Z"
+                fill="#d7b8ce" stroke="#819cad" stroke-width="1.5"/>
+            </g>
+            <path d="M40 31 Q36 42 40 48 Q44 42 40 31Z" fill="#65443d"/>
+            <path d="M39 32 Q29 19 29 16 M41 32 Q51 19 51 16"
+              fill="none" stroke="#65443d" stroke-width="1.5"/>
+          </svg>
+
+          <!-- Butterfly 3 -->
+          <svg class="hero-creature butterfly butterfly-three" viewBox="0 0 80 70">
+            <g class="butterfly-left-wing">
+              <path d="M39 35 Q9 0 5 20 Q4 36 37 40Z"
+                fill="#e9b66f" stroke="#bf8950" stroke-width="1.5"/>
+              <path d="M37 40 Q9 35 17 57 Q28 66 39 43Z"
+                fill="#f2d69d" stroke="#bf8950" stroke-width="1.5"/>
+            </g>
+            <g class="butterfly-right-wing">
+              <path d="M41 35 Q71 0 75 20 Q76 36 43 40Z"
+                fill="#efb5bb" stroke="#c77e91" stroke-width="1.5"/>
+              <path d="M43 40 Q71 35 63 57 Q52 66 41 43Z"
+                fill="#d99bb7" stroke="#c77e91" stroke-width="1.5"/>
+            </g>
+            <path d="M40 31 Q36 42 40 48 Q44 42 40 31Z" fill="#65443d"/>
+            <path d="M39 32 Q29 19 29 16 M41 32 Q51 19 51 16"
+              fill="none" stroke="#65443d" stroke-width="1.5"/>
+          </svg>
+
+        </div>
       <!-- Top Spacer -->
       <div class="h-6"></div>
 
       <!-- Center Couple Monogram Logo ONLY (Original Position) -->
       <div class="relative z-10 flex flex-col items-center justify-center my-auto">
         <div class="monogram-wrapper">
-          <img src="assets/images/couple-logo.png" alt="Anchal & Arpit Monogram Logo"
+          <img src="assets/couple-logo.png" alt="Anchal & Arpit Monogram Logo"
             class="w-40 sm:w-52 md:w-60 lg:w-64 h-auto filter drop-shadow-lg animate-gentle-pulse select-none pointer-events-none" />
         </div>
       </div>
 
-      <!-- Swipe Down Button (Positioned down in calm area, properly aligned) -->
-      <div id="scrollToScratchBtn"
-        class="relative z-20 pb-4 sm:pb-6 mb-2 sm:mb-4 cursor-pointer flex flex-col items-center gap-1.5 transition-transform hover:scale-105 group">
-        <div class="px-5 py-2 rounded-full bg-[#8b3a4a]/95 border-2 border-[#c59b27] shadow-xl flex items-center gap-2 backdrop-blur-md">
-          <span class="text-[12px] sm:text-[13px] tracking-[0.2em] uppercase font-label font-bold text-[#fdf9f0]">
-            ✨ Swipe Down ✨
-          </span>
-          <i class="fa-solid fa-chevron-down text-[#ffd700] text-sm animate-bounce"></i>
-        </div>
-      </div>
-
+      <!-- Old hero button removed to avoid duplicate ID -->
     </section>
 
 
@@ -403,15 +497,16 @@
           <!-- ================= DAY 1 CARD: FRIDAY, 11TH DECEMBER 2026 ================= -->
           <article class="kamal-event-card">
 
-            <!-- Creative Date Band (Exact reference design) -->
-            <div class="card-date-band">
-              <div class="date-row">
-                <span class="date-side">FRI</span>
-                <span class="date-day">11</span>
-                <span class="date-side">DEC</span>
-              </div>
-              <span class="date-year">2026</span>
+           
+          <!-- Creative Date Band -->
+          <div class="card-date-band">
+            <div class="date-row">
+              <span class="date-side">FRI</span>
+              <span class="date-day">11</span>
+              <span class="date-side">DEC</span>
             </div>
+            <span class="date-year">2026</span>
+          </div>
 
             <!-- Subheading / Title -->
             <h3 class="event-card-title text-2xl sm:text-3xl">
@@ -619,19 +714,27 @@
             </p>
           </div>
 
-          <!-- Samdhi Pariwar Block -->
-          <div class="my-3 py-3 bg-[#faf6ee]/85 rounded-2xl border border-[#c59b27]/30 backdrop-blur-[2px] shadow-sm max-w-lg mx-auto px-4">
-            <h3 class="font-heading text-lg sm:text-xl text-[#8b3a4a] font-bold tracking-wider uppercase mb-2">
-              SAMDHI PARIWAR
-            </h3>
-            
-            <div class="grid grid-cols-2 gap-2 text-xs sm:text-sm font-body font-semibold text-[#233924]">
-              <div class="py-0.5 px-2">Ramrai ji Kabra</div>
-              <div class="py-0.5 px-2">Vinod ji Kabra</div>
-              <div class="py-0.5 px-2">Sanjay ji Kabra</div>
-              <div class="py-0.5 px-2">Dilip ji Kabra</div>
+                    
+            <!-- Samdhi Pariwar Block -->
+            <div class="my-3 py-3 bg-[#faf6ee]/85 rounded-2xl border border-[#c59b27]/30 backdrop-blur-[2px] shadow-sm max-w-lg mx-auto px-3">
+              <h3 class="font-heading text-lg sm:text-xl text-[#8b3a4a] font-bold tracking-wider uppercase mb-3">
+                SAMDHI PARIWAR
+              </h3>
+
+              <div class="flex flex-nowrap items-center justify-center gap-x-2 sm:gap-x-3 text-[10px] sm:text-sm font-body font-semibold text-[#233924] whitespace-nowrap">
+                <span>Byaaji Ramrai ji</span>
+                <span>,</span>
+                <span>Vinod ji</span>
+                <span>,</span>
+                <span>Sanjay ji</span>
+                <span>,</span>
+                <span>Dilip ji Kabra</span>
+              </div>
+
+              <div class="mt-2 text-xs sm:text-sm font-body font-semibold text-[#233924]">
+                Bhilwara Waale
+              </div>
             </div>
-          </div>
 
           <!-- RSVP & Regards -->
           <div class="space-y-1.5">
@@ -667,7 +770,7 @@
 
     <!-- ================= FOOTER ================= -->
     <footer class="py-12 bg-[#1b261c] text-center text-[#fdf9f0] px-4">
-      <img src="assets/images/couple-logo.png" alt="A & A"
+      <img src="assets/couple-logo.png" alt="A & A"
         class="w-14 h-auto mx-auto mb-3 filter brightness-0 invert opacity-80" />
       <h4 class="font-script text-3xl text-[#c59b27]">Anchal &amp; Arpit</h4>
       <p class="font-label text-xs tracking-widest uppercase text-[#c59b27]/80 mt-2">11th &amp; 12th December 2026 •
@@ -770,6 +873,54 @@
   <!-- Toast Notification -->
   <div id="toastNotification" class="toast-popup"></div>
 
+
+  <!-- Scroll-triggered Flying Butterflies -->
+  <div id="scrollButterflies"
+       class="scroll-butterfly-layer"
+       aria-hidden="true">
+
+    <!-- Left Butterfly -->
+    <svg class="scroll-butterfly sb-left" viewBox="0 0 80 70">
+      <g class="sb-wing sb-wing-left">
+        <path d="M39 35 Q9 0 5 20 Q4 36 37 40Z"
+              fill="#ef9db8" stroke="#bd718b" stroke-width="1.5"/>
+        <path d="M37 40 Q9 35 17 57 Q28 66 39 43Z"
+              fill="#e8b5ce" stroke="#bd718b" stroke-width="1.5"/>
+      </g>
+      <g class="sb-wing sb-wing-right">
+        <path d="M41 35 Q71 0 75 20 Q76 36 43 40Z"
+              fill="#f5c6a3" stroke="#bd9b79" stroke-width="1.5"/>
+        <path d="M43 40 Q71 35 63 57 Q52 66 41 43Z"
+              fill="#efb4a7" stroke="#bd9b79" stroke-width="1.5"/>
+      </g>
+      <path d="M40 31 Q36 42 40 48 Q44 42 40 31Z" fill="#65443d"/>
+      <path d="M39 32 Q29 19 29 16 M41 32 Q51 19 51 16"
+            fill="none" stroke="#65443d" stroke-width="1.5"/>
+    </svg>
+
+    <!-- Right Butterfly -->
+    <svg class="scroll-butterfly sb-right" viewBox="0 0 80 70">
+      <g class="sb-wing sb-wing-left">
+        <path d="M39 35 Q9 0 5 20 Q4 36 37 40Z"
+              fill="#eab66d" stroke="#bd8950" stroke-width="1.5"/>
+        <path d="M37 40 Q9 35 17 57 Q28 66 39 43Z"
+              fill="#f3d5a0" stroke="#bd8950" stroke-width="1.5"/>
+      </g>
+      <g class="sb-wing sb-wing-right">
+        <path d="M41 35 Q71 0 75 20 Q76 36 43 40Z"
+              fill="#e8a2b1" stroke="#c77e91" stroke-width="1.5"/>
+        <path d="M43 40 Q71 35 63 57 Q52 66 41 43Z"
+              fill="#d8a0c2" stroke="#c77e91" stroke-width="1.5"/>
+      </g>
+      <path d="M40 31 Q36 42 40 48 Q44 42 40 31Z" fill="#65443d"/>
+      <path d="M39 32 Q29 19 29 16 M41 32 Q51 19 51 16"
+            fill="none" stroke="#65443d" stroke-width="1.5"/>
+    </svg>
+
+  </div>
+
+
+</html>
   <script src="app.js?v=2026_reveal_v58"></script>
 </body>
 
