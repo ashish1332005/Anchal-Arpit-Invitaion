@@ -578,6 +578,17 @@ function initScrollButtons() {
       }
     });
   }
+
+  const heroBtn = document.getElementById('heroScrollDownBtn');
+  if (heroBtn) {
+    heroBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const section = document.getElementById('scratch-card') || document.getElementById('welcome');
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
 }
 
 /* ===================================================================

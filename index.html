@@ -59,7 +59,7 @@
   </script>
 
   <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=2026_luxury_v58" />
+  <link rel="stylesheet" href="styles.css?v=2026_luxury_v60" />
 
   <!-- Preload Critical Media Assets -->
   <link rel="preload" href="assets/env.mp4?v=2026_new" as="video" type="video/mp4" />
@@ -243,15 +243,34 @@
       <!-- Top Spacer -->
       <div class="h-6"></div>
 
-      <!-- Center Couple Monogram Logo ONLY (Original Position) -->
+      <!-- Center Couple Monogram Logo & Scroll Down Button -->
       <div class="relative z-10 flex flex-col items-center justify-center my-auto">
         <div class="monogram-wrapper">
           <img src="assets/images/couple-logo.png" alt="Anchal & Arpit Monogram Logo"
             class="w-40 sm:w-52 md:w-60 lg:w-64 h-auto filter drop-shadow-lg animate-gentle-pulse select-none pointer-events-none" />
         </div>
+
+        <!-- Ethereal Cloud Scroll Indicator (No Rigid Box, Ethereal Text Cloud, Golden Cloud Behind Arrow, Vertical Stack) -->
+        <button id="heroScrollDownBtn" class="hero-cloud-scroll-indicator" type="button"
+          onclick="document.getElementById('scratch-card')?.scrollIntoView({ behavior: 'smooth' })"
+          aria-label="Scroll down to Save The Date">
+          
+          <!-- Cloud Backdrop behind Text -->
+          <div class="scroll-text-cloud-wrapper">
+            <span class="text-cloud-bg" aria-hidden="true"></span>
+            <span class="cloud-scroll-word">SCROLL</span>
+          </div>
+
+          <!-- Arrow placed BELOW Scroll with Light Golden Cloud Aura -->
+          <div class="scroll-arrow-cloud-wrapper">
+            <span class="golden-cloud-puff" aria-hidden="true"></span>
+            <i class="fa-solid fa-chevron-down cloud-chevron-arrow"></i>
+          </div>
+        </button>
       </div>
 
-      <!-- Old hero button removed to avoid duplicate ID -->
+      <!-- Bottom Spacer to keep Center Monogram perfectly positioned in oval frame -->
+      <div class="h-6"></div>
     </section>
 
 
