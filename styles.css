@@ -329,6 +329,164 @@ html, body {
   opacity: 1;
 }
 
+/* Opening invitation cover */
+.hero-invitation-layout {
+  width: min(1040px, calc(100% - 48px));
+  min-height: min(620px, 78svh);
+  margin: auto;
+  display: grid;
+  grid-template-columns: minmax(250px, 0.9fr) minmax(0, 1.1fr);
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(197, 155, 39, 0.72);
+  border-radius: 8px;
+  background: rgba(253, 249, 240, 0.9);
+  box-shadow: 0 18px 60px rgba(56, 43, 31, 0.17), inset 0 0 0 7px rgba(197, 155, 39, 0.1);
+}
+
+.hero-monogram-panel {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: clamp(24px, 5vw, 64px);
+  border-right: 1px solid rgba(197, 155, 39, 0.42);
+  background: radial-gradient(ellipse at center, rgba(255,255,255,.88), rgba(250,242,226,.5) 70%, transparent);
+}
+
+.hero-monogram-img {
+  display: block;
+  width: min(100%, 340px);
+  height: auto;
+  filter: drop-shadow(0 8px 15px rgba(75, 52, 35, 0.15));
+}
+
+.hero-invitation-copy {
+  padding: clamp(28px, 5vw, 64px) clamp(20px, 5vw, 64px);
+  text-align: center;
+}
+
+.hero-invitation-eyebrow,
+.hero-invitation-intro,
+.hero-invitation-venue span {
+  color: #556b4a;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+.hero-invitation-eyebrow {
+  margin: 0 0 12px;
+  color: #84651d;
+  font-size: clamp(11px, 1.5vw, 14px);
+  letter-spacing: .2em;
+  text-transform: uppercase;
+}
+
+.hero-invitation-intro {
+  max-width: 28em;
+  margin: 0 auto 14px;
+  font-size: clamp(16px, 2vw, 21px);
+  font-style: italic;
+}
+
+.hero-couple-names {
+  margin: 0;
+  color: #8b3a4a;
+  font-family: 'Alex Brush', 'Pinyon Script', cursive;
+  font-size: clamp(54px, 8vw, 92px);
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.hero-couple-names span {
+  color: #c59b27;
+  font-size: .65em;
+}
+
+.hero-ornament {
+  display: block;
+  margin: 7px 0;
+  color: #c59b27;
+  font-size: 31px;
+  line-height: 1;
+}
+
+.hero-invitation-date {
+  margin: 0;
+  color: #233924;
+  font-family: 'Cinzel', 'Marcellus', serif;
+  font-size: clamp(17px, 2.5vw, 25px);
+  letter-spacing: .07em;
+}
+
+.hero-invitation-date span {
+  color: #c59b27;
+}
+
+.hero-invitation-venue {
+  margin: 10px 0 0;
+  color: #8b3a4a;
+  font-family: 'Marcellus', Georgia, serif;
+  font-size: clamp(15px, 2vw, 19px);
+  letter-spacing: .08em;
+}
+
+.hero-invitation-venue span {
+  display: block;
+  margin-top: 4px;
+  font-size: 15px;
+  letter-spacing: .06em;
+}
+
+.hero-invitation-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 25px;
+  padding: 11px 20px;
+  border: 1px solid rgba(197, 155, 39, .75);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .64);
+  color: #84651d;
+  font-family: 'Marcellus', Georgia, serif;
+  font-size: 11px;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.hero-invitation-cta:hover {
+  background: #fff;
+}
+
+@media (max-width: 640px) {
+  .hero-invitation-layout {
+    width: min(440px, calc(100% - 32px));
+    min-height: auto;
+    grid-template-columns: 1fr;
+    margin: 22px auto;
+  }
+
+  .hero-monogram-panel {
+    min-height: 0;
+    padding: 17px 24px 10px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(197, 155, 39, 0.35);
+  }
+
+  .hero-monogram-img {
+    width: min(42vw, 190px);
+    max-height: 160px;
+    object-fit: contain;
+  }
+
+  .hero-invitation-copy {
+    padding: 20px 18px 22px;
+  }
+
+  .hero-invitation-cta {
+    margin-top: 18px;
+  }
+}
+
 .monogram-wrapper {
   position: relative;
   display: flex;
