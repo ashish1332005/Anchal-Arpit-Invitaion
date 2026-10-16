@@ -597,20 +597,28 @@ function initScrollButtons() {
 function initSocialShare() {
   const waBtn = document.getElementById('whatsappShareBtn');
   const copyBtn = document.getElementById('copyInviteLinkBtn');
+  const INVITE_URL = 'https://ashish1332005.github.io/Anchal-Arpit-Invitaion/';
 
   if (waBtn) {
     waBtn.addEventListener('click', () => {
-      const text = `🌸 *Wedding Invitation: Anchal & Arpit* 🌸%0A%0AWe cordially invite you to celebrate with us on 11th & 12th December 2026 at Gloria Inn, Bhilwara.%0A%0AView the invitation card here:%0A${window.location.href}`;
+      const text = `🌸 *Wedding Invitation: Anchal & Arpit* 🌸%0A%0AWe cordially invite you to celebrate with us on 11th & 12th December 2026 at Gloria Inn, Bhilwara.%0A%0A✨ Open the invitation card here:%0A${INVITE_URL}`;
       window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
     });
   }
 
   if (copyBtn) {
     copyBtn.addEventListener('click', () => {
-      navigator.clipboard.writeText(window.location.href).then(() => {
+      navigator.clipboard.writeText(INVITE_URL).then(() => {
         showToast('Invitation link copied to clipboard! 📋');
       }).catch(() => {
-        showToast('Link copied!');
+        // Fallback for older browsers
+        const textarea = document.createElement('textarea');
+        textarea.value = INVITE_URL;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showToast('Invitation link copied! 📋');
       });
     });
   }
